@@ -45,7 +45,7 @@ class Simulasi_kredit extends Admin
 
 		$this->data['pagination'] = $this->pagination($config);
 
-		$this->template->title('Simulasi Kredit List');
+		$this->template->title('Daftar Simulasi Kredit');
 		$this->render('backend/standart/administrator/simulasi_kredit/simulasi_kredit_list', $this->data);
 	}
 
@@ -67,6 +67,63 @@ class Simulasi_kredit extends Admin
 
 		$this->template->title('Simulasi Kredit New');
 		$this->render('backend/standart/administrator/simulasi_kredit/simulasi_kredit_import', $this->data);
+	}
+
+	public function import()
+	{
+		if (isset($_FILES["file"]["name"])) {
+			// upload
+			$file_tmp = $_FILES['file']['tmp_name'];
+			$file_name = $_FILES['file']['name'];
+			$file_size = $_FILES['file']['size'];
+			$file_type = $_FILES['file']['type'];
+			// move_uploaded_file($file_tmp,"uploads/".$file_name); // simpan filenya di folder uploads
+
+			$object = PHPExcel_IOFactory::load($file_tmp);
+
+			foreach ($object->getWorksheetIterator() as $worksheet) {
+
+				$highestRow = $worksheet->getHighestRow();
+				$highestColumn = $worksheet->getHighestColumn();
+
+				for ($row = 2; $row <= $highestRow; $row++) {
+
+					$plafond = $worksheet->getCellByColumnAndRow(0, $row)->getValue();
+					$jangkawaktu_12 = $worksheet->getCellByColumnAndRow(1, $row)->getValue();
+					$jangkawaktu_18 = $worksheet->getCellByColumnAndRow(2, $row)->getValue();
+					$jangkawaktu_24 = $worksheet->getCellByColumnAndRow(3, $row)->getValue();
+					$jangkawaktu_30 = $worksheet->getCellByColumnAndRow(4, $row)->getValue();
+					$jangkawaktu_36 = $worksheet->getCellByColumnAndRow(5, $row)->getValue();
+					$jangkawaktu_48 = $worksheet->getCellByColumnAndRow(6, $row)->getValue();
+					$jangkawaktu_60 = $worksheet->getCellByColumnAndRow(7, $row)->getValue();
+
+					$data[] = array(
+						'plafond'          => $plafond,
+						'jangkawaktu_12'          => $jangkawaktu_12,
+						'jangkawaktu_18'         => $jangkawaktu_18,
+						'jangkawaktu_24'         => $jangkawaktu_24,
+						'jangkawaktu_30'         => $jangkawaktu_30,
+						'jangkawaktu_36'         => $jangkawaktu_36,
+						'jangkawaktu_48'         => $jangkawaktu_48,
+						'jangkawaktu_60'         => $jangkawaktu_60,
+					);
+				}
+			}
+
+			$this->db->insert_batch('simulasi_kredit', $data);
+			set_message(
+				cclang('success_save_data_redirect', []),
+				'success'
+			);
+			// $this->data['success'] = true;
+			// $this->data['redirect'] = base_url('administrator/simulasi_kredit');
+		} else {
+			// $this->data['success'] = false;
+			// $this->data['message'] = cclang('data_not_change');
+			// $this->data['redirect'] = base_url('administrator/simulasi_kredit');
+		}
+		// $this->response($this->data);
+		redirect(base_url('administrator/simulasi_kredit'));
 	}
 
 	/**
@@ -168,7 +225,6 @@ class Simulasi_kredit extends Admin
 					$this->data['redirect'] = base_url('administrator/simulasi_kredit');
 				}
 			}
-
 		} else {
 			$this->data['success'] = false;
 			$this->data['message'] = 'Opss validation failed';
@@ -268,8 +324,7 @@ class Simulasi_kredit extends Admin
 					]);
 				} else {
 					set_message(
-						cclang('success_update_data_redirect', [
-						]),
+						cclang('success_update_data_redirect', []),
 						'success'
 					);
 
@@ -417,7 +472,6 @@ class Simulasi_kredit extends Admin
 		$this->pdf->writeHTML($content);
 		$this->pdf->Output($table . '.pdf', 'H');
 	}
-
 }
 
 

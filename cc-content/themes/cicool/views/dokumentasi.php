@@ -5,15 +5,15 @@
     <div class="header-content">
         <div class="header-content-inner">
             <div>
-                <h2 id="homeHeading" class="text-center">Dokumentasi Kegiatan</h2>
+                <h2 id="homeHeading" class="text-center" style="color:green;">Dokumentasi Kegiatan</h2>
                 <hr class="hrcenter">
                 <div class="row" style="padding: 5vw;">
                     <?php foreach ($dokumentasis as $dokumentasi): ?>
-                        <div class="col-lg-4">
-                            <?= $dokumentasi->nama_kegiatan ?>
-                            <img src="<?= BASE_URL . 'uploads/dokumentasi/' . $dokumentasi->photo; ?>"
-                               alt="image dokumentasi" title="photo dokumentasi" width="100%">
-                        </div>
+                    <div class="col-lg-4">
+                        <?= $dokumentasi->nama_kegiatan ?>
+                        <img src="<?= BASE_URL . 'uploads/dokumentasi/' . $dokumentasi->photo; ?>"
+                            alt="image dokumentasi" title="photo dokumentasi" width="100%">
+                    </div>
                     <?php endforeach; ?>
                 </div>
 

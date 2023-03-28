@@ -26,7 +26,7 @@
 <body class="hold-transition login-page">
     <div class="row">
         <div class="col-lg-6">
-            <img src="https://dummyimage.com/700x700/000/fff" width="100%" style="height:100vh;" />
+            <img src="<?= BASE_ASSET ?>img/login.png" width="100%" style="height:auto;" />
         </div>
         <div class="col-lg-6" style="background: #a7dda7;">
             <div class="register-box">

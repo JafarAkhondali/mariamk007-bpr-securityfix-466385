@@ -1,7 +1,7 @@
 <style type="text/css">
-   .widget-user-header {
-      padding-left: 20px !important;
-   }
+.widget-user-header {
+    padding-left: 20px !important;
+}
 </style>
 
 <link rel="stylesheet" href="<?= BASE_ASSET; ?>admin-lte/plugins/morris/morris.css">
@@ -9,9 +9,9 @@
 <section class="content-header">
     <h1>
         <?= cclang('dashboard') ?>
-        
+
         <small>
-        <?= cclang('control_panel') ?>
+            <?= cclang('control_panel') ?>
         </small>
     </h1>
     <ol class="breadcrumb">
@@ -30,26 +30,26 @@
 
 <section class="content">
     <div class="row">
-     <?php 
+        <?php 
         $javascripts = [];
         $styles = [];
 
         foreach($widgeds as $widged):
            ?>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box button" >
-                    <span class="info-box-icon bg-aqua">
-                        <i class="fa fa-area-chart">
-                        </i>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box button">
+                <span class="info-box-icon bg-aqua">
+                    <i class="fa fa-area-chart">
+                    </i>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text">
+                        <center> <?= $widged ?></center>
                     </span>
-                    <div class="info-box-content">
-                        <span class="info-box-text">
-                            <center> <?= $widged ?></center>
-                        </span>
-                    </div>
                 </div>
             </div>
-            <?php
+        </div>
+        <?php
              
          endforeach;
 
@@ -57,7 +57,7 @@
          $styles = array_unique($styles);  
          ?>
     </div>
-  
+
 </section>
 <!-- /.content -->
 

@@ -1,24 +1,25 @@
 <link rel="stylesheet" href="<?= BASE_ASSET; ?>gridstack/dist/gridstack.css" />
 <link rel="stylesheet" href="<?= BASE_ASSET; ?>gridstack/dist/gridstack-extra.css" />
-<link rel="stylesheet" refresh-css="2000" href="<?= BASE_ASSET; ?>module/dashboard/css/dashboard.css" rel="stylesheet" media="all" />
+<link rel="stylesheet" refresh-css="2000" href="<?= BASE_ASSET; ?>module/dashboard/css/dashboard.css" rel="stylesheet"
+    media="all" />
 <link rel="stylesheet" href="<?= BASE_ASSET; ?>flag-icon/css/flag-icon.css" rel="stylesheet" media="all" />
 
 <link rel="stylesheet" type="text/css" href="<?= BASE_ASSET; ?>spectrum/spectrum.css">
 <style>
-    <?php if ($edit) : ?>.content,
-    .content-header {
-        padding-left: 100px;
-    }
+<?php if ($edit) : ?>.content,
+.content-header {
+    padding-left: 100px;
+}
 
-    <?php else : ?>.grid-stack {
-        background: none !important;
-    }
+<?php else : ?>.grid-stack {
+    background: none !important;
+}
 
-    .btn-setup-widged {
-        display: none !important;
-    }
+.btn-setup-widged {
+    display: none !important;
+}
 
-    <?php endif ?>
+<?php endif ?>
 </style>
 
 
@@ -70,7 +71,8 @@
     </h1>
 
     <?php if ($edit == false && $this->aauth->is_allowed('dashboard_update')) : ?>
-        <a class="pull-right btn-edit-dashboard" href="<?= base_url('administrator/dashboard/edit/' . $dashboard->slug) ?>"><i class="fa fa-cog"></i> </a>
+    <a class="pull-right btn-edit-dashboard"
+        href="<?= base_url('administrator/dashboard/edit/' . $dashboard->slug) ?>"><i class="fa fa-cog"></i> </a>
     <?php endif ?>
 
 </section>
@@ -94,10 +96,10 @@
     </div>
 </div>
 <?php if ($edit) : ?>
-    <div class="sidebar-wrapper">
+<div class="sidebar-wrapper">
 
-        <?= $this->load->view('backend/standart/administrator/partial/dashboard_sidebar') ?>
-    </div>
+    <?= $this->load->view('backend/standart/administrator/partial/dashboard_sidebar') ?>
+</div>
 <?php endif ?>
 <section class="content">
 
@@ -132,9 +134,9 @@
 
 
 <script>
-    var dashboardConf = <?= json_encode((array)$dashboard) ?>;
-    var editMode = <?= $this->uri->segment('3') == 'edit' ? '1' : '0' ?>;
-    var dashboardSlug = "<?= $this->uri->segment('4') ?>";
+var dashboardConf = <?= json_encode((array)$dashboard) ?>;
+var editMode = <?= $this->uri->segment('3') == 'edit' ? '1' : '0' ?>;
+var dashboardSlug = "<?= $this->uri->segment('4') ?>";
 </script>
 <script type="text/javascript" src="<?= BASE_ASSET; ?>spectrum/spectrum.js"></script>
 <script src="<?= BASE_ASSET; ?>/module/dashboard/js/handlebars.min.js"></script>
@@ -142,7 +144,7 @@
 <script src="<?= BASE_ASSET; ?>/gridstack/dist/gridstack.js"></script>
 <script src="<?= BASE_ASSET; ?>/gridstack/dist/gridstack.jQueryUI.js"></script>
 <script>
-    var dashboardData = <?= json_encode($dashboard) ?>
+var dashboardData = <?= json_encode($dashboard) ?>
 </script>
 <?php
 $javascripts = [];
@@ -195,15 +197,15 @@ $styles = array_unique($styles);
 ?>
 <script src="<?= BASE_ASSET ?>module/dashboard/js/dashboard.js"></script>
 <?php foreach ($javascripts as $js) : ?>
-    <script src="<?= BASE_URL . 'cc-content/dashboard-widgeds/' . $js ?>"></script>
+<script src="<?= BASE_URL . 'cc-content/dashboard-widgeds/' . $js ?>"></script>
 <?php endforeach ?>
 
 <?php foreach ($styles as $css) : ?>
-    <link rel="stylesheet" href="<?= BASE_URL . 'cc-content/dashboard-widgeds/' . $css ?>">
+<link rel="stylesheet" href="<?= BASE_URL . 'cc-content/dashboard-widgeds/' . $css ?>">
 <?php endforeach ?>
 <script>
-    $(function() {
+$(function() {
 
-        dashboard.doIntervalGetData();
-    })
+    dashboard.doIntervalGetData();
+})
 </script>

@@ -1,7 +1,9 @@
       <div class="navigation-dashboard-bottom">
           <div class="row-fluid">
-              <a data-href="<?= admin_base_url('/dashboard/remove/' . $slug) ?>" class="btn btn-default btn-flat remove-dashboard">Delete Dashboard</a>
-              <a href="<?= admin_base_url('/dashboard/show/' . $slug) ?>" class="btn btn-default btn-flat">View Dashboard</a>
+              <a data-href="<?= admin_base_url('/dashboard/remove/' . $slug) ?>"
+                  class="btn btn-default btn-flat remove-dashboard">Delete Dashboard</a>
+              <a href="<?= admin_base_url('/dashboard/show/' . $slug) ?>" class="btn btn-default btn-flat">View
+                  Dashboard</a>
           </div>
       </div>
       <div class="cc-engine">
@@ -121,7 +123,8 @@
     </div> -->
 
 
-          <div class="sidebar-component sidebar-widged cc-sidebar-wrapper" data-width="400px" data-class=".sidebar-widged">
+          <div class="sidebar-component sidebar-widged cc-sidebar-wrapper" data-width="400px"
+              data-class=".sidebar-widged">
               <div class="header-page">
                   <div class="cc-page-title">
                       Add Widged
@@ -146,13 +149,14 @@
                       <?php foreach ($this->cc_widged->_load_widgeds() as $widged) : 
                         $installed = $this->db->table_exists($widged->instance->table_name);
                         ?>
-                          <div class="widged-option <?= $installed ? '' : 'not-installed' ?>" data-type="<?= $widged->get('name') ?>">
-                              <div class="widged-icon">
-                                  <?= $widged->get('icon') ?>
-                              </div>
-                              <div class="widged-title"><?= $widged->get('name') ?></div>
-                               
+                      <div class="widged-option <?= $installed ? '' : 'not-installed' ?>"
+                          data-type="<?= $widged->get('name') ?>">
+                          <div class="widged-icon">
+                              <?= $widged->get('icon') ?>
                           </div>
+                          <div class="widged-title"><?= $widged->get('name') ?></div>
+
+                      </div>
                       <?php endforeach ?>
 
                   </div>

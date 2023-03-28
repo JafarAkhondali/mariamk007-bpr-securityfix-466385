@@ -5,7 +5,7 @@
 
     <body>
 
-        <h3 class="text-center pt-50 ">Kritik dan Saran</h3>
+        <h3 class="text-center pt-50 " style="color:green">Kritik dan Saran</h3>
         <hr class="hrcenter">
 
         <div id="snackbar">Pesan Terkirim</div>
@@ -28,26 +28,27 @@
         <?php echo form_close() ?>
 
         <script type="text/javascript">
-            $(function () {
-                $("#kritikForm").on('submit', function (e) {
-                    e.preventDefault();
+        $(function() {
+            $("#kritikForm").on('submit', function(e) {
+                e.preventDefault();
 
-                    var kritikForm = $(this);
+                var kritikForm = $(this);
 
-                    $.ajax({
-                        url: kritikForm.attr('action'),
-                        type: 'post',
-                        data: kritikForm.serialize(),
-                        success: function (response) {
-                            var x = document.getElementById("snackbar");
-                            x.className = "show";
-                            setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
-                            // location.reload();
-                        }
-                    });
+                $.ajax({
+                    url: kritikForm.attr('action'),
+                    type: 'post',
+                    data: kritikForm.serialize(),
+                    success: function(response) {
+                        var x = document.getElementById("snackbar");
+                        x.className = "show";
+                        setTimeout(function() {
+                            x.className = x.className.replace("show", "");
+                        }, 9000);
+                        // location.reload();
+                    }
                 });
             });
-
+        });
         </script>
         <?= get_footer(); ?>
 

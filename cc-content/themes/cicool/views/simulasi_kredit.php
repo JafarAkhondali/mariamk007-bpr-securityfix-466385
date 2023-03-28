@@ -5,7 +5,7 @@
     <div class="header-content text-center">
         <div class="header-content-inner">
             <div>
-                <h1>Simulasi Kredit</h1>
+                <h1 style="color:green;">Simulasi Kredit</h1>
                 <hr class="hrcenter">
                 <form class="form-inline" style="padding: 5vh;">
                     <div class="form-group" style="padding-bottom: 3vh;">
@@ -17,8 +17,8 @@
                             <option value="" readonly>Pilih Jumlah Pinjaman</option>
 
                             <?php foreach (db_get_all_data('simulasi_kredit', $conditions) as $row): ?>
-                                <option value="<?= $row->plafond ?>">Rp. <?= number_format($row->plafond, 0, '.', '.') ?>
-                                </option>
+                            <option value="<?= $row->plafond ?>">Rp. <?= number_format($row->plafond, 0, '.', '.') ?>
+                            </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -58,31 +58,31 @@
 
 
     <script type="text/javascript">
-        function getNominalPinjaman() {
-            var select = document.getElementById('jumlah_pinjaman');
-            var option = select.options[select.selectedIndex];
-            var jumlah_pinjaman = option.value;
-            var formatRupiah = new Intl.NumberFormat("id-ID");
-            $.ajax({
-                type: "get",
-                url: '<?= BASE_URL ?>' + 'web/getKredit/' + jumlah_pinjaman,
-                dataType: 'json',
-                success: function (data) {
-                    $.each(data, function (i, data) {
-                        $('#jangkawaktu_12').html('Rp ' + formatRupiah.format(data.jangkawaktu_12));
-                        $('#jangkawaktu_18').html('Rp ' + formatRupiah.format(data.jangkawaktu_18));
-                        $('#jangkawaktu_24').html('Rp ' + formatRupiah.format(data.jangkawaktu_24));
-                        $('#jangkawaktu_30').html('Rp ' + formatRupiah.format(data.jangkawaktu_30));
-                        $('#jangkawaktu_36').html('Rp ' + formatRupiah.format(data.jangkawaktu_36));
-                        $('#jangkawaktu_48').html('Rp ' + formatRupiah.format(data.jangkawaktu_48));
-                        $('#jangkawaktu_60').html('Rp ' + formatRupiah.format(data.jangkawaktu_60));
-                    });
-                },
-                error: function (respone) {
-                    console.log(respone);
-                }
-            });
-        }
+    function getNominalPinjaman() {
+        var select = document.getElementById('jumlah_pinjaman');
+        var option = select.options[select.selectedIndex];
+        var jumlah_pinjaman = option.value;
+        var formatRupiah = new Intl.NumberFormat("id-ID");
+        $.ajax({
+            type: "get",
+            url: '<?= BASE_URL ?>' + 'web/getKredit/' + jumlah_pinjaman,
+            dataType: 'json',
+            success: function(data) {
+                $.each(data, function(i, data) {
+                    $('#jangkawaktu_12').html('Rp ' + formatRupiah.format(data.jangkawaktu_12));
+                    $('#jangkawaktu_18').html('Rp ' + formatRupiah.format(data.jangkawaktu_18));
+                    $('#jangkawaktu_24').html('Rp ' + formatRupiah.format(data.jangkawaktu_24));
+                    $('#jangkawaktu_30').html('Rp ' + formatRupiah.format(data.jangkawaktu_30));
+                    $('#jangkawaktu_36').html('Rp ' + formatRupiah.format(data.jangkawaktu_36));
+                    $('#jangkawaktu_48').html('Rp ' + formatRupiah.format(data.jangkawaktu_48));
+                    $('#jangkawaktu_60').html('Rp ' + formatRupiah.format(data.jangkawaktu_60));
+                });
+            },
+            error: function(respone) {
+                console.log(respone);
+            }
+        });
+    }
     </script>
 
     <?= get_footer(); ?>
