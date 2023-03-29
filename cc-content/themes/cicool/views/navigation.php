@@ -38,60 +38,66 @@
                         href="<?= BASE_URL . 'web/profil' ?>">Profil</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/produk' ? 'active' : ''?>"
+                    <a style="padding: 15px;"
+                        class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/produk' ? 'active' : ''?>"
                         href="<?= BASE_URL . 'web/produk' ?>">Produk</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/simulasi_kredit' ? 'active' : ''?>"
+                    <a style="padding: 15px;"
+                        class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/simulasi_kredit' ? 'active' : ''?>"
                         href="<?= BASE_URL . 'web/simulasi_kredit' ?>">Simulasi Kredit</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/dokumentasi' ? 'active' : ''?>"
+                    <a style="padding: 15px;"
+                        class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/dokumentasi' ? 'active' : ''?>"
                         href="<?= BASE_URL . 'web/dokumentasi' ?>">Dokumentasi</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'blog' ? 'active' : ''?>"
+                    <a style="padding: 15px;"
+                        class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'blog' ? 'active' : ''?>"
                         href="<?= BASE_URL . 'blog' ?>">Blog Artikel</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/faq' ? 'active' : ''?>"
+                    <a style="padding: 15px;"
+                        class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/faq' ? 'active' : ''?>"
                         href="<?= BASE_URL . 'web/faq' ?>">FAQ</a>
                 </li>
                 <li>
-                    <a style="padding: 15px;" class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/kritik' ? 'active' : ''?>"
+                    <a style="padding: 15px;"
+                        class="page-scroll <?php echo base_url(uri_string()) === BASE_URL . 'web/kritik' ? 'active' : ''?>"
                         href="<?= BASE_URL . 'web/kritik' ?>">Kritik dan Saran</a>
                 </li>
                 <?php if (!app()->aauth->is_loggedin()): ?>
-                    <li>
-                        <a class="page-scroll text-white" href="<?= admin_site_url('/login'); ?>"><button type="submit"
-                                class="btn btn-success btn-sm">Login</button></a>
-                    </li>
+                <li>
+                    <a class="page-scroll text-white" href="<?= admin_site_url('/login'); ?>"><button type="submit"
+                            class="btn btn-success btn-sm">Login</button></a>
+                </li>
                 <?php else: ?>
-                    <li>
-                        <a class="page-scroll dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                            aria-expanded="false" href="#">
-                            <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
-                                class="img-circle img-user" alt="User Image">
-                            <?= get_user_data('full_name'); ?>
-                            <span class="caret"></span>
-                        </a>
-                        <?php if(get_user_data('is_featured') == 0): ?>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="<?= admin_site_url('/user/profile'); ?>">My Profile</a>
-                            <a class="dropdown-item" href="<?= admin_site_url('/dashboard'); ?>">Dashboard</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<?= admin_site_url('/auth/logout'); ?>"><i
-                                    class="fa fa-sign-out"></i> Logout</a>
-                        </div>
-                        <?php else: ?>
-                            <div class="dropdown-menu">
-                            <a class="dropdown-item" href="<?= admin_site_url('/pengajuan_kredit/user'); ?>">Dashboard</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="<?= admin_site_url('/auth/logout'); ?>"><i
-                                    class="fa fa-sign-out"></i> Logout</a>
-                        </div>
-                        <?php endif; ?>
-                    </li>
+                <li>
+                    <a class="page-scroll dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false" href="#">
+                        <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
+                            class="img-circle img-user" alt="User Image">
+                        <?= get_user_data('full_name'); ?>
+                        <span class="caret"></span>
+                    </a>
+                    <?php if(get_user_data('is_featured') == 0): ?>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?= admin_site_url('/user/profile'); ?>">My Profile</a>
+                        <a class="dropdown-item" href="<?= admin_site_url('/dashboard'); ?>">Dashboard</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="<?= admin_site_url('/auth/logout'); ?>"><i
+                                class="fa fa-sign-out"></i> Logout</a>
+                    </div>
+                    <?php else: ?>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="<?= admin_site_url('/pengajuan_kredit/user'); ?>">Dashboard</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="<?= admin_site_url('/auth/logout'); ?>"><i
+                                class="fa fa-sign-out"></i> Logout</a>
+                    </div>
+                    <?php endif; ?>
+                </li>
                 <?php endif; ?>
                 <!-- <li class="dropdown ">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">

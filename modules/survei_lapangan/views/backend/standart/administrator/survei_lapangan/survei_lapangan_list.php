@@ -30,7 +30,7 @@ jQuery(document).ready(domo);
         <?= cclang('survei_lapangan') ?><small><?= cclang('list_all'); ?></small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Beranda</a></li>
         <li class="active"><?= cclang('survei_lapangan') ?></li>
     </ol>
 </section>
@@ -101,8 +101,6 @@ jQuery(document).ready(domo);
                                                 value="lokasi_jaminan">Lokasi Jaminan</option>
                                             <option <?= $this->input->get('f') == 'situasi_jaminan' ? 'selected' :''; ?>
                                                 value="situasi_jaminan">Situasi Jaminan</option>
-                                            <option <?= $this->input->get('f') == 'updated_by' ? 'selected' :''; ?>
-                                                value="updated_by">Updated By</option>
                                             <option <?= $this->input->get('f') == 'created_at' ? 'selected' :''; ?>
                                                 value="created_at">Created At</option>
                                             <option <?= $this->input->get('f') == 'username' ? 'selected' :''; ?>
@@ -148,8 +146,6 @@ jQuery(document).ready(domo);
                                                 <?= cclang('lokasi_jaminan') ?></th>
                                             <th data-field="situasi_jaminan" data-sort="1" data-primary-key="0">
                                                 <?= cclang('situasi_jaminan') ?></th>
-                                            <th data-field="updated_by" data-sort="1" data-primary-key="0">
-                                                <?= cclang('updated_by') ?></th>
                                             <th data-field="created_at" data-sort="1" data-primary-key="0">
                                                 <?= cclang('created_at') ?></th>
                                             <th data-field="username" data-sort="1" data-primary-key="0">
@@ -175,9 +171,6 @@ jQuery(document).ready(domo);
                                             </td>
                                             <td><span
                                                     class="list_group-situasi_jaminan"><?= _ent($survei_lapangan->situasi_jaminan); ?></span>
-                                            </td>
-                                            <td><span
-                                                    class="list_group-updated_by"><?= _ent($survei_lapangan->updated_by); ?></span>
                                             </td>
                                             <td><span
                                                     class="list_group-created_at"><?= _ent($survei_lapangan->created_at); ?></span>

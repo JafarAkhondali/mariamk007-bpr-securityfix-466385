@@ -95,19 +95,6 @@ jQuery(document).ready(domo);
                             </div>
                         </div>
 
-
-                        <div class="form-group group-updated_by " style="display: none;">
-                            <label for="updated_by" class="col-sm-2 control-label">Updated By </label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" name="updated_by" id="updated_by"
-                                    placeholder="Updated By" value="<?= set_value('updated_by'); ?>">
-                                <small class="info help-block">
-                                </small>
-                            </div>
-                        </div>
-
-
-
                         <div class="form-group group-username ">
                             <label for="username" class="col-sm-2 control-label">Username </label>
                             <div class="col-sm-8">
@@ -280,7 +267,7 @@ $(document).ready(function() {
 
                         $.each(res.errors, function(index, val) {
                             $('form #' + index).parents('.form-group').addClass(
-                            'has-error');
+                                'has-error');
                             $('form #' + index).parents('.form-group').find('small')
                                 .prepend(`
                       <div class="error-input">` + val + `</div>

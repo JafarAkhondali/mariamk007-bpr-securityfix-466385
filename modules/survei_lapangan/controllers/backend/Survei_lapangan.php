@@ -95,7 +95,6 @@ class Survei_lapangan extends Admin
 				'jaminan_kredit' => $this->input->post('jaminan_kredit'),
 				'lokasi_jaminan' => $this->input->post('lokasi_jaminan'),
 				'situasi_jaminan' => $this->input->post('situasi_jaminan'),
-				'updated_by' => $this->input->post('updated_by'),
 				'created_at' => date('Y-m-d H:i:s'),
 				'username' => $this->input->post('username'),
 				'status_layak' => $this->input->post('status_layak'),

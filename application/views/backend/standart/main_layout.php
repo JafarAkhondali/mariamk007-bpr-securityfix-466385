@@ -269,7 +269,7 @@
     <aside class="main-sidebar">
         <section class="sidebar sidebar-admin">
             <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
-                <li class="header treeview">MAIN MENU</li>
+                <li class="header treeview">MENU</li>
                 <li class=" ">
                     <a href="<?= base_url(); ?>administrator/pengajuan_kredit/user" data-original-title="" title=""><i
                             class="fa fa-clone default"></i> <span>Data Pengajuan Kredit</span>
