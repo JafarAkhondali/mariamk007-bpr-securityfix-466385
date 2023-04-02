@@ -106,10 +106,8 @@
                 <div class="<?= $slideshow->id - 1 == 0 ? "item active" : "item" ?>">
                     <img src="<?= BASE_URL . 'uploads/slider/' . $slideshow->slideshow; ?>" style="width:100%;">
                     <div class="carousel-caption">
-                        <marquee>
-                            <p class="carousel-caption-text"><?= $slideshow->text ?>
-                            </p>
-                        </marquee>
+                        <p class="carousel-caption-text"><?= $slideshow->text ?>
+                        </p>
                     </div>
                 </div>
                 <?php endforeach ?>
