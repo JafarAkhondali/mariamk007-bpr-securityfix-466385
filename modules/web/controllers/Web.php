@@ -27,6 +27,7 @@ class Web extends Front
         $this->load->model('pegawai/model_pegawai');
         $this->load->model('user/model_user');
         $this->load->model('simulasi_kredit/model_simulasi_kredit');
+        $this->load->model('visi_misi/model_visi_misi');
     }
 
     public function index()
@@ -121,6 +122,7 @@ class Web extends Front
         $this->data['pegawais'] = $this->model_pegawai->get_by_featured();
         $this->data['pekerjaans'] = $this->model_job_deskripsi_pekerjaan->get();
         $this->data['sejarahs'] = $this->model_sejarah_perusahaan->get();
+        $this->data['visi_misis'] = $this->model_visi_misi->get();
         $this->template->build('profil', $this->data);
     }
 

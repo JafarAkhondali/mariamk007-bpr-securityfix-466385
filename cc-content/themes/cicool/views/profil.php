@@ -457,33 +457,14 @@
                 <h3 class="text-center" style="color:green;">Visi, Misi, Moto Perusahaan</h3>
                 <hr class="hrcenter">
                 <div class="row text-center">
+                    <?php foreach ($visi_misis as $visimisi): ?>
                     <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
-                        <i class="fa tm-fa-6x fa-legal tm-color-primary tm-margin-b-20"></i>
-                        <h3 class="tm-color-primary tm-article-title-1">Visi Perusahaan</h3>
-                        <p>Menjadi BPR Terpercaya, sehat, menguntungkan, dan berdaya saing tinggi.
+                        <i class="fa tm-fa-6x <?= $visimisi->icon ?> tm-color-primary tm-margin-b-20"></i>
+                        <h3 class="tm-color-primary tm-article-title-1"><?= $visimisi->title ?></h3>
+                        <p><?=$visimisi->deskripsi ?>
                         </p>
                     </article>
-                    <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
-                        <i class="fa tm-fa-6x fa-plane tm-color-primary tm-margin-b-20"></i>
-                        <h3 class="tm-color-primary tm-article-title-1">Misi Perusahaan</h3>
-                        <p>
-                        <ul>Memberikan pelayanan yang terbaik secara profesional.</ul>
-                        <ul>Bekerja dengan efektif dan efisien dengan cara meningkatkan kualitas SDM, SOP yang baku dan
-                            teknologi yang memadai.</ul>
-                        <ul>Memaksimalkan sistem pengawasan internal</ul>
-                        <ul>Turut membantu program pemerintah daerah dalam pembinaan dan pemberdayaan perekonomian
-                            masyarakat
-                            Pekanbaru terutama di sektor usaha kecil dan mikro.</ul>
-                        </p>
-                    </article>
-                    <article class="col-sm-12 col-md-4 col-lg-4 col-xl-4 tm-article">
-                        <i class="fa tm-fa-6x fa-life-saver tm-color-primary tm-margin-b-20"></i>
-                        <h3 class="tm-color-primary tm-article-title-1">Moto Perusahaan</h3>
-                        <p>Guna menjunjung terwujudnya visi dan misi tersebut, bank telah menetapkan motto nya,
-                            yaitu:<b>"Kami komit untuk menjadi BPR terbaik dan terpercaya serta melayani dengan
-                                kasih".</b>
-                        </p>
-                    </article>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
