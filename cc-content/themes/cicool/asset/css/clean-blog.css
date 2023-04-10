@@ -474,7 +474,7 @@ ul {
 }
 
 .footer-top p {
-  font-size: 14px;
+  /* Ukuran top footer*/font-size: 14px;
   line-height: 2;
 }
 
@@ -492,7 +492,7 @@ footer p {
   position: relative;
   padding: 0px 0 14px 34px;
   line-height: 26px;
-  font-size: 14px;
+  /*Ukuran font-size 1 address*/font-size: 14px;
 }
 
 ul.address1 span {

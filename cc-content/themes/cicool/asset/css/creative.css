@@ -1186,7 +1186,20 @@ footer {
   display: contents;
 }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+/**Perbaiki nav **/
+/**nav,**/
+section,
+summary {
   display: contents;
 }
 
@@ -1384,7 +1397,8 @@ footer .social-icon li i:hover {
 
 @media only screen and (max-width: 600px) {
   .blog-search-button {
-    top: 50px;
+    /*Ukuran icon search pada max width 600px*/
+    top: 52px;
   }
 
   .img-logo {
