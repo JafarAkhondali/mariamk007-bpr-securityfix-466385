@@ -1,5 +1,4 @@
 <?= get_header(); ?>
-<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" /> -->
 
 <body id="page-top">
     <?= get_navigation(); ?>
@@ -104,7 +103,8 @@
                 </h3>
                 <p class="faq-text"><?= $faq->jawaban ?></p>
                 <button class="faq-toggle">
-                    <i class="fa fa-angle-down"></i>
+                    <!-- Setiap icon menyamakan polanya -->
+                    <!--contoh--><i class="fa fa-angle-down"></i>
                 </button>
             </div>
             <?php endforeach;?>
