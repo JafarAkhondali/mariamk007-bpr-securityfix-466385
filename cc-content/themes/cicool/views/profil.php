@@ -435,7 +435,7 @@
                     <div class="timeline__event  animated fadeInUp delay-3s timeline__event--type<?= $sejarah->id ?>">
 
                         <div class="timeline__event__icon ">
-                            <i class="lni-cake"></i>
+                            <i class="fa fa-birthday-cake"></i>
                             <div class="timeline__event__date">
                                 <?= $sejarah->date ?>
                             </div>
