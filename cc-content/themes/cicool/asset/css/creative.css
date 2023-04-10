@@ -1183,6 +1183,11 @@ div.phpdebugbar-header,
 /* FOOTER */
 footer {
   color: #fff;
+  display: contents;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: contents;
 }
 
 ul {
@@ -1378,6 +1383,10 @@ footer .social-icon li i:hover {
 }
 
 @media only screen and (max-width: 600px) {
+  .blog-search-button {
+    top: 50px;
+  }
+
   .img-logo {
     width: 20vw;
     margin-left: 10px;
