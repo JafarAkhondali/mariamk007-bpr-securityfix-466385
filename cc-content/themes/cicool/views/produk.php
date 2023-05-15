@@ -23,7 +23,7 @@
 
             <div class="row text-center">
                 <?php foreach ($kredits as $kredit): ?>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <a class="text-black" rel="group" href="<?= BASE_URL . 'web/detail_kredit/' . $kredit->id; ?>">
                         <?= $kredit->nama_kredit ?><br>
                         <img src="<?= BASE_URL . 'uploads/kredit/' . $kredit->photo; ?>" class="image-responsive"

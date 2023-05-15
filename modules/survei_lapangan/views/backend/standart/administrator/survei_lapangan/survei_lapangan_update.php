@@ -94,7 +94,7 @@ jQuery(document).ready(domo);
 
 
                         <div class="form-group group-situasi_jaminan  ">
-                            <label for="situasi_jaminan" class="col-sm-2 control-label">Situasi Jaminan <i
+                            <label for="situasi_jaminan" class="col-sm-2 control-label">Deskripsi Jaminan <i
                                     class="required">*</i>
                             </label>
                             <div class="col-sm-8">
@@ -142,14 +142,14 @@ jQuery(document).ready(domo);
                                         <input type="radio" class="flat-red" name="status_layak" id="status_layak"
                                             value="yes"
                                             <?= $survei_lapangan->status_layak == "yes" ? "checked" : ""; ?>>
-                                        Yes
+                                        Layak
                                     </label>
                                 </div>
                                 <div class="col-md-14">
                                     <label>
                                         <input type="radio" class="flat-red" name="status_layak" id="status_layak"
                                             value="no" <?= $survei_lapangan->status_layak == "no" ? "checked" : ""; ?>>
-                                        No
+                                        Tidak Layak
                                     </label>
                                 </div>
                                 <small class="info help-block">

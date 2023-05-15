@@ -9,7 +9,6 @@
     <?= get_navigation(); ?>
 
     <body>
-
         <h3 class="text-center pt-50 ">Formulir Pengajuan Kredit</h3>
         <hr class="hrcenter">
 
@@ -23,14 +22,14 @@
             'method' => 'POST'
         ]); ?>
 
-        <div class="form-group group-nama_lengkap ">
+        <!-- <div class="form-group group-nama_lengkap ">
             <label for="nama_lengkap" class="col-sm-2 control-label">Nama Lengkap <i class="required">*</i>
             </label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" name="nama_lengkap" id="nama_lengkap" placeholder="Nama Lengkap"
                     value="<?= set_value('nama_lengkap'); ?>">
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group group-no_hp ">
             <label for="no_hp" class="col-sm-2 control-label">No Hp <i class="required">*</i>
@@ -46,8 +45,15 @@
             <label for="jumlah_pinjaman" class="col-sm-2 control-label">Jumlah Pinjaman <i class="required">*</i>
             </label>
             <div class="col-sm-8">
-                <input type="number" class="form-control" name="jumlah_pinjaman" id="jumlah_pinjaman"
-                    placeholder="Jumlah Pinjaman" value="<?= set_value('jumlah_pinjaman'); ?>">
+                <!-- <input type="number" class="form-control" name="jumlah_pinjaman" id="jumlah_pinjaman"
+                    placeholder="Jumlah Pinjaman" value="<?= set_value('jumlah_pinjaman'); ?>"> -->
+                <select class="form-control chosen chosen-select-deselect" name="jumlah_pinjaman" id="jumlah_pinjaman"
+                    data-placeholder="Select Jumlah Pinjaman">
+                    <option value="">Pilih Jumlah Pinjaman</option>
+                    <?php foreach (db_get_all_data('simulasi_kredit') as $row): ?>
+                    <option value="<?= $row->plafond ?>"><?= number_format($row->plafond, 0, '.', '.')  ?></option>
+                    <?php endforeach; ?>
+                </select>
             </div>
         </div>
 
@@ -56,8 +62,18 @@
             <label for="jangka_waktu" class="col-sm-2 control-label">Jangka Waktu <i class="required">*</i>
             </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" name="jangka_waktu" id="jangka_waktu" placeholder="Jangka Waktu"
-                    value="<?= set_value('jangka_waktu'); ?>">
+                <!-- <input type="text" class="form-control" name="jangka_waktu" id="jangka_waktu" placeholder="Jangka Waktu" -->
+                <!-- value="<?= set_value('jangka_waktu'); ?>"> -->
+                <select name="jangka_waktu" class="form-control">
+                    <option value="">Pilih Jangka Waktu</option>
+                    <option value="12">Jangka Waktu 12 Bulan</option>
+                    <option value="18">Jangka Waktu 18 Bulan</option>
+                    <option value="24">Jangka Waktu 24 Bulan</option>
+                    <option value="30">Jangka Waktu 30 Bulan</option>
+                    <option value="36">Jangka Waktu 36 Bulan</option>
+                    <option value="48">Jangka Waktu 48 Bulan</option>
+                    <option value="60">Jangka Waktu 60 Bulan</option>
+                </select>
 
             </div>
         </div>
@@ -80,9 +96,11 @@
             </label>
             <div class="col-sm-8">
                 <select name="jenis_pinjaman" class="form-control">
+                    <option value="">Piih Jenis Pinjaman</option>
                     <option value="modal">Modal</option>
                     <option value="investasi">Investasi</option>
                     <option value="konsumtif">Konsumtif</option>
+                    <option value="kolektif">Kolektif</option>
                 </select>
             </div>
         </div>
@@ -283,20 +301,20 @@
         </script> -->
 
         <script>
-            $(document).ready(function () {
+        $(document).ready(function() {
 
-                "use strict";
+            "use strict";
 
-                window.event_submit_and_action = '';
-
-
+            window.event_submit_and_action = '';
 
 
 
 
 
-                $('#btn_cancel').click(function () {
-                    swal({
+
+
+            $('#btn_cancel').click(function() {
+                swal({
                         title: "<?= cclang('are_you_sure'); ?>",
                         text: "<?= cclang('data_to_be_deleted_can_not_be_restored'); ?>",
                         type: "warning",
@@ -307,42 +325,43 @@
                         closeOnConfirm: true,
                         closeOnCancel: true
                     },
-                        function (isConfirm) {
-                            if (isConfirm) {
-                                window.location.href = '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit';
-                            }
-                        });
-
-                    return false;
-                }); /*end btn cancel*/
-
-                $('.btn_save').click(function () {
-                    $('.message').fadeOut();
-
-                    var form_pengajuan_kredit = $('#form_pengajuan_kredit');
-                    var data_post = form_pengajuan_kredit.serializeArray();
-                    var save_type = $(this).attr('data-stype');
-
-                    data_post.push({
-                        name: 'save_type',
-                        value: save_type
+                    function(isConfirm) {
+                        if (isConfirm) {
+                            window.location.href = '<?= BASE_URL ?>' +
+                                '/administrator/pengajuan_kredit';
+                        }
                     });
 
-                    data_post.push({
-                        name: 'event_submit_and_action',
-                        value: window.event_submit_and_action
-                    });
+                return false;
+            }); /*end btn cancel*/
+
+            $('.btn_save').click(function() {
+                $('.message').fadeOut();
+
+                var form_pengajuan_kredit = $('#form_pengajuan_kredit');
+                var data_post = form_pengajuan_kredit.serializeArray();
+                var save_type = $(this).attr('data-stype');
+
+                data_post.push({
+                    name: 'save_type',
+                    value: save_type
+                });
+
+                data_post.push({
+                    name: 'event_submit_and_action',
+                    value: window.event_submit_and_action
+                });
 
 
 
-                    $('.loading').show();
+                $('.loading').show();
 
-                    $.ajax({
+                $.ajax({
                         url: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/add_save',
                         type: 'POST',
                         dataType: 'json',
                         data: data_post,
-                        success: function (response) {
+                        success: function(response) {
                             // var x = document.getElementById("snackbar");
                             // x.className = "show";
                             // setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
@@ -350,545 +369,615 @@
                     })
 
 
-                        .done(function (res) {
+                    .done(function(res) {
 
-                            $('form').find('.form-group').removeClass('has-error');
-                            $('.steps li').removeClass('error');
-                            $('form').find('.error-input').remove();
-                            if (res.success) {
-                                var x = document.getElementById("snackbar");
-                                x.className = "show";
-                                setTimeout(function () { x.className = x.className.replace("show", ""); }, 9000);
-                                var id_file_ktp = $('#pengajuan_kredit_file_ktp_galery').find('li').attr('qq-file-id');
+                        $('form').find('.form-group').removeClass('has-error');
+                        $('.steps li').removeClass('error');
+                        $('form').find('.error-input').remove();
+                        if (res.success) {
+                            var x = document.getElementById("snackbar");
+                            x.className = "show";
+                            setTimeout(function() {
+                                x.className = x.className.replace("show", "");
+                            }, 9000);
+                            var id_file_ktp = $('#pengajuan_kredit_file_ktp_galery').find('li')
+                                .attr('qq-file-id');
 
-                                if (save_type == 'back') {
-                                    window.location.href = res.redirect;
-                                    return;
-                                }
+                            if (save_type == 'back') {
+                                window.location.href = res.redirect;
+                                return;
+                            }
 
-                                // $('.message').printMessage({
-                                //     message: res.message
-                                // });
-                                $('.message').fadeIn();
-                                resetForm();
-                                if (typeof id_file_ktp !== 'undefined') {
-                                    $('#pengajuan_kredit_file_ktp_galery').fineUploader('deleteFile', id_file_ktp);
-                                }
-                                $('.chosen option').prop('selected', false).trigger('chosen:updated');
+                            // $('.message').printMessage({
+                            //     message: res.message
+                            // });
+                            $('.message').fadeIn();
+                            resetForm();
+                            if (typeof id_file_ktp !== 'undefined') {
+                                $('#pengajuan_kredit_file_ktp_galery').fineUploader('deleteFile',
+                                    id_file_ktp);
+                            }
+                            $('.chosen option').prop('selected', false).trigger('chosen:updated');
 
-                                // location.reload();
-                            } else {
-                                if (res.errors) {
+                            // location.reload();
+                        } else {
+                            if (res.errors) {
 
-                                    $.each(res.errors, function (index, val) {
-                                        $('form #' + index).parents('.form-group').addClass('has-error');
-                                        $('form #' + index).parents('.form-group').find('small').prepend(`
+                                $.each(res.errors, function(index, val) {
+                                    $('form #' + index).parents('.form-group').addClass(
+                                        'has-error');
+                                    $('form #' + index).parents('.form-group').find('small')
+                                        .prepend(`
                       <div class="error-input">` + val + `</div>
                       `);
-                                    });
-                                    $('.steps li').removeClass('error');
-                                    $('.content section').each(function (index, el) {
-                                        if ($(this).find('.has-error').length) {
-                                            $('.steps li:eq(' + index + ')').addClass('error').find('a').trigger('click');
-                                        }
-                                    });
-                                }
-                                // $('.message').printMessage({
-                                //     message: res.message,
-                                //     type: 'warning'
-                                // });
+                                });
+                                $('.steps li').removeClass('error');
+                                $('.content section').each(function(index, el) {
+                                    if ($(this).find('.has-error').length) {
+                                        $('.steps li:eq(' + index + ')').addClass('error')
+                                            .find('a').trigger('click');
+                                    }
+                                });
                             }
-
-                        })
-                        .fail(function () {
                             // $('.message').printMessage({
-                            //     message: 'Error save data',
+                            //     message: res.message,
                             //     type: 'warning'
                             // });
-                        })
-                        .always(function () {
-                            $('.loading').hide();
-                            $('html, body').animate({
-                                scrollTop: $(document).height()
-                            }, 2000);
-                        });
+                        }
 
-                    return false;
-                }); /*end btn save*/
+                    })
+                    .fail(function() {
+                        // $('.message').printMessage({
+                        //     message: 'Error save data',
+                        //     type: 'warning'
+                        // });
+                    })
+                    .always(function() {
+                        $('.loading').hide();
+                        $('html, body').animate({
+                            scrollTop: $(document).height()
+                        }, 2000);
+                    });
 
-                //     var params = {};
-                // params[csrf] = token;
+                return false;
+            }); /*end btn save*/
 
-                $('#pengajuan_kredit_file_ktp_galery').fineUploader({
-                    template: 'qq-template-gallery',
-                    request: {
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_ktp_file',
-                        // params: params
-                    },
-                    deleteFile: {
-                        enabled: true,
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_ktp_file',
-                    },
-                    thumbnails: {
-                        placeholders: {
-                            waitingPath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/waiting-generic.png',
-                            notAvailablePath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/not_available-generic.png'
+            //     var params = {};
+            // params[csrf] = token;
+
+            $('#pengajuan_kredit_file_ktp_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/upload_file_ktp_file',
+                    // params: params
+                },
+                deleteFile: {
+                    enabled: true,
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/delete_file_ktp_file',
+                },
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                },
+                // showMessage: function (msg) {
+                //     toastr['error'](msg);
+                // },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#pengajuan_kredit_file_ktp_galery').fineUploader(
+                                'getUuid', id);
+                            $('#pengajuan_kredit_file_ktp_uuid').val(uuid);
+                            $('#pengajuan_kredit_file_ktp_name').val(xhr.uploadName);
+                        } else {
+                            // toastr['error'](xhr.error);
                         }
                     },
-                    multiple: false,
-                    validation: {
-                        allowedExtensions: ["*"],
-                        sizeLimit: 0,
+                    onSubmit: function(id, name) {
+                        var uuid = $('#pengajuan_kredit_file_ktp_uuid').val();
+                        $.get('<?= BASE_URL ?>' +
+                            '/administrator/pengajuan_kredit/delete_file_ktp_file/' + uuid);
                     },
-                    // showMessage: function (msg) {
-                    //     toastr['error'](msg);
-                    // },
-                    callbacks: {
-                        onComplete: function (id, name, xhr) {
-                            if (xhr.success) {
-                                var uuid = $('#pengajuan_kredit_file_ktp_galery').fineUploader('getUuid', id);
-                                $('#pengajuan_kredit_file_ktp_uuid').val(uuid);
-                                $('#pengajuan_kredit_file_ktp_name').val(xhr.uploadName);
-                            } else {
-                                // toastr['error'](xhr.error);
-                            }
-                        },
-                        onSubmit: function (id, name) {
-                            var uuid = $('#pengajuan_kredit_file_ktp_uuid').val();
-                            $.get('<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_ktp_file/' + uuid);
-                        },
-                        onDeleteComplete: function (id, xhr, isError) {
-                            if (isError == false) {
-                                $('#pengajuan_kredit_file_ktp_uuid').val('');
-                                $('#pengajuan_kredit_file_ktp_name').val('');
-                            }
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#pengajuan_kredit_file_ktp_uuid').val('');
+                            $('#pengajuan_kredit_file_ktp_name').val('');
                         }
                     }
-                }); /*end file_ktp galery*/
+                }
+            }); /*end file_ktp galery*/
 
-                $('#pengajuan_kredit_file_ktp_istri_galery').fineUploader({
-                    template: 'qq-template-gallery',
-                    request: {
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_ktp_istri_file',
-                        // params: params
-                    },
-                    deleteFile: {
-                        enabled: true,
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_ktp_istri_file',
-                    },
-                    thumbnails: {
-                        placeholders: {
-                            waitingPath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/waiting-generic.png',
-                            notAvailablePath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/not_available-generic.png'
+            $('#pengajuan_kredit_file_ktp_istri_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/upload_file_ktp_istri_file',
+                    // params: params
+                },
+                deleteFile: {
+                    enabled: true,
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/delete_file_ktp_istri_file',
+                },
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                },
+                // showMessage: function (msg) {
+                //     toastr['error'](msg);
+                // },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#pengajuan_kredit_file_ktp_istri_galery').fineUploader(
+                                'getUuid', id);
+                            $('#pengajuan_kredit_file_ktp_istri_uuid').val(uuid);
+                            $('#pengajuan_kredit_file_ktp_istri_name').val(xhr.uploadName);
+                        } else {
+                            // toastr['error'](xhr.error);
                         }
                     },
-                    multiple: false,
-                    validation: {
-                        allowedExtensions: ["*"],
-                        sizeLimit: 0,
+                    onSubmit: function(id, name) {
+                        var uuid = $('#pengajuan_kredit_file_ktp_istri_uuid').val();
+                        $.get('<?= BASE_URL ?>' +
+                            '/administrator/pengajuan_kredit/delete_file_ktp_istri_file/' + uuid
+                        );
                     },
-                    // showMessage: function (msg) {
-                    //     toastr['error'](msg);
-                    // },
-                    callbacks: {
-                        onComplete: function (id, name, xhr) {
-                            if (xhr.success) {
-                                var uuid = $('#pengajuan_kredit_file_ktp_istri_galery').fineUploader('getUuid', id);
-                                $('#pengajuan_kredit_file_ktp_istri_uuid').val(uuid);
-                                $('#pengajuan_kredit_file_ktp_istri_name').val(xhr.uploadName);
-                            } else {
-                                // toastr['error'](xhr.error);
-                            }
-                        },
-                        onSubmit: function (id, name) {
-                            var uuid = $('#pengajuan_kredit_file_ktp_istri_uuid').val();
-                            $.get('<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_ktp_istri_file/' + uuid);
-                        },
-                        onDeleteComplete: function (id, xhr, isError) {
-                            if (isError == false) {
-                                $('#pengajuan_kredit_file_ktp_istri_uuid').val('');
-                                $('#pengajuan_kredit_file_ktp_istri_name').val('');
-                            }
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#pengajuan_kredit_file_ktp_istri_uuid').val('');
+                            $('#pengajuan_kredit_file_ktp_istri_name').val('');
                         }
                     }
-                }); /*end file_ktp istri galery*/
+                }
+            }); /*end file_ktp istri galery*/
 
-                $('#pengajuan_kredit_file_sku_galery').fineUploader({
-                    template: 'qq-template-gallery',
-                    request: {
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_sku_file',
-                        // params: params
-                    },
-                    deleteFile: {
-                        enabled: true,
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_sku_file',
-                    },
-                    thumbnails: {
-                        placeholders: {
-                            waitingPath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/waiting-generic.png',
-                            notAvailablePath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/not_available-generic.png'
+            $('#pengajuan_kredit_file_sku_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/upload_file_sku_file',
+                    // params: params
+                },
+                deleteFile: {
+                    enabled: true,
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/delete_file_sku_file',
+                },
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                },
+                // showMessage: function (msg) {
+                //     toastr['error'](msg);
+                // },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#pengajuan_kredit_file_sku_galery').fineUploader(
+                                'getUuid', id);
+                            $('#pengajuan_kredit_file_sku_uuid').val(uuid);
+                            $('#pengajuan_kredit_file_sku_name').val(xhr.uploadName);
+                        } else {
+                            // toastr['error'](xhr.error);
                         }
                     },
-                    multiple: false,
-                    validation: {
-                        allowedExtensions: ["*"],
-                        sizeLimit: 0,
+                    onSubmit: function(id, name) {
+                        var uuid = $('#pengajuan_kredit_file_sku_uuid').val();
+                        $.get('<?= BASE_URL ?>' +
+                            '/administrator/pengajuan_kredit/delete_file_sku_file/' + uuid);
                     },
-                    // showMessage: function (msg) {
-                    //     toastr['error'](msg);
-                    // },
-                    callbacks: {
-                        onComplete: function (id, name, xhr) {
-                            if (xhr.success) {
-                                var uuid = $('#pengajuan_kredit_file_sku_galery').fineUploader('getUuid', id);
-                                $('#pengajuan_kredit_file_sku_uuid').val(uuid);
-                                $('#pengajuan_kredit_file_sku_name').val(xhr.uploadName);
-                            } else {
-                                // toastr['error'](xhr.error);
-                            }
-                        },
-                        onSubmit: function (id, name) {
-                            var uuid = $('#pengajuan_kredit_file_sku_uuid').val();
-                            $.get('<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_sku_file/' + uuid);
-                        },
-                        onDeleteComplete: function (id, xhr, isError) {
-                            if (isError == false) {
-                                $('#pengajuan_kredit_file_sku_uuid').val('');
-                                $('#pengajuan_kredit_file_sku_name').val('');
-                            }
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#pengajuan_kredit_file_sku_uuid').val('');
+                            $('#pengajuan_kredit_file_sku_name').val('');
                         }
                     }
-                }); /*end file_sku galery*/
+                }
+            }); /*end file_sku galery*/
 
-                $('#pengajuan_kredit_file_skp_galery').fineUploader({
-                    template: 'qq-template-gallery',
-                    request: {
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_skp_file',
-                        // params: params
-                    },
-                    deleteFile: {
-                        enabled: true,
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_skp_file',
-                    },
-                    thumbnails: {
-                        placeholders: {
-                            waitingPath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/waiting-generic.png',
-                            notAvailablePath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/not_available-generic.png'
+            $('#pengajuan_kredit_file_skp_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/upload_file_skp_file',
+                    // params: params
+                },
+                deleteFile: {
+                    enabled: true,
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/delete_file_skp_file',
+                },
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                },
+                // showMessage: function (msg) {
+                //     toastr['error'](msg);
+                // },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#pengajuan_kredit_file_skp_galery').fineUploader(
+                                'getUuid', id);
+                            $('#pengajuan_kredit_file_skp_uuid').val(uuid);
+                            $('#pengajuan_kredit_file_skp_name').val(xhr.uploadName);
+                        } else {
+                            // toastr['error'](xhr.error);
                         }
                     },
-                    multiple: false,
-                    validation: {
-                        allowedExtensions: ["*"],
-                        sizeLimit: 0,
+                    onSubmit: function(id, name) {
+                        var uuid = $('#pengajuan_kredit_file_skp_uuid').val();
+                        $.get('<?= BASE_URL ?>' +
+                            '/administrator/pengajuan_kredit/delete_file_skp_file/' + uuid);
                     },
-                    // showMessage: function (msg) {
-                    //     toastr['error'](msg);
-                    // },
-                    callbacks: {
-                        onComplete: function (id, name, xhr) {
-                            if (xhr.success) {
-                                var uuid = $('#pengajuan_kredit_file_skp_galery').fineUploader('getUuid', id);
-                                $('#pengajuan_kredit_file_skp_uuid').val(uuid);
-                                $('#pengajuan_kredit_file_skp_name').val(xhr.uploadName);
-                            } else {
-                                // toastr['error'](xhr.error);
-                            }
-                        },
-                        onSubmit: function (id, name) {
-                            var uuid = $('#pengajuan_kredit_file_skp_uuid').val();
-                            $.get('<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_skp_file/' + uuid);
-                        },
-                        onDeleteComplete: function (id, xhr, isError) {
-                            if (isError == false) {
-                                $('#pengajuan_kredit_file_skp_uuid').val('');
-                                $('#pengajuan_kredit_file_skp_name').val('');
-                            }
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#pengajuan_kredit_file_skp_uuid').val('');
+                            $('#pengajuan_kredit_file_skp_name').val('');
                         }
                     }
-                }); /*end file_skp galery*/
+                }
+            }); /*end file_skp galery*/
 
-                $('#pengajuan_kredit_file_photo_galery').fineUploader({
-                    template: 'qq-template-gallery',
-                    request: {
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_photo_file',
-                        // params: params
-                    },
-                    deleteFile: {
-                        enabled: true,
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_photo_file',
-                    },
-                    thumbnails: {
-                        placeholders: {
-                            waitingPath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/waiting-generic.png',
-                            notAvailablePath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/not_available-generic.png'
+            $('#pengajuan_kredit_file_photo_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/upload_file_photo_file',
+                    // params: params
+                },
+                deleteFile: {
+                    enabled: true,
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/delete_file_photo_file',
+                },
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                },
+                // showMessage: function (msg) {
+                //     toastr['error'](msg);
+                // },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#pengajuan_kredit_file_photo_galery').fineUploader(
+                                'getUuid', id);
+                            $('#pengajuan_kredit_file_photo_uuid').val(uuid);
+                            $('#pengajuan_kredit_file_photo_name').val(xhr.uploadName);
+                        } else {
+                            // toastr['error'](xhr.error);
                         }
                     },
-                    multiple: false,
-                    validation: {
-                        allowedExtensions: ["*"],
-                        sizeLimit: 0,
+                    onSubmit: function(id, name) {
+                        var uuid = $('#pengajuan_kredit_file_photo_uuid').val();
+                        $.get('<?= BASE_URL ?>' +
+                            '/administrator/pengajuan_kredit/delete_file_photo_file/' + uuid);
                     },
-                    // showMessage: function (msg) {
-                    //     toastr['error'](msg);
-                    // },
-                    callbacks: {
-                        onComplete: function (id, name, xhr) {
-                            if (xhr.success) {
-                                var uuid = $('#pengajuan_kredit_file_photo_galery').fineUploader('getUuid', id);
-                                $('#pengajuan_kredit_file_photo_uuid').val(uuid);
-                                $('#pengajuan_kredit_file_photo_name').val(xhr.uploadName);
-                            } else {
-                                // toastr['error'](xhr.error);
-                            }
-                        },
-                        onSubmit: function (id, name) {
-                            var uuid = $('#pengajuan_kredit_file_photo_uuid').val();
-                            $.get('<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_photo_file/' + uuid);
-                        },
-                        onDeleteComplete: function (id, xhr, isError) {
-                            if (isError == false) {
-                                $('#pengajuan_kredit_file_photo_uuid').val('');
-                                $('#pengajuan_kredit_file_photo_name').val('');
-                            }
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#pengajuan_kredit_file_photo_uuid').val('');
+                            $('#pengajuan_kredit_file_photo_name').val('');
                         }
                     }
-                }); /*end file_photo galery*/
+                }
+            }); /*end file_photo galery*/
 
-                $('#pengajuan_kredit_file_kk_galery').fineUploader({
-                    template: 'qq-template-gallery',
-                    request: {
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_kk_file',
-                        // params: params
-                    },
-                    deleteFile: {
-                        enabled: true,
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_kk_file',
-                    },
-                    thumbnails: {
-                        placeholders: {
-                            waitingPath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/waiting-generic.png',
-                            notAvailablePath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/not_available-generic.png'
+            $('#pengajuan_kredit_file_kk_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_kk_file',
+                    // params: params
+                },
+                deleteFile: {
+                    enabled: true,
+                    endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_kk_file',
+                },
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                },
+                // showMessage: function (msg) {
+                //     toastr['error'](msg);
+                // },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#pengajuan_kredit_file_kk_galery').fineUploader('getUuid',
+                                id);
+                            $('#pengajuan_kredit_file_kk_uuid').val(uuid);
+                            $('#pengajuan_kredit_file_kk_name').val(xhr.uploadName);
+                        } else {
+                            // toastr['error'](xhr.error);
                         }
                     },
-                    multiple: false,
-                    validation: {
-                        allowedExtensions: ["*"],
-                        sizeLimit: 0,
+                    onSubmit: function(id, name) {
+                        var uuid = $('#pengajuan_kredit_file_kk_uuid').val();
+                        $.get('<?= BASE_URL ?>' +
+                            '/administrator/pengajuan_kredit/delete_file_kk_file/' + uuid);
                     },
-                    // showMessage: function (msg) {
-                    //     toastr['error'](msg);
-                    // },
-                    callbacks: {
-                        onComplete: function (id, name, xhr) {
-                            if (xhr.success) {
-                                var uuid = $('#pengajuan_kredit_file_kk_galery').fineUploader('getUuid', id);
-                                $('#pengajuan_kredit_file_kk_uuid').val(uuid);
-                                $('#pengajuan_kredit_file_kk_name').val(xhr.uploadName);
-                            } else {
-                                // toastr['error'](xhr.error);
-                            }
-                        },
-                        onSubmit: function (id, name) {
-                            var uuid = $('#pengajuan_kredit_file_kk_uuid').val();
-                            $.get('<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_kk_file/' + uuid);
-                        },
-                        onDeleteComplete: function (id, xhr, isError) {
-                            if (isError == false) {
-                                $('#pengajuan_kredit_file_kk_uuid').val('');
-                                $('#pengajuan_kredit_file_kk_name').val('');
-                            }
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#pengajuan_kredit_file_kk_uuid').val('');
+                            $('#pengajuan_kredit_file_kk_name').val('');
                         }
                     }
-                }); /*end file_kk galery*/
+                }
+            }); /*end file_kk galery*/
 
-                $('#pengajuan_kredit_file_surat_nikah_galery').fineUploader({
-                    template: 'qq-template-gallery',
-                    request: {
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_surat_nikah_file',
-                        // params: params
-                    },
-                    deleteFile: {
-                        enabled: true,
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_surat_nikah_file',
-                    },
-                    thumbnails: {
-                        placeholders: {
-                            waitingPath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/waiting-generic.png',
-                            notAvailablePath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/not_available-generic.png'
+            $('#pengajuan_kredit_file_surat_nikah_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/upload_file_surat_nikah_file',
+                    // params: params
+                },
+                deleteFile: {
+                    enabled: true,
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/delete_file_surat_nikah_file',
+                },
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                },
+                // showMessage: function (msg) {
+                //     toastr['error'](msg);
+                // },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#pengajuan_kredit_file_surat_nikah_galery').fineUploader(
+                                'getUuid', id);
+                            $('#pengajuan_kredit_file_surat_nikah_uuid').val(uuid);
+                            $('#pengajuan_kredit_file_surat_nikah_name').val(xhr.uploadName);
+                        } else {
+                            // toastr['error'](xhr.error);
                         }
                     },
-                    multiple: false,
-                    validation: {
-                        allowedExtensions: ["*"],
-                        sizeLimit: 0,
+                    onSubmit: function(id, name) {
+                        var uuid = $('#pengajuan_kredit_file_surat_nikah_uuid').val();
+                        $.get('<?= BASE_URL ?>' +
+                            '/administrator/pengajuan_kredit/delete_file_surat_nikah_file/' +
+                            uuid);
                     },
-                    // showMessage: function (msg) {
-                    //     toastr['error'](msg);
-                    // },
-                    callbacks: {
-                        onComplete: function (id, name, xhr) {
-                            if (xhr.success) {
-                                var uuid = $('#pengajuan_kredit_file_surat_nikah_galery').fineUploader('getUuid', id);
-                                $('#pengajuan_kredit_file_surat_nikah_uuid').val(uuid);
-                                $('#pengajuan_kredit_file_surat_nikah_name').val(xhr.uploadName);
-                            } else {
-                                // toastr['error'](xhr.error);
-                            }
-                        },
-                        onSubmit: function (id, name) {
-                            var uuid = $('#pengajuan_kredit_file_surat_nikah_uuid').val();
-                            $.get('<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_surat_nikah_file/' + uuid);
-                        },
-                        onDeleteComplete: function (id, xhr, isError) {
-                            if (isError == false) {
-                                $('#pengajuan_kredit_file_surat_nikah_uuid').val('');
-                                $('#pengajuan_kredit_file_surat_nikah_name').val('');
-                            }
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#pengajuan_kredit_file_surat_nikah_uuid').val('');
+                            $('#pengajuan_kredit_file_surat_nikah_name').val('');
                         }
                     }
-                }); /*end file_surat_nikah galery*/
+                }
+            }); /*end file_surat_nikah galery*/
 
-                $('#pengajuan_kredit_file_jaminan_galery').fineUploader({
-                    template: 'qq-template-gallery',
-                    request: {
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_jaminan_file',
-                        // params: params
-                    },
-                    deleteFile: {
-                        enabled: true,
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_jaminan_file',
-                    },
-                    thumbnails: {
-                        placeholders: {
-                            waitingPath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/waiting-generic.png',
-                            notAvailablePath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/not_available-generic.png'
+            $('#pengajuan_kredit_file_jaminan_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/upload_file_jaminan_file',
+                    // params: params
+                },
+                deleteFile: {
+                    enabled: true,
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/delete_file_jaminan_file',
+                },
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                },
+                // showMessage: function (msg) {
+                //     toastr['error'](msg);
+                // },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#pengajuan_kredit_file_jaminan_galery').fineUploader(
+                                'getUuid', id);
+                            $('#pengajuan_kredit_file_jaminan_uuid').val(uuid);
+                            $('#pengajuan_kredit_file_jaminan_name').val(xhr.uploadName);
+                        } else {
+                            // toastr['error'](xhr.error);
                         }
                     },
-                    multiple: false,
-                    validation: {
-                        allowedExtensions: ["*"],
-                        sizeLimit: 0,
+                    onSubmit: function(id, name) {
+                        var uuid = $('#pengajuan_kredit_file_jaminan_uuid').val();
+                        $.get('<?= BASE_URL ?>' +
+                            '/administrator/pengajuan_kredit/delete_file_jaminan_file/' + uuid);
                     },
-                    // showMessage: function (msg) {
-                    //     toastr['error'](msg);
-                    // },
-                    callbacks: {
-                        onComplete: function (id, name, xhr) {
-                            if (xhr.success) {
-                                var uuid = $('#pengajuan_kredit_file_jaminan_galery').fineUploader('getUuid', id);
-                                $('#pengajuan_kredit_file_jaminan_uuid').val(uuid);
-                                $('#pengajuan_kredit_file_jaminan_name').val(xhr.uploadName);
-                            } else {
-                                // toastr['error'](xhr.error);
-                            }
-                        },
-                        onSubmit: function (id, name) {
-                            var uuid = $('#pengajuan_kredit_file_jaminan_uuid').val();
-                            $.get('<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_jaminan_file/' + uuid);
-                        },
-                        onDeleteComplete: function (id, xhr, isError) {
-                            if (isError == false) {
-                                $('#pengajuan_kredit_file_jaminan_uuid').val('');
-                                $('#pengajuan_kredit_file_jaminan_name').val('');
-                            }
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#pengajuan_kredit_file_jaminan_uuid').val('');
+                            $('#pengajuan_kredit_file_jaminan_name').val('');
                         }
                     }
-                }); /*end file_jaminan galery*/
+                }
+            }); /*end file_jaminan galery*/
 
 
-                $('#pengajuan_kredit_file_rekening_listrik_galery').fineUploader({
-                    template: 'qq-template-gallery',
-                    request: {
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_rekening_listrik_file',
-                        // params: params
-                    },
-                    deleteFile: {
-                        enabled: true,
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_rekening_listrik_file',
-                    },
-                    thumbnails: {
-                        placeholders: {
-                            waitingPath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/waiting-generic.png',
-                            notAvailablePath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/not_available-generic.png'
+            $('#pengajuan_kredit_file_rekening_listrik_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/upload_file_rekening_listrik_file',
+                    // params: params
+                },
+                deleteFile: {
+                    enabled: true,
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/delete_file_rekening_listrik_file',
+                },
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                },
+                // showMessage: function (msg) {
+                //     toastr['error'](msg);
+                // },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#pengajuan_kredit_file_rekening_listrik_galery')
+                                .fineUploader('getUuid', id);
+                            $('#pengajuan_kredit_file_rekening_listrik_uuid').val(uuid);
+                            $('#pengajuan_kredit_file_rekening_listrik_name').val(xhr.uploadName);
+                        } else {
+                            // toastr['error'](xhr.error);
                         }
                     },
-                    multiple: false,
-                    validation: {
-                        allowedExtensions: ["*"],
-                        sizeLimit: 0,
+                    onSubmit: function(id, name) {
+                        var uuid = $('#pengajuan_kredit_file_rekening_listrik_uuid').val();
+                        $.get('<?= BASE_URL ?>' +
+                            '/administrator/pengajuan_kredit/delete_file_rekening_listrik_file/' +
+                            uuid);
                     },
-                    // showMessage: function (msg) {
-                    //     toastr['error'](msg);
-                    // },
-                    callbacks: {
-                        onComplete: function (id, name, xhr) {
-                            if (xhr.success) {
-                                var uuid = $('#pengajuan_kredit_file_rekening_listrik_galery').fineUploader('getUuid', id);
-                                $('#pengajuan_kredit_file_rekening_listrik_uuid').val(uuid);
-                                $('#pengajuan_kredit_file_rekening_listrik_name').val(xhr.uploadName);
-                            } else {
-                                // toastr['error'](xhr.error);
-                            }
-                        },
-                        onSubmit: function (id, name) {
-                            var uuid = $('#pengajuan_kredit_file_rekening_listrik_uuid').val();
-                            $.get('<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_rekening_listrik_file/' + uuid);
-                        },
-                        onDeleteComplete: function (id, xhr, isError) {
-                            if (isError == false) {
-                                $('#pengajuan_kredit_file_rekening_listrik_uuid').val('');
-                                $('#pengajuan_kredit_file_rekening_listrik_name').val('');
-                            }
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#pengajuan_kredit_file_rekening_listrik_uuid').val('');
+                            $('#pengajuan_kredit_file_rekening_listrik_name').val('');
                         }
                     }
-                }); /*end file_rekening_listrik galery*/
+                }
+            }); /*end file_rekening_listrik galery*/
 
-                $('#pengajuan_kredit_file_pbb_stnk_galery').fineUploader({
-                    template: 'qq-template-gallery',
-                    request: {
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/upload_file_pbb_stnk_file',
-                        // params: params
-                    },
-                    deleteFile: {
-                        enabled: true,
-                        endpoint: '<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_pbb_stnk_file',
-                    },
-                    thumbnails: {
-                        placeholders: {
-                            waitingPath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/waiting-generic.png',
-                            notAvailablePath: '<?= BASE_URL ?>' + '/asset/fine-upload/placeholders/not_available-generic.png'
+            $('#pengajuan_kredit_file_pbb_stnk_galery').fineUploader({
+                template: 'qq-template-gallery',
+                request: {
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/upload_file_pbb_stnk_file',
+                    // params: params
+                },
+                //menghapus file
+                deleteFile: {
+                    enabled: true,
+                    endpoint: '<?= BASE_URL ?>' +
+                        '/administrator/pengajuan_kredit/delete_file_pbb_stnk_file',
+                },
+                //preview dari gambar
+                thumbnails: {
+                    placeholders: {
+                        waitingPath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/waiting-generic.png',
+                        notAvailablePath: '<?= BASE_URL ?>' +
+                            '/asset/fine-upload/placeholders/not_available-generic.png'
+                    }
+                },
+                multiple: false,
+                validation: {
+                    allowedExtensions: ["*"],
+                    sizeLimit: 0,
+                },
+                // showMessage: function (msg) {
+                //     toastr['error'](msg);
+                // },
+                callbacks: {
+                    onComplete: function(id, name, xhr) {
+                        if (xhr.success) {
+                            var uuid = $('#pengajuan_kredit_file_pbb_stnk_galery').fineUploader(
+                                'getUuid', id);
+                            $('#pengajuan_kredit_file_pbb_stnk_uuid').val(uuid);
+                            $('#pengajuan_kredit_file_pbb_stnk_name').val(xhr.uploadName);
+                        } else {
+                            // toastr['error'](xhr.error);
                         }
                     },
-                    multiple: false,
-                    validation: {
-                        allowedExtensions: ["*"],
-                        sizeLimit: 0,
+                    onSubmit: function(id, name) {
+                        var uuid = $('#pengajuan_kredit_file_pbb_stnk_uuid').val();
+                        $.get('<?= BASE_URL ?>' +
+                            '/administrator/pengajuan_kredit/delete_file_pbb_stnk_file/' + uuid);
                     },
-                    // showMessage: function (msg) {
-                    //     toastr['error'](msg);
-                    // },
-                    callbacks: {
-                        onComplete: function (id, name, xhr) {
-                            if (xhr.success) {
-                                var uuid = $('#pengajuan_kredit_file_pbb_stnk_galery').fineUploader('getUuid', id);
-                                $('#pengajuan_kredit_file_pbb_stnk_uuid').val(uuid);
-                                $('#pengajuan_kredit_file_pbb_stnk_name').val(xhr.uploadName);
-                            } else {
-                                // toastr['error'](xhr.error);
-                            }
-                        },
-                        onSubmit: function (id, name) {
-                            var uuid = $('#pengajuan_kredit_file_pbb_stnk_uuid').val();
-                            $.get('<?= BASE_URL ?>' + '/administrator/pengajuan_kredit/delete_file_pbb_stnk_file/' + uuid);
-                        },
-                        onDeleteComplete: function (id, xhr, isError) {
-                            if (isError == false) {
-                                $('#pengajuan_kredit_file_pbb_stnk_uuid').val('');
-                                $('#pengajuan_kredit_file_pbb_stnk_name').val('');
-                            }
+                    onDeleteComplete: function(id, xhr, isError) {
+                        if (isError == false) {
+                            $('#pengajuan_kredit_file_pbb_stnk_uuid').val('');
+                            $('#pengajuan_kredit_file_pbb_stnk_name').val('');
                         }
                     }
-                }); /*end file_pbb_stnk galery*/
+                }
+            }); /*end file_pbb_stnk galery*/
 
 
 
@@ -898,7 +987,7 @@
 
 
 
-            }); /*end doc ready*/
+        }); /*end doc ready*/
         </script>
         <?= get_footer(); ?>
 

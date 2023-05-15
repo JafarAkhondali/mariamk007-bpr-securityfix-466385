@@ -131,7 +131,7 @@ class Pengajuan_kredit extends Admin
 		$this->form_validation->set_rules('pengajuan_kredit_file_rekening_listrik_name', 'File REKENING LISTRIK', 'trim|required');
 		$this->form_validation->set_rules('pengajuan_kredit_file_pbb_stnk_name', 'File PBB/STNK', 'trim|required');
 
-		$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|max_length[250]');
+		// $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|max_length[250]');
 		$this->form_validation->set_rules('no_hp', 'No Hp', 'trim|required|max_length[12]');
 		$this->form_validation->set_rules('jumlah_pinjaman', 'Jumlah Pinjaman', 'trim|required|max_length[15]');
 		$this->form_validation->set_rules('jangka_waktu', 'Jangka Waktu', 'trim|required|max_length[50]');
@@ -170,7 +170,7 @@ class Pengajuan_kredit extends Admin
 			$pengajuan_kredit_file_pbb_stnk_name = $this->input->post('pengajuan_kredit_file_pbb_stnk_name');
 			
 			$save_data = [
-				'nama_lengkap' => $this->input->post('nama_lengkap'),
+				'nama_lengkap' => get_user_data('full_name'),
 				'no_hp' => $this->input->post('no_hp'),
 				'jumlah_pinjaman' => $this->input->post('jumlah_pinjaman'),
 				'jangka_waktu' => $this->input->post('jangka_waktu'),

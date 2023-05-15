@@ -114,7 +114,9 @@ class Web extends Front
 
     public function ajukan_kredit()
     {
-        $this->template->build('form_kredit');
+        $this->data['simulasi_kredits'] = $this->model_simulasi_kredit->get();
+        $this->template->build('form_kredit',$this->data);
+
     }
 
     public function profil()

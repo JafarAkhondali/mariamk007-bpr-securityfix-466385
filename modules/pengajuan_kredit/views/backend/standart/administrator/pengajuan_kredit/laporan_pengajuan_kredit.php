@@ -95,7 +95,7 @@ jQuery(document).ready(domo);
                                             id="field">
                                             <option value=""><?= cclang('all'); ?></option>
                                             <option <?= $this->input->get('f') == 'nama_lengkap' ? 'selected' : ''; ?>
-                                                value="nama_lengkap">Nama Lengkap</option>
+                                                value="nama_lengkap">Nama Lengkap Debitur</option>
                                             <option
                                                 <?= $this->input->get('f') == 'jumlah_pinjaman' ? 'selected' : ''; ?>
                                                 value="jumlah_pinjaman">Jumlah Pinjaman</option>

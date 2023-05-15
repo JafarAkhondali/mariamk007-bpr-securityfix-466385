@@ -1197,10 +1197,10 @@ hgroup,
 main,
 menu,
 /**Perbaiki nav **/
-/**nav,**/
+nav,
 section,
 summary {
-  display: contents;
+  display: sticky;
 }
 
 ul {

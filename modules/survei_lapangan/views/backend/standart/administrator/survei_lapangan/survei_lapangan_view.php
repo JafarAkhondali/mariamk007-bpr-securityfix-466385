@@ -70,7 +70,7 @@ jQuery(document).ready(domo);
                             </div>
 
                             <div class="form-group ">
-                                <label for="content" class="col-sm-2 control-label">Situasi Jaminan </label>
+                                <label for="content" class="col-sm-2 control-label">Deskripsi Jaminan </label>
 
                                 <div class="col-sm-8">
                                     <span

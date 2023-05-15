@@ -100,7 +100,7 @@ jQuery(document).ready(domo);
                                             <option <?= $this->input->get('f') == 'lokasi_jaminan' ? 'selected' :''; ?>
                                                 value="lokasi_jaminan">Lokasi Jaminan</option>
                                             <option <?= $this->input->get('f') == 'situasi_jaminan' ? 'selected' :''; ?>
-                                                value="situasi_jaminan">Situasi Jaminan</option>
+                                                value="situasi_jaminan">Deskripsi Jaminan</option>
                                             <option <?= $this->input->get('f') == 'created_at' ? 'selected' :''; ?>
                                                 value="created_at">Created At</option>
                                             <option <?= $this->input->get('f') == 'username' ? 'selected' :''; ?>

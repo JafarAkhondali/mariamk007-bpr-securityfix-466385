@@ -84,7 +84,7 @@ jQuery(document).ready(domo);
 
 
                         <div class="form-group group-situasi_jaminan ">
-                            <label for="situasi_jaminan" class="col-sm-2 control-label">Situasi Jaminan <i
+                            <label for="situasi_jaminan" class="col-sm-2 control-label">Deskripsi Jaminan <i
                                     class="required">*</i>
                             </label>
                             <div class="col-sm-8">
@@ -125,14 +125,14 @@ jQuery(document).ready(domo);
                                     <label>
                                         <input type="radio" class="flat-red" name="status_layak" id="status_layak"
                                             value="yes">
-                                        <?= cclang('yes'); ?>
+                                        <?= cclang('layak'); ?>
                                     </label>
                                 </div>
                                 <div class="col-md-14">
                                     <label>
                                         <input type="radio" class="flat-red" name="status_layak" id="status_layak"
                                             value="no">
-                                        <?= cclang('no'); ?>
+                                        <?= cclang('tidak layak'); ?>
                                     </label>
                                 </div>
                                 <small class="info help-block">
