@@ -5,13 +5,38 @@
 
     <body>
         <style>
+        .form {
+            position: relative;
+            display: flex;
+            padding: 2.2rem;
+            max-width: 350px;
+            background: linear-gradient(14deg, rgba(102, 255, 153, 0.8) 0%, rgba(77, 255, 136, 0.7) 66%,
+                    rgb(51, 255, 119) 100%), radial-gradient(circle, rgba(0, 230, 77, 0.5) 0%,
+                    rgba(0, 204, 68, 0.2) 65%, rgba(26, 255, 102, 0.9) 100%);
+            border: 2px solid rgba(26, 255, 102);
+            -webkit-box-shadow: rgba(0, 230, 77) 0px 0px 50px -15px;
+            box-shadow: rgba(0, 230, 77) 0px 0px 50px -15px;
+            overflow: hidden;
+            z-index: +1;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            justify-content: center;
+            align-items: center;
+        }
+
         .loader {
             width: 160px;
             height: 185px;
             position: relative;
-            background: #ADD8E6;
+            background: rgba(26, 255, 102);
             border-radius: 100px 100px 0 0;
-            margin-left: 720px;
+            display: flex;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            justify-content: center;
+            align-items: center;
         }
 
         .loader:after {
@@ -45,8 +70,8 @@
             height: 125px;
             left: -20%;
             top: 0;
-            background-image: radial-gradient(circle, #ADD8E6 48%, transparent 50%),
-                radial-gradient(circle, #ADD8E6 48%, transparent 50%);
+            background-image: radial-gradient(circle, rgba(26, 255, 102) 48%, transparent 50%),
+                radial-gradient(circle, rgba(26, 255, 102) 48%, transparent 50%);
             background-repeat: no-repeat;
             background-size: 65px 65px;
             background-position: 0px 12px, 145px 12px;
@@ -80,24 +105,28 @@
 
         <div class="loader"></div>
 
-        <div id="snackbar">Pesan Terkirim</div>
+        <form class="form">
+            <div id="snackbar">Pesan Terkirim</div>
+            <?php echo form_open(base_url('administrator/kritik/add_save'), array('id' => 'kritikForm')) ?>
 
-        <?php echo form_open(base_url('administrator/kritik/add_save'), array('id' => 'kritikForm')) ?>
-        <div class="row p-5">
-            <div class="col-lg-12">
-                <strong>Nama:</strong>
-                <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama"><br>
+            <div class="row p-5">
+                <div class="col-lg-12">
+                    <strong>Nama:</strong>
+                    <input type="text" name="nama" id="nama" class="form-control" placeholder="Nama"><br>
+                </div>
+                <div class="col-lg-12">
+                    <strong>Kritik:</strong>
+                    <textarea name="kritik" id="kritik" class="form-control"
+                        placeholder="Kritik/Pendapat/Saran"></textarea>
+                </div>
+                <div class="col-lg-12">
+                    <br />
+                    <button type="submit" class="btn btn-success center">Submit</button>
+                </div>
             </div>
-            <div class="col-lg-12">
-                <strong>Kritik:</strong>
-                <textarea name="kritik" id="kritik" class="form-control" placeholder="Kritik/Pendapat/Saran"></textarea>
-            </div>
-            <div class="col-lg-12">
-                <br />
-                <button type="submit" class="btn btn-success center">Submit</button>
-            </div>
-        </div>
-        <?php echo form_close() ?>
+            <?php echo form_close() ?>
+        </form>
+
 
         <script type="text/javascript">
         $(function() {
