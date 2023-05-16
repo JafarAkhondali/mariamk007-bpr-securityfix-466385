@@ -93,8 +93,8 @@ jQuery(document).ready(domo);
                                             <option value=""><?= cclang('all'); ?></option>
                                             <option <?= $this->input->get('f') == 'nama_lengkap' ? 'selected' :''; ?>
                                                 value="nama_lengkap">Nama Lengkap Debitur</option>
-                                            <option <?= $this->input->get('f') == 'file_ktp' ? 'selected' :''; ?>
-                                                value="file_ktp">File Ktp</option>
+                                            <!-- <option <?= $this->input->get('f') == 'file_ktp' ? 'selected' :''; ?>
+                                                value="file_ktp">File Ktp</option> -->
                                             <option <?= $this->input->get('f') == 'no_hp' ? 'selected' :''; ?>
                                                 value="no_hp">No Hp</option>
                                             <option <?= $this->input->get('f') == 'jumlah_pinjaman' ? 'selected' :''; ?>
@@ -103,10 +103,10 @@ jQuery(document).ready(domo);
                                                 value="jangka_waktu">Jangka Waktu</option>
                                             <option <?= $this->input->get('f') == 'jenis_pinjaman' ? 'selected' :''; ?>
                                                 value="jenis_pinjaman">Jenis Pinjaman</option>
-                                            <option <?= $this->input->get('f') == 'jaminan' ? 'selected' :''; ?>
-                                                value="jaminan">Jaminan</option>
-                                            <option <?= $this->input->get('f') == 'created_at' ? 'selected' :''; ?>
-                                                value="created_at">Created At</option>
+                                            <!-- <option <?= $this->input->get('f') == 'jaminan' ? 'selected' :''; ?>
+                                                value="jaminan">Jaminan</option> -->
+                                            <!-- <option <?= $this->input->get('f') == 'created_at' ? 'selected' :''; ?>
+                                                value="created_at">Created At</option> -->
                                             <option <?= $this->input->get('f') == 'updated_at' ? 'selected' :''; ?>
                                                 value="updated_at">Updated At</option>
                                             <option <?= $this->input->get('f') == 'updated_by' ? 'selected' :''; ?>
@@ -158,8 +158,8 @@ jQuery(document).ready(domo);
                                             <th data-field="jenis_pinjaman" data-sort="1" data-primary-key="0">
                                                 <?= cclang('jenis_pinjaman') ?></th>
                                             <!-- <th data-field="jaminan"data-sort="1" data-primary-key="0"> <?= cclang('jaminan') ?></th> -->
-                                            <th data-field="created_at" data-sort="1" data-primary-key="0">
-                                                <?= cclang('created_at') ?></th>
+                                            <!-- <th data-field="created_at" data-sort="1" data-primary-key="0">
+                                                <?= cclang('created_at') ?></th> -->
                                             <th data-field="updated_at" data-sort="1" data-primary-key="0">
                                                 <?= cclang('updated_at') ?></th>
                                             <th data-field="updated_by" data-sort="1" data-primary-key="0">
@@ -207,9 +207,9 @@ jQuery(document).ready(domo);
                                                     class="list_group-jenis_pinjaman"><?= _ent($pengajuan_kredit->jenis_pinjaman); ?></span>
                                             </td>
                                             <!-- <td><span class="list_group-jaminan"><?= _ent($pengajuan_kredit->jaminan); ?></span></td>  -->
-                                            <td><span
+                                            <!-- <td><span
                                                     class="list_group-created_at"><?= _ent($pengajuan_kredit->created_at); ?></span>
-                                            </td>
+                                            </td> -->
                                             <td><span
                                                     class="list_group-updated_at"><?= _ent($pengajuan_kredit->updated_at); ?></span>
                                             </td>

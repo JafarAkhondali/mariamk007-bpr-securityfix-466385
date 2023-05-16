@@ -5,7 +5,7 @@ class Model_pengajuan_kredit extends MY_Model {
 
     private $primary_key    = 'id';
     private $table_name     = 'pengajuan_kredit';
-    public $field_search   = ['nama_lengkap', 'file_ktp', 'no_hp', 'jumlah_pinjaman', 'jangka_waktu', 'jenis_pinjaman', 'jaminan', 'created_at', 'updated_at', 'updated_by', 'status'];
+    public $field_search   = ['nama_lengkap', 'file_ktp', 'no_hp', 'jumlah_pinjaman', 'jangka_waktu', 'jenis_pinjaman', 'created_at', 'updated_at', 'updated_by', 'status'];
     public $sort_option = ['id', 'DESC'];
     
     public function __construct()
