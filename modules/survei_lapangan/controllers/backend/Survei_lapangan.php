@@ -78,13 +78,18 @@ class Survei_lapangan extends Admin
 		
 		
 
+		$this->form_validation->set_rules('petugas_pemeriksa', 'Nama Petugas Pemeriksa', 'trim|required|max_length[50]');		
+
 		$this->form_validation->set_rules('jaminan_kredit', 'Jaminan Kredit', 'trim|required|max_length[255]');
 		
 
 		$this->form_validation->set_rules('lokasi_jaminan', 'Lokasi Jaminan', 'trim|required|max_length[255]');
-		
 
-		$this->form_validation->set_rules('situasi_jaminan', 'Situasi Jaminan', 'trim|required');
+		$this->form_validation->set_rules('informasi_harga_jaminan', 'Informasi Harga Jaminan', 'trim|required');
+
+		$this->form_validation->set_rules('situasi_jaminan', 'Deskripsi Jaminan', 'trim|required');
+		
+		$this->form_validation->set_rules('nilai_taksasi_jaminan', 'Nilai Taksasi Jaminan', 'trim|required');
 		
 
 		
@@ -92,9 +97,12 @@ class Survei_lapangan extends Admin
 		if ($this->form_validation->run()) {
 		
 			$save_data = [
+				'petugas_pemeriksa' => $this->input->post('petugas_pemeriksa'),
 				'jaminan_kredit' => $this->input->post('jaminan_kredit'),
 				'lokasi_jaminan' => $this->input->post('lokasi_jaminan'),
+				'informasi_harga_jaminan' => $this->input->post('informasi_harga_jaminan'),
 				'situasi_jaminan' => $this->input->post('situasi_jaminan'),
+				'nilai_taksasi_jaminan' => $this->input->post('nilai_taksasi_jaminan'),
 				'created_at' => date('Y-m-d H:i:s'),
 				'username' => $this->input->post('username'),
 				'status_layak' => $this->input->post('status_layak'),
@@ -180,22 +188,30 @@ class Survei_lapangan extends Admin
 				]);
 			exit;
 		}
-				$this->form_validation->set_rules('jaminan_kredit', 'Jaminan Kredit', 'trim|required|max_length[255]');
-		
+		$this->form_validation->set_rules('petugas_pemeriksa', 'Nama Petugas Pemeriksa', 'trim|required|max_length[50]');
+
+		$this->form_validation->set_rules('jaminan_kredit', 'Jaminan Kredit', 'trim|required|max_length[255]');
+
 
 		$this->form_validation->set_rules('lokasi_jaminan', 'Lokasi Jaminan', 'trim|required|max_length[255]');
 		
+		$this->form_validation->set_rules('informasi_harga_jaminan', 'Informasi Harga Jaminan', 'trim|required');
 
 		$this->form_validation->set_rules('situasi_jaminan', 'Situasi Jaminan', 'trim|required');
+		
+		$this->form_validation->set_rules('nilai_taksasi_jaminan', 'Nilai Taksasi Jaminan', 'trim|required');
 		
 
 		
 		if ($this->form_validation->run()) {
 		
 			$save_data = [
+				'petugas_pemeriksa' => $this->input->post('petugas_pemeriksa'),
 				'jaminan_kredit' => $this->input->post('jaminan_kredit'),
 				'lokasi_jaminan' => $this->input->post('lokasi_jaminan'),
+				'informasi_harga_jaminan' => $this->input->post('informasi_harga_jaminan'),
 				'situasi_jaminan' => $this->input->post('situasi_jaminan'),
+				'nilai_taksasi_jaminan' => $this->input->post('nilai_taksasi_jaminan'),
 				'username' => $this->input->post('username'),
 				'status_layak' => $this->input->post('status_layak'),
 			];

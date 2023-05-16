@@ -95,12 +95,21 @@ jQuery(document).ready(domo);
                                         <select type="text" class="form-control chosen chosen-select" name="f"
                                             id="field">
                                             <option value=""><?= cclang('all'); ?></option>
+                                            <option
+                                                <?= $this->input->get('f') == 'petugas_pemeriksa' ? 'selected' :''; ?>
+                                                value="petugas_pemeriksa">Nama Petugas Pemeriksa</option>
                                             <option <?= $this->input->get('f') == 'jaminan_kredit' ? 'selected' :''; ?>
                                                 value="jaminan_kredit">Jaminan Kredit</option>
                                             <option <?= $this->input->get('f') == 'lokasi_jaminan' ? 'selected' :''; ?>
                                                 value="lokasi_jaminan">Lokasi Jaminan</option>
+                                            <option
+                                                <?= $this->input->get('f') == 'informasi_harga_jaminan' ? 'selected' :''; ?>
+                                                value="informasi_harga_jaminan">Informasi Harga Jaminan</option>
                                             <option <?= $this->input->get('f') == 'situasi_jaminan' ? 'selected' :''; ?>
                                                 value="situasi_jaminan">Deskripsi Jaminan</option>
+                                            <option
+                                                <?= $this->input->get('f') == 'nilai_taksasi_jaminan' ? 'selected' :''; ?>
+                                                value="nilai_taksasi_jaminan">Nilai Taksasi Jaminan</option>
                                             <option <?= $this->input->get('f') == 'created_at' ? 'selected' :''; ?>
                                                 value="created_at">Created At</option>
                                             <option <?= $this->input->get('f') == 'username' ? 'selected' :''; ?>
@@ -140,12 +149,18 @@ jQuery(document).ready(domo);
                                                 <input type="checkbox" class="flat-red toltip" id="check_all"
                                                     name="check_all" title="check all">
                                             </th>
+                                            <th data-field="petugas_pemeriksa" data-sort="1" data-primary-key="0">
+                                                <?= cclang('petugas_pemeriksa') ?></th>
                                             <th data-field="jaminan_kredit" data-sort="1" data-primary-key="0">
                                                 <?= cclang('jaminan_kredit') ?></th>
                                             <th data-field="lokasi_jaminan" data-sort="1" data-primary-key="0">
                                                 <?= cclang('lokasi_jaminan') ?></th>
+                                            <th data-field="informasi_harga_jaminan" data-sort="1" data-primary-key="0">
+                                                <?= cclang('informasi_harga_jaminan') ?></th>
                                             <th data-field="situasi_jaminan" data-sort="1" data-primary-key="0">
                                                 <?= cclang('situasi_jaminan') ?></th>
+                                            <th data-field="nilai_taksasi_jaminan" data-sort="1" data-primary-key="0">
+                                                <?= cclang('nilai_taksasi_jaminan') ?></th>
                                             <th data-field="created_at" data-sort="1" data-primary-key="0">
                                                 <?= cclang('created_at') ?></th>
                                             <th data-field="username" data-sort="1" data-primary-key="0">
@@ -164,22 +179,39 @@ jQuery(document).ready(domo);
                                             </td>
 
                                             <td><span
+                                                    class="list_group-petugas_pemeriksa"><?= _ent($survei_lapangan->petugas_pemeriksa); ?></span>
+                                            </td>
+
+                                            <td><span
                                                     class="list_group-jaminan_kredit"><?= _ent($survei_lapangan->jaminan_kredit); ?></span>
                                             </td>
+
                                             <td><span
                                                     class="list_group-lokasi_jaminan"><?= _ent($survei_lapangan->lokasi_jaminan); ?></span>
                                             </td>
+
+                                            <td><span
+                                                    class="list_group-informasi_harga_jaminan"><?= _ent($survei_lapangan->informasi_harga_jaminan); ?></span>
+                                            </td>
+
                                             <td><span
                                                     class="list_group-situasi_jaminan"><?= _ent($survei_lapangan->situasi_jaminan); ?></span>
                                             </td>
+
+                                            <td><span
+                                                    class="list_group-nilai_taksasi_jaminan"><?= _ent($survei_lapangan->nilai_taksasi_jaminan); ?></span>
+                                            </td>
+
                                             <td><span
                                                     class="list_group-created_at"><?= _ent($survei_lapangan->created_at); ?></span>
                                             </td>
+
                                             <td><?= $survei_lapangan->username ?></td>
 
                                             <td><span
                                                     class="list_group-status_layak"><?= _ent($survei_lapangan->status_layak); ?></span>
                                             </td>
+
                                             <td width="200">
 
                                                 <?php is_allowed('survei_lapangan_view', function() use ($survei_lapangan){?>

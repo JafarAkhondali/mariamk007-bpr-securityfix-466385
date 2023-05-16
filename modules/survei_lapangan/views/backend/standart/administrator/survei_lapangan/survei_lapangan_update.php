@@ -59,7 +59,18 @@ jQuery(document).ready(domo);
                         $user_groups = $this->model_group->get_user_group_ids();
                         ?>
 
-
+                        <div class="form-group group-petugas_pemeriksa">
+                            <label for="petugas_pemeriksa" class="col-sm-2 control-label">Nama Petugas Pemeriksa <i
+                                    class="required">*</i>
+                            </label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" name="petugas_pemeriksa" id="petugas_pemeriksa"
+                                    placeholder=""
+                                    value="<?= set_value('petugas_pemeriksa', $survei_lapangan->petugas_pemeriksa); ?>">
+                                <small class="info help-block">
+                                    <b>Input Nama Petugas Pemeriksa</b> Max Length : 255.</small>
+                            </div>
+                        </div>
 
                         <div class="form-group group-jaminan_kredit  ">
                             <label for="jaminan_kredit" class="col-sm-2 control-label">Jaminan Kredit <i
@@ -90,7 +101,17 @@ jQuery(document).ready(domo);
                             </div>
                         </div>
 
-
+                        <div class="form-group group-informasi_harga_jaminan">
+                            <label for="informasi_harga_jaminan" class="col-sm-2 control-label">Informasi Harga Jaminan
+                                <i class="required">*</i>
+                            </label>
+                            <div class="col-sm-8">
+                                <textarea id="informasi_harga_jaminan" name="informasi_harga_jaminan" rows="10"
+                                    cols="109"> <?= set_value('informasi_harga_jaminan', $survei_lapangan->informasi_harga_jaminan); ?></textarea>
+                                <small class="info help-block">
+                                </small>
+                            </div>
+                        </div>
 
 
                         <div class="form-group group-situasi_jaminan  ">
@@ -105,7 +126,17 @@ jQuery(document).ready(domo);
                             </div>
                         </div>
 
-
+                        <div class="form-group group-nilai_taksasi_jaminan">
+                            <label for="nilai_taksasi_jaminan" class="col-sm-2 control-label">Nilai Taksasi Jaminan <i
+                                    class="required">*</i>
+                            </label>
+                            <div class="col-sm-8">
+                                <textarea id="nilai_taksasi_jaminan" name="nilai_taksasi_jaminan" rows="10"
+                                    cols="109"> <?= set_value('nilai_taksasi_jaminan', $survei_lapangan->nilai_taksasi_jaminan); ?></textarea>
+                                <small class="info help-block">
+                                </small>
+                            </div>
+                        </div>
 
 
                         <div class="form-group group-username">

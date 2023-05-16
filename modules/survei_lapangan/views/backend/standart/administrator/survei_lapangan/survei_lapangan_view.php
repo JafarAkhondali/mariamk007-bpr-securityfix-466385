@@ -52,6 +52,15 @@ jQuery(document).ready(domo);
                             </div>
 
                             <div class="form-group ">
+                                <label for="content" class="col-sm-2 control-label">Nama Petugas Pemeriksa</label>
+
+                                <div class="col-sm-8">
+                                    <span
+                                        class="detail_group-petugas_pemeriksa"><?= _ent($survei_lapangan->petugas_pemeriksa); ?></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
                                 <label for="content" class="col-sm-2 control-label">Jaminan Kredit </label>
 
                                 <div class="col-sm-8">
@@ -70,6 +79,15 @@ jQuery(document).ready(domo);
                             </div>
 
                             <div class="form-group ">
+                                <label for="content" class="col-sm-2 control-label">Informasi Harga Jaminan</label>
+
+                                <div class="col-sm-8">
+                                    <span
+                                        class="detail_group-informasi_harga_jaminan"><?= _ent($survei_lapangan->informasi_harga_jaminan); ?></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
                                 <label for="content" class="col-sm-2 control-label">Deskripsi Jaminan </label>
 
                                 <div class="col-sm-8">
@@ -79,10 +97,19 @@ jQuery(document).ready(domo);
                             </div>
 
                             <div class="form-group ">
+                                <label for="content" class="col-sm-2 control-label">Nilai Taksasi Jaminan </label>
+
+                                <div class="col-sm-8">
+                                    <span
+                                        class="detail_group-nilai_taksasi_jaminan"><?= _ent($survei_lapangan->nilai_taksasi_jaminan); ?></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group ">
                                 <label for="content" class="col-sm-2 control-label">Username </label>
 
                                 <div class="col-sm-8">
-                                    <?= _ent($survei_lapangan->artikel_judul_artikel); ?>
+                                    <?= _ent($survei_lapangan->username); ?>
                                 </div>
                             </div>
 
