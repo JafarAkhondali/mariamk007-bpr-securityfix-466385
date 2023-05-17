@@ -3,8 +3,6 @@
 <style type="text/css">
 i {
     font-size: 50px;
-    width: 40px;
-    height: 40px;
 }
 
 .tm-fa-6x {
@@ -16,7 +14,7 @@ i {
 }
 
 .tm-margin-b-20 {
-    margin-bottom: 20px;
+    margin-bottom: 3px;
 }
 
 .badge-lg {
@@ -211,7 +209,7 @@ h5 {
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
                             <div class="panel panel-default border border-success border-5"
-                                style="display:table;padding: 30px;border-color: #3c763d !important;height: 590px;">
+                                style="display:table;padding: 30px;border-color: #3c763d !important;height: 563px;">
                                 <div class="panel-body card-nganu" style="display: table-cell;vertical-align: middle;">
                                     <div class="row">
                                         <div class="col-lg-6" style="display:table;">
