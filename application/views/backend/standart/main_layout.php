@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="<?= BASE_ASSET ?>flag-icon/css/flag-icon.css" rel="stylesheet" media="all" />
     <link rel="stylesheet" href="<?= BASE_ASSET ?>css/font.css">
     <link rel="stylesheet" href="<?= BASE_ASSET ?>stepper/css/jquery.steps.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.33/sweetalert2.css" rel="stylesheet">
 
     <?= $this->cc_html->getCssFileTop(); ?>
 
@@ -56,6 +57,7 @@
     <script src="<?= BASE_ASSET ?>js/cc-page-element.js"></script>
     <script src="<?= BASE_ASSET ?>stepper/jquery.steps.min.js"></script>
     <script src="<?= BASE_ASSET ?>js/jquery.hotkeys.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.33/sweetalert2.css" rel="stylesheet">
 
     <script>
     "use strict";
@@ -72,7 +74,7 @@
       include(APPPATH . 'language/' . get_cookie('language') . '/irrigation_lang.php');
     }
     foreach ($lang as $key => $value) {
-      ?>
+    ?>
     _lang['<?= $key ?>'] = `<?= $value ?>`;
     <?php
     }
@@ -103,11 +105,11 @@
     <?= $this->cc_html->getScriptFileTop(); ?>
 </head>
 
-<body class="sidebar-mini skin-black fixed web-body sidebar-collapse>
-  <div class=" wrapper" id="app">
+<body class="sidebar-mini skin-black fixed web-body <?= get_user_data('is_featured') == 1 ? 'sidebar-collapse' : '' ?>">
+    <div class="wrapper" id="app">
 
-    <header class="main-header">
-        <?php
+        <header class="main-header">
+            <?php
       $logo = get_option('logo');
       if ($logo) {
         $logo = 'uploads/setting/' . get_option('logo');
@@ -119,193 +121,210 @@
       }
       ?>
 
-        <!-- <a href="<?= site_url('/'); ?>" class="logo">
+            <!-- <a href="<?= site_url('/'); ?>" class="logo">
         <span class="logo-mini"><b><img src="<?= BASE_ASSET ?>img/icon-small.png" height="40px"></b></span>
         <span class="logo-lg"><b><img src="<?= base_url($logo) ?>" height="40px"></b></span>
       </a> -->
-        <nav class="navbar navbar-static-top">
+            <nav class="navbar navbar-static-top">
 
-            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                <span class="sr-only">Toggle navigation</span>
-            </a>
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
 
-            <?php app()->load->model('user/model_user');
+                <?php app()->load->model('user/model_user');
         $count_notification = app()->model_user->count_notification($this->aauth->get_user()->username);
         $notification = app()->model_user->notification($this->aauth->get_user()->username);
         ?>
 
-            <?php if ($this->aauth->get_user()->is_featured == 1): ?>
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown notifications-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-bell-o"></i>
-                            <span
-                                style="<?= COUNT($count_notification) == 0 ? 'background: #ccc !important; color#fff !important;' : '' ?>"
-                                class="label label-<?= COUNT($count_notification) > 0 ? 'warning' : '' ?>">
-                                <?= COUNT($count_notification) ?>
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu">
+                <?php if ($this->aauth->get_user()->is_featured != 11) : ?>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span
+                                    style="<?= COUNT($count_notification) == 0 ? 'background: #ccc !important; color#fff !important;' : '' ?>"
+                                    class="label label-<?= COUNT($count_notification) > 0 ? 'warning' : '' ?>">
+                                    <?= COUNT($count_notification) ?>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
 
-                            <!-- <li class="header">
-                      <?= COUNT($count_notification) ?> Notification
+                                <!-- <li class="header">
+                    <?= COUNT($count_notification) ?> Notification
                   </li> -->
-                            <li>
-                                <ul class="menu">
-                                    <?php foreach ($notification as $notif): ?>
-                                    <li>
-                                        <a href="#" data-page="<?= base_url('/administrator/pengajuan_kredit/user') ?>"
-                                            data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
-                                            class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
-                                            id="mark-all-as-read-button">
-                                            <i class="fa fa-circle-o text-aqua"></i>
-                                            <?= $notif->title ?>
-                                        </a>
-                                    </li>
-                                    <?php endforeach ?>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
+                                <li>
+                                    <ul class="menu">
+                                        <?php foreach ($notification as $notif) : ?>
+                                        <?php
+                        if ($this->session->userdata('id') == "management") { ?>
+                                        <li>
+                                            <a href="#"
+                                                data-page="<?= base_url('/administrator/pengajuan_kredit/view/' . $notif->url) ?>"
+                                                data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
+                                                class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
+                                                id="mark-all-as-read-button">
+                                                <i class="fa fa-circle-o text-aqua"></i>
+                                                <?= $notif->title ?>
+                                            </a>
+                                        </li>
+                                        <?php } else { ?>
+                                        <li>
+                                            <a href="#"
+                                                data-page="<?= base_url('/administrator/pengajuan_kredit/user') ?>"
+                                                data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
+                                                class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
+                                                id="mark-all-as-read-button">
+                                                <i class="fa fa-circle-o text-aqua"></i>
+                                                <?= $notif->title ?>
+                                            </a>
+                                        </li>
+                                        <?php } ?>
+                                        <?php endforeach ?>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
 
-                    <script type="text/javascript">
-                    var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
-                    var token = '<?= $this->security->get_csrf_hash(); ?>';
-                    var notif = document.getElementById('mark-all-as-read-button');
-                    var id = notif.getAttribute('data-id');
-                    var username = notif.getAttribute('data-username');
-                    var page = notif.getAttribute('data-page');
-                    $(document).ready(function() {
-                        $('body').on('click', '#mark-all-as-read-button', function(e) {
-                            e.stopPropagation();
-                            e.preventDefault();
+                        <script type="text/javascript">
+                        var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
+                        var token = '<?= $this->security->get_csrf_hash(); ?>';
+                        var notif = document.getElementById('mark-all-as-read-button');
+                        var id = notif.getAttribute('data-id');
+                        var username = notif.getAttribute('data-username');
+                        var page = notif.getAttribute('data-page');
+                        $(document).ready(function() {
+                            $('body').on('click', '#mark-all-as-read-button', function(e) {
+                                e.stopPropagation();
+                                e.preventDefault();
 
-                            $.ajax({
-                                url: '<?= BASE_URL ?>' +
-                                    "web/set_notification_status_as_read/" + username,
-                                type: 'post',
-                                dataType: 'json',
-                                data: {
-                                    '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
-                                },
-                                complete: function() {
-                                    $(".unread-notification").removeClass(
-                                        "unread-notification");
-                                    window.location.href = page
-                                }
+                                $.ajax({
+                                    url: '<?= BASE_URL ?>' +
+                                        "web/set_notification_status_as_read/" + username,
+                                    type: 'post',
+                                    dataType: 'json',
+                                    data: {
+                                        '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                                    },
+                                    complete: function() {
+                                        $(".unread-notification").removeClass(
+                                            "unread-notification");
+                                        window.location.href = page
+                                    }
+                                });
                             });
                         });
-                    });
-                    </script>
-            </div>
-            <?php endif ?>
+                        </script>
+                </div>
+                <?php endif ?>
 
-            <?php if ($this->aauth->get_user()): ?>
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
+                <?php if ($this->aauth->get_user()) : ?>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
 
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
-                                class="user-image" alt="User Image">
-                            <span class="hidden-xs">
-                                <?= _ent(ucwords(clean_snake_case(get_user_data('full_name')))); ?>
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="user-header">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
-                                    class="img-circle" alt="User Image">
+                                    class="user-image" alt="User Image">
+                                <span class="hidden-xs">
+                                    <?= _ent(ucwords(clean_snake_case(get_user_data('full_name')))); ?>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
+                                    <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
+                                        class="img-circle" alt="User Image">
 
-                                <p>
-                                    <?= _ent(ucwords(clean_snake_case($this->aauth->get_user()->full_name))); ?>
-                                    <small>Last Login,
-                                        <?= date('Y-M-D', strtotime(get_user_data('last_login'))); ?>
-                                    </small>
-                                </p>
-                            </li>
+                                    <p>
+                                        <?= _ent(ucwords(clean_snake_case($this->aauth->get_user()->full_name))); ?>
+                                        <small>Last Login,
+                                            <?= date('Y-M-D', strtotime(get_user_data('last_login'))); ?>
+                                        </small>
+                                    </p>
+                                </li>
 
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <?php if (get_user_data('is_featured') == 0): ?>
-                                    <a href="<?= site_url('administrator/user/profile'); ?>"
-                                        class="btn btn-default btn-flat"><?= cclang('profile'); ?></a>
-                                    <?php endif ?>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="<?= site_url('administrator/auth/logout'); ?>"
-                                        class="btn btn-default btn-flat"><?= cclang('sign_out'); ?></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- <li class="dropdown ">
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <?php if (get_user_data('is_featured') == 0) : ?>
+                                        <a href="<?= site_url('administrator/user/profile'); ?>"
+                                            class="btn btn-default btn-flat"><?= cclang('profile'); ?></a>
+                                        <?php endif ?>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="<?= site_url('administrator/auth/logout'); ?>"
+                                            class="btn btn-default btn-flat"><?= cclang('sign_out'); ?></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- <li class="dropdown ">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                   <span class="flag-icon <?= get_current_initial_lang(); ?>"></span> <?= get_current_lang(); ?> </a>
                 <ul class="dropdown-menu" role="menu">
-                      <?php foreach (get_langs() as $lang): ?>
+                    <?php foreach (get_langs() as $lang) : ?>
                     <li><a href="<?= site_url('web/switch_lang/' . $lang['folder_name']); ?>"><span class="flag-icon <?= $lang['icon_name']; ?>"></span> <?= $lang['name']; ?></a></li>
-                      <?php endforeach; ?>
+                    <?php endforeach; ?>
                 </ul>
               </li> -->
+                    </ul>
+                </div>
+                <?php endif ?>
+
+            </nav>
+        </header>
+        <div class="flash-data-berhasil" data-berhasil="<?= $this->session->flashdata('success'); ?>">
+        </div>
+        <div class="flash-data-gagal" data-gagal="<?= $this->session->flashdata('error'); ?>"></div>
+        <?php if (get_user_data('is_featured') == 0) : ?>
+        <aside class="main-sidebar">
+            <section class="sidebar sidebar-admin">
+                <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
+                    <?= display_menu_admin(0, 1); ?>
                 </ul>
-            </div>
-            <?php endif ?>
+            </section>
+        </aside>
+        <!-- <?php endif; ?> -->
+        <?php if (get_user_data('is_featured') == 1): ?>
+        <aside class="main-sidebar">
+            <section class="sidebar sidebar-admin">
+                <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
+                    <li class="header treeview">MENU</li>
+                    <li class=" ">
+                        <a href="<?= base_url(); ?>administrator/pengajuan_kredit/user" data-original-title=""
+                            title=""><i class="fa fa-clone default"></i> <span>Data Pengajuan Kredit</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+        <?php endif; ?>
 
-        </nav>
-    </header>
+        <div class="content-wrapper">
+            <?php cicool()->eventListen('backend_content_top'); ?>
+            <?= $template['partials']['content']; ?>
+            <?php cicool()->eventListen('backend_content_bottom'); ?>
 
-    <?php if (get_user_data('is_featured') == 0): ?>
-    <aside class="main-sidebar">
-        <section class="sidebar sidebar-admin">
-            <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
-                <?= display_menu_admin(0, 1); ?>
-            </ul>
-        </section>
-    </aside>
-    <?php endif; ?>
-    <?php if (get_user_data('is_featured') == 1): ?>
-    <aside class="main-sidebar">
-        <section class="sidebar sidebar-admin">
-            <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
-                <li class="header treeview">MENU</li>
-                <li class=" ">
-                    <a href="<?= base_url(); ?>administrator/pengajuan_kredit/user" data-original-title="" title=""><i
-                            class="fa fa-clone default"></i> <span>Data Pengajuan Kredit</span>
-                        <span class="pull-right-container">
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </section>
-    </aside>
-    <?php endif; ?>
+            <div class="modal fade  " id="modalPopUp">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title"> <span class="popup-title"></span></h4>
+                        </div>
+                        <div class="modal-body">
 
-    <div class="content-wrapper">
-        <?php cicool()->eventListen('backend_content_top'); ?>
-        <?= $template['partials']['content']; ?>
-        <?php cicool()->eventListen('backend_content_bottom'); ?>
-
-        <div class="modal fade  " id="modalPopUp">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title"> <span class="popup-title"></span></h4>
-                    </div>
-                    <div class="modal-body">
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- <footer class="main-footer">
+        <!-- <footer class="main-footer">
       <div class="pull-right hidden-xs">
         <b><?= cclang('version') ?></b> <?= VERSION ?>
       </div>
@@ -313,7 +332,7 @@
       reserved.
     </footer> -->
 
-    <div class="control-sidebar-bg"></div>
+        <div class="control-sidebar-bg"></div>
     </div>
 
     <?= $this->cc_html->getHtmlFileBottom(); ?>
@@ -332,6 +351,29 @@
     <script src="<?= BASE_ASSET ?>js-scroll/script/jquery.jscrollpane.min.js"></script>
     <script src="<?= BASE_ASSET ?>jquery-switch-button/jquery.switchButton.js"></script>
     <script src="<?= BASE_ASSET ?>js/custom.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script>
+    const flashDataSuccess = $('.flash-data-berhasil').data('berhasil');
+    const flashDataError = $('.flash-data-gagal').data('gagal');
+
+    if (flashDataSuccess) {
+        Swal.fire({
+            title: 'Berhasil',
+            text: flashDataSuccess,
+            icon: 'success',
+            allowOutsideClick: false,
+            timer: 1500
+        });
+    }
+    if (flashDataError) {
+        Swal.fire({
+            title: 'Gagal',
+            text: flashDataError,
+            icon: 'error',
+            allowOutsideClick: false
+        });
+    }
+    </script>
 </body>
 
 </html>

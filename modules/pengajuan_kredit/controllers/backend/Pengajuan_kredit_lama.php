@@ -28,7 +28,7 @@ class Pengajuan_kredit extends Admin
 	 */
 	public function index($offset = 0)
 	{
-		// $this->is_allowed('pengajuan_kredit_list');
+		$this->is_allowed('pengajuan_kredit_list');
 
 		$filter = $this->input->get('q');
 		$field = $this->input->get('f');
@@ -131,7 +131,7 @@ class Pengajuan_kredit extends Admin
 		$this->form_validation->set_rules('pengajuan_kredit_file_rekening_listrik_name', 'File REKENING LISTRIK', 'trim|required');
 		$this->form_validation->set_rules('pengajuan_kredit_file_pbb_stnk_name', 'File PBB/STNK', 'trim|required');
 
-		$this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|max_length[250]');
+		// $this->form_validation->set_rules('nama_lengkap', 'Nama Lengkap', 'trim|required|max_length[250]');
 		$this->form_validation->set_rules('no_hp', 'No Hp', 'trim|required|max_length[12]');
 		$this->form_validation->set_rules('jumlah_pinjaman', 'Jumlah Pinjaman', 'trim|required|max_length[15]');
 		$this->form_validation->set_rules('jangka_waktu', 'Jangka Waktu', 'trim|required|max_length[50]');
@@ -165,12 +165,12 @@ class Pengajuan_kredit extends Admin
 
 			$pengajuan_kredit_file_rekening_listrik_uuid = $this->input->post('pengajuan_kredit_file_rekening_listrik_uuid');
 			$pengajuan_kredit_file_rekening_listrik_name = $this->input->post('pengajuan_kredit_file_rekening_listrik_name');
-
+			
 			$pengajuan_kredit_file_pbb_stnk_uuid = $this->input->post('pengajuan_kredit_file_pbb_stnk_uuid');
 			$pengajuan_kredit_file_pbb_stnk_name = $this->input->post('pengajuan_kredit_file_pbb_stnk_name');
-
+			
 			$save_data = [
-				'nama_lengkap' => $this->input->post('nama_lengkap'),
+				'nama_lengkap' => get_user_data('full_name'),
 				'no_hp' => $this->input->post('no_hp'),
 				'jumlah_pinjaman' => $this->input->post('jumlah_pinjaman'),
 				'jangka_waktu' => $this->input->post('jangka_waktu'),
@@ -451,6 +451,7 @@ class Pengajuan_kredit extends Admin
 					$this->data['redirect'] = base_url('administrator/pengajuan_kredit');
 				}
 			}
+
 		} else {
 			$this->data['success'] = false;
 			$this->data['message'] = 'Opss validation failed';
@@ -529,7 +530,7 @@ class Pengajuan_kredit extends Admin
 			];
 
 			$data = [
-				'title' => $this->input->post('status') === 'ditolak' ? 'Maaf pengajuan kredit anda ditolak, silahkan hubungi customer service untuk penjelasan detail' : 'Selamat pengajuan kredit anda berhasil, hubungi customer service untuk keterangan lebih lanjut.',
+				'title' => $this->input->post('status') === 'ditolak' ? 'Maaf pengajuan kredit anda ditolak, silahkan hubungi customer service untuk penjelasan detail' : 'Selamat pengajuan kredit anda telah diterima, hubungi customer service untuk keterangan lebih lanjut.',
 				'content' => '-',
 				'url' => '#',
 				'read' => 0,
@@ -579,7 +580,8 @@ class Pengajuan_kredit extends Admin
 					]);
 				} else {
 					set_message(
-						cclang('success_update_data_redirect', []),
+						cclang('success_update_data_redirect', [
+						]),
 						'success'
 					);
 
@@ -967,7 +969,7 @@ class Pengajuan_kredit extends Admin
 			'delete_endpoint' => 'administrator/pengajuan_kredit/delete_file_photo_file'
 		]);
 	}
-
+	
 	/**
 	 * Upload Image Pengajuan Kredit	* 
 	 * @return JSON
@@ -1412,7 +1414,7 @@ class Pengajuan_kredit extends Admin
 		]);
 	}
 
-
+	
 
 
 	/**
@@ -1476,6 +1478,8 @@ class Pengajuan_kredit extends Admin
 		$this->pdf->writeHTML($content);
 		$this->pdf->Output($table . '.pdf', 'H');
 	}
+
+
 }
 
 

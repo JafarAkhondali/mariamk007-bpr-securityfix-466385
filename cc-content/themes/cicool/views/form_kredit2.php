@@ -226,7 +226,7 @@
                         <div id="msform">
                             <ul id="progressbar">
                                 <li class="active" id="account"><strong>Mengisi Formulir</strong></li>
-                                <li id="personal"><strong>Pilihan Kredit</strong></li>
+                                <li class="active" id="personal"><strong>Pilihan Kredit</strong></li>
                                 <li id="payment"><strong>Dokumen Persyaratan</strong></li>
                                 <li id="confirm"><strong>Dokumen Pelengkap</strong></li>
                             </ul>
@@ -235,62 +235,35 @@
                                     aria-valuemin="0" aria-valuemax="100"></div>
                             </div> <br> <!-- fieldsets -->
                             <fieldset>
-                                <form method="post" action="<?= base_url('web/ajukan_kredit') ?>">
-                                    <div class="form-card">
-                                        <div class="row">
-                                            <div class="col-7">
-                                                <h2 class="fs-title">Mengisi Formulir</h2>
-                                            </div>
-                                            <div class="col-5">
-                                                <h2 class="steps">Step 1 - 4</h2>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nama">Nama Lengkap <i class="required">*</i>
-                                            </label>
-                                            <input type="text" class="form-control" name="nama" id="nama"
-                                                placeholder="Nama Lengkap" value="<?= set_value('nama_lengkap'); ?>"
-                                                required>
-                                            <?php echo form_error('nama', '<span class="text-danger">', '</span>'); ?>
+                                <div class="row">
+                                    <?php
+                                    $daftarkredit = $this->db->get('kredit')->result();
+                                    foreach ($daftarkredit as $kredit) {
+                                    ?>
+                                    <form method="post" action="<?= base_url('web/ajukan_kredit2') ?>">
 
+                                        <div class="col-md-6 col-6" style="margin-bottom:25px">
+                                            <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+                                                <input type="hidden" name="idkredit" value="<?= $kredit->id ?>">
+                                                <div class="card-body" style="padding: 15px;">
+                                                    <img src="<?= base_url('uploads/kredit/' . $kredit->photo) ?>"
+                                                        width="100%">
+                                                    <br>
+                                                    <br>
+                                                    <button type="submit" class="btn btn btn-success">Ajukan Kredit
+                                                        <?= strtoupper($kredit->nama_kredit) ?></button>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="alamat">Alamat <i class="required">*</i>
-                                            </label>
-                                            <textarea class="form-control" name="alamat" id="nama_lengkap"
-                                                placeholder="Alamat" rows="3" required></textarea>
-                                        </div>
-                                        <div class="form-group group-no_hp ">
-                                            <label for="no_hp">No Hp <i class="required">*</i>
-                                            </label>
-                                            <input type="text" class="form-control" name="nohp" id="nohp"
-                                                placeholder="No Hp" value="<?= set_value('nohp'); ?>" required>
-                                        </div>
-                                        <div class="form-group group-no_hp ">
-                                            <label for="usia">Usia<i class="required">*</i>
-                                            </label>
-                                            <input type="number" class="form-control" name="usia" id="usia"
-                                                placeholder="Usia" value="<?= set_value('usia'); ?>" required>
-                                        </div>
-                                        <div class="form-group group-jangka_waktu ">
-                                            <label for="jangkawaktu">Jangka Waktu <i class="required">*</i>
-                                            </label>
-                                            <input type="text" class="form-control" name="jangkawaktu" id="jangkawaktu"
-                                                placeholder="Jangka Waktu" value="<?= set_value('jangkawaktu'); ?>"
-                                                required>
-                                        </div>
-                                        <div class="form-group group-jumlahpinjaman ">
-                                            <label for="jumlahpinjaman">Jumlah Pinjaman <i class="required">*</i>
-                                            </label>
-                                            <input type="number" class="form-control" name="jumlahpinjaman"
-                                                id="jumlahpinjaman" placeholder="Jumlah Pinjaman"
-                                                value="<?= set_value('jumlahpinjaman'); ?>" required>
-                                        </div>
-                                    </div>
-                                    <!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
-                                    <button class="btn btn btn-success pull-right" type="submit">Selanjutnya</button>
-                                </form>
+                                    </form>
+
+                                    <?php } ?>
+                                </div>
+                                <!-- <div class="pull-right">
+                                    <a href="<?= base_url('web/ajukan_kredit') ?>" class="btn btn-danger">Sebelumnya</a>
+                                </div> -->
                             </fieldset>
+
                         </div>
                     </div>
                 </div>
@@ -302,7 +275,7 @@
             var current_fs, next_fs, previous_fs; //fieldsets
             var opacity;
             var current = 1;
-            var steps = 4;
+            var steps = 2;
             setProgressBar(current);
             $(".next").click(function() {
                 current_fs = $(this).parent();

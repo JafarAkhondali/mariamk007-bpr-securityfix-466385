@@ -116,9 +116,351 @@ class Web extends Front
     {
         $this->data['simulasi_kredits'] = $this->model_simulasi_kredit->get();
         $this->template->build('form_kredit',$this->data);
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+        if ($this->form_validation->run()) {
+            $session = array(
+                "tahapan" => 1,
+                "nama" => $this->input->post('nama'),
+                "alamat" => $this->input->post('alamat'),
+                "nohp" => $this->input->post('nohp'),
+                "usia" => $this->input->post('usia'),
+                "jangkawaktu" => $this->input->post('jangkawaktu'),
+                "jumlahpinjaman" => $this->input->post('jumlahpinjaman'),
+            );
+            $this->session->set_userdata($session);
+            redirect(base_url('web/ajukan_kredit2'));
+        } else {
+            $this->template->build('form_kredit');
+        }
 
     }
 
+    public function ajukan_kredit2()
+    {
+        $this->form_validation->set_rules('idkredit', 'Id Kredit', 'required');
+        $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+        if ($this->form_validation->run()) {
+            $session = array(
+                "tahapan" => 2,
+                "idkredit" => $this->input->post('idkredit'),
+            );
+            $this->session->set_userdata($session);
+            redirect(base_url('web/ajukan_kredit3'));
+        } else {
+            $this->template->build('form_kredit2');
+        }
+    }
+
+    public function ajukan_kredit3()
+    {
+        $this->form_validation->set_rules('idkredit', 'ID Kredit', 'required');
+        // $this->form_validation->set_rules('file_photo', 'Pas Foto', 'required|callback_validate_file');
+
+        $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+        if ($this->form_validation->run()) {
+            $session = array(
+                "tahapan" => 3,
+            );
+            if (!empty($_FILES)) {
+                $config['upload_path']          = getcwd() . '/uploads/pengajuan_kredit/';
+                $config['allowed_types']        = '*';
+                $config['encrypt_name']         = true;
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                if ($this->session->userdata('idkredit') == 1) {
+                    if ($this->upload->do_upload('file_photo')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_photo'] = $filename;
+                    } else {
+                        $session['file_photo'] = "";
+                    }
+                    if ($this->upload->do_upload('file_ktp')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_ktp'] = $filename;
+                    } else {
+                        $session['file_ktp'] = "";
+                    }
+                    if ($this->upload->do_upload('file_kk')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_kk'] = $filename;
+                    } else {
+                        $session['file_kk'] = "";
+                    }
+                    if ($this->upload->do_upload('file_surat_nikah')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_surat_nikah'] = $filename;
+                    } else {
+                        $session['file_surat_nikah'] = "";
+                    }
+                    if ($this->upload->do_upload('jaminan')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['jaminan'] = $filename;
+                    } else {
+                        $session['jaminan'] = "";
+                    }
+                    if ($this->upload->do_upload('file_jaminan')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_jaminan'] = $filename;
+                    } else {
+                        $session['file_jaminan'] = "";
+                    }
+                }
+                if ($this->session->userdata('idkredit') == 2) {
+                    if ($this->upload->do_upload('file_photo')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_photo'] = $filename;
+                    } else {
+                        $session['file_photo'] = "";
+                    }
+                    if ($this->upload->do_upload('file_ktp')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_ktp'] = $filename;
+                    } else {
+                        $session['file_ktp'] = "";
+                    }
+                    if ($this->upload->do_upload('file_kk')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_kk'] = $filename;
+                    } else {
+                        $session['file_kk'] = "";
+                    }
+                    if ($this->upload->do_upload('file_surat_nikah')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_surat_nikah'] = $filename;
+                    } else {
+                        $session['file_surat_nikah'] = "";
+                    }
+                    if ($this->upload->do_upload('jaminan')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['jaminan'] = $filename;
+                    } else {
+                        $session['jaminan'] = "";
+                    }
+                    if ($this->upload->do_upload('file_jaminan')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_jaminan'] = $filename;
+                    } else {
+                        $session['file_jaminan'] = "";
+                    }
+                    if ($this->upload->do_upload('file_sku')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_sku'] = $filename;
+                    } else {
+                        $session['file_sku'] = "";
+                    }
+                    if ($this->upload->do_upload('file_skp')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_skp'] = $filename;
+                    } else {
+                        $session['file_skp'] = "";
+                    }
+                }
+                if ($this->session->userdata('idkredit') == 3) {
+                    if ($this->upload->do_upload('file_photo')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_photo'] = $filename;
+                    } else {
+                        $session['file_photo'] = "";
+                    }
+                    if ($this->upload->do_upload('file_ktp')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_ktp'] = $filename;
+                    } else {
+                        $session['file_ktp'] = "";
+                    }
+                    if ($this->upload->do_upload('file_kk')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_kk'] = $filename;
+                    } else {
+                        $session['file_kk'] = "";
+                    }
+                    if ($this->upload->do_upload('file_surat_nikah')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_surat_nikah'] = $filename;
+                    } else {
+                        $session['file_surat_nikah'] = "";
+                    }
+                    if ($this->upload->do_upload('jaminan')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['jaminan'] = $filename;
+                    } else {
+                        $session['jaminan'] = "";
+                    }
+                    if ($this->upload->do_upload('file_jaminan')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_jaminan'] = $filename;
+                    } else {
+                        $session['file_jaminan'] = "";
+                    }
+                    if ($this->upload->do_upload('file_buktipenghasilan')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_buktipenghasilan'] = $filename;
+                    } else {
+                        $session['file_buktipenghasilan'] = "";
+                    }
+                }
+                if ($this->session->userdata('idkredit') == 4) {
+                    if ($this->upload->do_upload('file_photo')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_photo'] = $filename;
+                    } else {
+                        $session['file_photo'] = "";
+                    }
+                    if ($this->upload->do_upload('file_ktp')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_ktp'] = $filename;
+                    } else {
+                        $session['file_ktp'] = "";
+                    }
+                    if ($this->upload->do_upload('file_kk')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_kk'] = $filename;
+                    } else {
+                        $session['file_kk'] = "";
+                    }
+                    if ($this->upload->do_upload('file_surat_nikah')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_surat_nikah'] = $filename;
+                    } else {
+                        $session['file_surat_nikah'] = "";
+                    }
+                    if ($this->upload->do_upload('jaminan')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['jaminan'] = $filename;
+                    } else {
+                        $session['jaminan'] = "";
+                    }
+                    if ($this->upload->do_upload('file_jaminan')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_jaminan'] = $filename;
+                    } else {
+                        $session['file_jaminan'] = "";
+                    }
+                    if ($this->upload->do_upload('file_buktipenghasilan')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_buktipenghasilan'] = $filename;
+                    } else {
+                        $session['file_buktipenghasilan'] = "";
+                    }
+                    if ($this->upload->do_upload('file_slipgaji')) {
+                        $dataupload = array('upload_data' => $this->upload->data());
+                        $filename = $dataupload['upload_data']['file_name'];
+                        $session['file_slipgaji'] = $filename;
+                    } else {
+                        $session['file_slipgaji'] = "";
+                    }
+                }
+            }
+            $this->session->set_userdata($session);
+            redirect(base_url('web/ajukan_kredit4'));
+        } else {
+            $this->template->build('form_kredit3');
+        }
+    }
+
+    public function ajukan_kredit4()
+    {
+        $this->form_validation->set_rules('idkredit', 'Id Kredit', 'required');
+        $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
+        $kredit = $this->db->where('id', $this->session->userdata('idkredit'))->get('kredit')->row();
+        $jenis_pinjaman = $kredit->nama_kredit;
+        if ($this->form_validation->run()) {
+            $simpan = array(
+                "nama_lengkap" => $this->session->userdata('nama'),
+                "alamat" => $this->session->userdata('alamat'),
+                "no_hp" => $this->session->userdata('nohp'),
+                "usia" => $this->session->userdata('usia'),
+                "jangka_waktu" => $this->session->userdata('jangkawaktu'),
+                "jumlah_pinjaman" => $this->session->userdata('jumlahpinjaman'),
+                "jenis_pinjaman" => $jenis_pinjaman,
+                "file_ktp" => $this->session->userdata('file_ktp'),
+                "file_sku" => $this->session->userdata('file_sku'),
+                "file_skp" => $this->session->userdata('file_skp'),
+                "file_photo" => $this->session->userdata('file_photo'),
+                "file_ktp_istri" => $this->session->userdata('file_ktp_istri'),
+                "file_kk" => $this->session->userdata('file_kk'),
+                "file_surat_nikah" => $this->session->userdata('file_surat_nikah'),
+                "jaminan" => $this->session->userdata('jaminan'),
+                "file_jaminan" => $this->session->userdata('file_jaminan'),
+                "file_rekening_listrik" => $this->session->userdata('file_rekening_listrik'),
+                "file_pbb_stnk" => $this->session->userdata('file_pbb_stnk'),
+                "file_laporankeuangan" => $this->session->userdata('file_laporankeuangan'),
+                "file_buktipenghasilan" => $this->session->userdata('file_buktipenghasilan'),
+                "file_slipgaji" => $this->session->userdata('file_slipgaji'),
+                'username' => $this->session->userdata('username'),
+                'status' => 'menunggu',
+            );
+            if (!empty($_FILES)) {
+                $config['upload_path']          = getcwd() . '/uploads/pengajuan_kredit/';
+                $config['allowed_types']        = '*';
+                // $config['allowed_types']        = '*';
+                $config['encrypt_name']         = true;
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                if ($this->upload->do_upload('file_rekening_listrik')) {
+                    $dataupload = array('upload_data' => $this->upload->data());
+                    $filename = $dataupload['upload_data']['file_name'];
+                    $simpan['file_rekening_listrik'] = $filename;
+                }
+                if ($this->upload->do_upload('file_pbb_stnk')) {
+                    $dataupload = array('upload_data' => $this->upload->data());
+                    $filename = $dataupload['upload_data']['file_name'];
+                    $simpan['file_pbb_stnk'] = $filename;
+                }
+                if ($this->upload->do_upload('file_laporankeuangan')) {
+                    $dataupload = array('upload_data' => $this->upload->data());
+                    $filename = $dataupload['upload_data']['file_name'];
+                    $simpan['file_laporankeuangan'] = $filename;
+                }
+            }
+            $this->db->insert('pengajuan_kredit', $simpan);
+            $idkredit = $this->db->insert_id();
+            $data = [
+                'title' => 'Pengajuan baru ' . $jenis_pinjaman . ' atas nama : ' . $this->session->userdata('nama'),
+                'content' => '-',
+                'url' => $idkredit,
+                'read' => 0,
+                'username' => 'admin',
+            ];
+
+            $this->db->insert('notification', $data);
+            $this->session->set_flashdata('success', 'Pengajuan Kredit anda berhasil di simpan, mohon menunggu konfirmasi admin');
+
+            redirect(base_url('administrator/pengajuan_kredit/user'));
+        } else {
+            $this->template->build('form_kredit4');
+        }
+    }
+    
     public function profil()
     {
         $this->data['pegawais'] = $this->model_pegawai->get_by_featured();
