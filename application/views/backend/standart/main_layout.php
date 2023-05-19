@@ -155,19 +155,19 @@
                                 <li>
                                     <ul class="menu">
                                         <?php foreach ($notification as $notif): ?>
-                                            <?php
-                                            if ($this->aauth->get_user()->id == 1) { ?>
+                                            <?php if (get_user_data('is_featured') == 0): ?>
                                                 <li>
-                                                    <a href="<?= base_url('/administrator/pengajuan_kredit/view/' . $notif->url) ?>"
-                                                        data-username="<?= $notif->username ?>"
-                                                        data-id="<?= $notif->id ?>"
+                                                    <a href=""
+                                                        data-page="<?= base_url('/administrator/pengajuan_kredit/view/' . $notif->url) ?>"
+                                                        data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
                                                         class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
                                                         id="mark-all-as-read-button-admin">
                                                         <i class="fa fa-circle-o text-aqua"></i>
                                                         <?= $notif->title ?>
                                                     </a>
                                                 </li>
-                                            <?php } if ($this->aauth->get_user()->is_featured == 1) { ?>
+                                            <?php endif ?>
+                                            <?php if (get_user_data('is_featured') == 1): ?>
                                                 <li>
                                                     <a href="#"
                                                         data-page="<?= base_url('/administrator/pengajuan_kredit/user') ?>"
@@ -178,7 +178,7 @@
                                                         <?= $notif->title ?>
                                                     </a>
                                                 </li>
-                                            <?php } ?>
+                                            <?php endif ?>
                                         <?php endforeach ?>
                                     </ul>
                                 </li>
@@ -194,6 +194,36 @@
                             var page = notif.getAttribute('data-page');
                             $(document).ready(function () {
                                 $('body').on('click', '#mark-all-as-read-button', function (e) {
+                                    e.stopPropagation();
+                                    e.preventDefault();
+
+                                    $.ajax({
+                                        url: '<?= BASE_URL ?>' +
+                                            "web/set_notification_status_as_read/" + username,
+                                        type: 'post',
+                                        dataType: 'json',
+                                        data: {
+                                            '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                                        },
+                                        complete: function () {
+                                            $(".unread-notification").removeClass(
+                                                "unread-notification");
+                                            window.location.href = page
+                                        }
+                                    });
+                                });
+                            });
+                        </script>
+
+                        <script type="text/javascript">
+                            var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
+                            var token = '<?= $this->security->get_csrf_hash(); ?>';
+                            var notif = document.getElementById('mark-all-as-read-button-admin');
+                            var id = notif.getAttribute('data-id');
+                            var username = notif.getAttribute('data-username');
+                            var page = notif.getAttribute('data-page');
+                            $(document).ready(function () {
+                                $('body').on('click', '#mark-all-as-read-button-admin', function (e) {
                                     e.stopPropagation();
                                     e.preventDefault();
 

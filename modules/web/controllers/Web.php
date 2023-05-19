@@ -450,7 +450,7 @@ class Web extends Front
                 'content' => '-',
                 'url' => $idkredit,
                 'read' => 0,
-                'username' => 'admin',
+                'username' => 'management',
 				'created_at' => date('Y-m-d H:i:s'),
             ];
 
