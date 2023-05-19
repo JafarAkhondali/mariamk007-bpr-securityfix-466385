@@ -522,7 +522,7 @@ class Pengajuan_kredit extends Admin
 				// 'jangka_waktu' => $this->input->post('jangka_waktu'),
 				// 'jenis_pinjaman' => $this->input->post('jenis_pinjaman'),
 				// 'jaminan' => $this->input->post('jaminan'),
-				'updated_at' => $this->input->post('updated_at'),
+				'updated_at' => date('Y-m-d H:i:s'),
 				'updated_by' => get_user_data('username'),
 				'username' => $this->input->post('username'),
 				'status' => $this->input->post('status'),

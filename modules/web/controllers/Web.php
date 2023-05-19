@@ -125,8 +125,8 @@ class Web extends Front
                 "alamat" => $this->input->post('alamat'),
                 "nohp" => $this->input->post('nohp'),
                 "usia" => $this->input->post('usia'),
-                "jangkawaktu" => $this->input->post('jangkawaktu'),
-                "jumlahpinjaman" => $this->input->post('jumlahpinjaman'),
+                "jangka_waktu" => $this->input->post('jangka_waktu'),
+                "jumlah_pinjaman" => $this->input->post('jumlah_pinjaman'),
             );
             $this->session->set_userdata($session);
             redirect(base_url('web/ajukan_kredit2'));
@@ -399,8 +399,8 @@ class Web extends Front
                 "alamat" => $this->session->userdata('alamat'),
                 "no_hp" => $this->session->userdata('nohp'),
                 "usia" => $this->session->userdata('usia'),
-                "jangka_waktu" => $this->session->userdata('jangkawaktu'),
-                "jumlah_pinjaman" => $this->session->userdata('jumlahpinjaman'),
+                "jangka_waktu" => $this->session->userdata('jangka_waktu'),
+                "jumlah_pinjaman" => $this->session->userdata('jumlah_pinjaman'),
                 "jenis_pinjaman" => $jenis_pinjaman,
                 "file_ktp" => $this->session->userdata('file_ktp'),
                 "file_sku" => $this->session->userdata('file_sku'),
@@ -417,6 +417,7 @@ class Web extends Front
                 "file_buktipenghasilan" => $this->session->userdata('file_buktipenghasilan'),
                 "file_slipgaji" => $this->session->userdata('file_slipgaji'),
                 'username' => $this->session->userdata('username'),
+                'updated_at' => null,
                 'status' => 'menunggu',
             );
             if (!empty($_FILES)) {
@@ -442,14 +443,15 @@ class Web extends Front
                     $simpan['file_laporankeuangan'] = $filename;
                 }
             }
-            $this->db->insert('pengajuan_kredit', $simpan);
+            $id = $this->db->insert('pengajuan_kredit', $simpan);
             $idkredit = $this->db->insert_id();
             $data = [
-                'title' => 'Pengajuan baru ' . $jenis_pinjaman . ' atas nama : ' . $this->session->userdata('nama'),
+                'title' => 'Pengajuan baru ' . $jenis_pinjaman . ' atas nama : ' . $this->session->userdata('username'),
                 'content' => '-',
                 'url' => $idkredit,
                 'read' => 0,
                 'username' => 'admin',
+				'created_at' => date('Y-m-d H:i:s'),
             ];
 
             $this->db->insert('notification', $data);
