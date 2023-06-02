@@ -78,9 +78,19 @@ class Pengajuan_kredit extends Admin
 
 		$filter = $this->input->get('q');
 		$field = $this->input->get('f');
+		$this->data['awal'] = $this->input->get('awal');
+		$this->data['akhir'] = $this->input->get('akhir');
 
-		$this->data['pengajuan_kredits'] = $this->model_pengajuan_kredit->get_by_status($filter, $field, $this->limit_page, $offset);
+		
+
+
+		// $this->data['pengajuan_kredits'] = $this->model_pengajuan_kredit->get_by_status($filter, $field, $this->limit_page, $offset);
+		$this->data['pengajuan_kredits'] = $this->model_pengajuan_kredit->get($filter, $field, $this->limit_page, $offset);
 		$this->data['pengajuan_kredit_counts'] = $this->model_pengajuan_kredit->count_all($filter, $field);
+
+		if ($this->data['awal']!=null || $this->data['akhir'] != null) {
+			$this->data['pengajuan_kredits'] = $this->model_pengajuan_kredit->filterT($this->data['awal'], $this->data['akhir']);
+		}
 
 		$config = [
 			'base_url' => 'administrator/pengajuan_kredit/index/',
@@ -1425,8 +1435,7 @@ class Pengajuan_kredit extends Admin
 		$this->is_allowed('pengajuan_kredit_export');
 
 		$this->model_pengajuan_kredit->export(
-			'pengajuan_kredit',
-			'pengajuan_kredit',
+			'pengajuan_kredit','pengajuan_kredit',
 			$this->model_pengajuan_kredit->field_search
 		);
 	}

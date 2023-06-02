@@ -103,12 +103,12 @@ jQuery(document).ready(domo);
                                                 value="jangka_waktu">Jangka Waktu</option>
                                             <option <?= $this->input->get('f') == 'jenis_pinjaman' ? 'selected' : ''; ?>
                                                 value="jenis_pinjaman">Jenis Pinjaman</option>
-                                            <option <?= $this->input->get('f') == 'jaminan' ? 'selected' : ''; ?>
-                                                value="jaminan">Jaminan</option>
+                                            <!-- <option <?= $this->input->get('f') == 'jaminan' ? 'selected' : ''; ?>
+                                                value="jaminan">Jaminan</option> -->
                                             <option <?= $this->input->get('f') == 'created_at' ? 'selected' : ''; ?>
                                                 value="created_at">Created At</option>
-                                            <option <?= $this->input->get('f') == 'status' ? 'selected' : ''; ?>
-                                                value="status">Status</option>
+                                            <!-- <option <?= $this->input->get('f') == 'status' ? 'selected' : ''; ?>
+                                                value="status">Status</option> -->
                                         </select>
                                     </div>
                                     <div class="col-sm-1 padd-left-0 ">

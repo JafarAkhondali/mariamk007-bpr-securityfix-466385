@@ -145,13 +145,24 @@ jQuery(document).ready(domo);
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td width="40%">Foto Surat Nikah/Cerai/Kematian PDF</td>
+                                                    <td>
+                                                        <?php
+                            if ($pengajuan_kredit->file_surat_nikah != "") { ?>
+                                                        <a class="btn btn-primary"
+                                                            href="<?= base_url('uploads/pengajuan_kredit/' . $pengajuan_kredit->file_surat_nikah) ?>"
+                                                            target="_blank"><i class="fa fa-download"></i> Buka File</a>
+                                                        <?php } ?>
+                                                    </td>
+                                                </tr>
+                                                <!-- <tr>
                                                     <td width="40%">Foto Surat nikah/cerai/kematian PDF</td>
                                                     <td>
                                                         <a class="btn btn-primary"
                                                             href="<?= base_url('uploads/pengajuan_kredit/' . $pengajuan_kredit->file_surat_nikah) ?>"
                                                             target="_blank"><i class="fa fa-download"></i> Buka File</a>
                                                     </td>
-                                                </tr>
+                                                </tr> -->
                                                 <tr>
                                                     <td width="40%">Foto Jaminan/Agunan (PNG/JPG/JPEG)</td>
                                                     <td>
@@ -198,13 +209,24 @@ jQuery(document).ready(domo);
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td width="40%">Foto Surat Nikah/Cerai/Kematian PDF</td>
+                                                    <td>
+                                                        <?php
+                            if ($pengajuan_kredit->file_surat_nikah != "") { ?>
+                                                        <a class="btn btn-primary"
+                                                            href="<?= base_url('uploads/pengajuan_kredit/' . $pengajuan_kredit->file_surat_nikah) ?>"
+                                                            target="_blank"><i class="fa fa-download"></i> Buka File</a>
+                                                        <?php } ?>
+                                                    </td>
+                                                </tr>
+                                                <!-- <tr>
                                                     <td width="40%">Foto Surat nikah/cerai/kematian PDF</td>
                                                     <td>
                                                         <a class="btn btn-primary"
                                                             href="<?= base_url('uploads/pengajuan_kredit/' . $pengajuan_kredit->file_surat_nikah) ?>"
                                                             target="_blank"><i class="fa fa-download"></i> Buka File</a>
                                                     </td>
-                                                </tr>
+                                                </tr> -->
                                                 <tr>
                                                     <td width="40%">Foto Jaminan/Agunan (PNG/JPG/JPEG)</td>
                                                     <td>
@@ -269,13 +291,24 @@ jQuery(document).ready(domo);
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td width="40%">Foto Surat Nikah/Cerai/Kematian PDF</td>
+                                                    <td>
+                                                        <?php
+                            if ($pengajuan_kredit->file_surat_nikah != "") { ?>
+                                                        <a class="btn btn-primary"
+                                                            href="<?= base_url('uploads/pengajuan_kredit/' . $pengajuan_kredit->file_surat_nikah) ?>"
+                                                            target="_blank"><i class="fa fa-download"></i> Buka File</a>
+                                                        <?php } ?>
+                                                    </td>
+                                                </tr>
+                                                <!-- <tr>
                                                     <td width="40%">Foto Surat nikah/cerai/kematian PDF</td>
                                                     <td>
                                                         <a class="btn btn-primary"
                                                             href="<?= base_url('uploads/pengajuan_kredit/' . $pengajuan_kredit->file_surat_nikah) ?>"
                                                             target="_blank"><i class="fa fa-download"></i> Buka File</a>
                                                     </td>
-                                                </tr>
+                                                </tr> -->
                                                 <tr>
                                                     <td width="40%">Foto Jaminan/Agunan (PNG/JPG/JPEG)</td>
                                                     <td>
@@ -330,13 +363,24 @@ jQuery(document).ready(domo);
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <td width="40%">Foto Surat Nikah/Cerai/Kematian PDF</td>
+                                                    <td>
+                                                        <?php
+                            if ($pengajuan_kredit->file_surat_nikah != "") { ?>
+                                                        <a class="btn btn-primary"
+                                                            href="<?= base_url('uploads/pengajuan_kredit/' . $pengajuan_kredit->file_surat_nikah) ?>"
+                                                            target="_blank"><i class="fa fa-download"></i> Buka File</a>
+                                                        <?php } ?>
+                                                    </td>
+                                                </tr>
+                                                <!-- <tr>
                                                     <td width="40%">Foto Surat nikah/cerai/kematian PDF</td>
                                                     <td>
                                                         <a class="btn btn-primary"
                                                             href="<?= base_url('uploads/pengajuan_kredit/' . $pengajuan_kredit->file_surat_nikah) ?>"
                                                             target="_blank"><i class="fa fa-download"></i> Buka File</a>
                                                     </td>
-                                                </tr>
+                                                </tr> -->
                                                 <tr>
                                                     <td width="40%">Foto Jaminan/Agunan (PNG/JPG/JPEG)</td>
                                                     <td>

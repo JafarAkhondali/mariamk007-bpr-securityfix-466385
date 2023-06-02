@@ -126,7 +126,7 @@ class MY_Model extends CI_Model
 
             $where = '(' . $where . ')';
         } else {
-            $where .= "(" . $table . "." . $field . " LIKE '%" . $q . "%' )";
+            $where .= "(" . "status='diterima' AND created_at BETWEEN '" . $q . " 00:00:00' AND '" . $field . " 23:59:59' )";
         }
 
         $this->sortable();
@@ -139,7 +139,12 @@ class MY_Model extends CI_Model
 
         $this->load->library('excel');
 
-        $result = $this->db->get($table);
+        $result = $this->db->query("SELECT `nama_lengkap`, `alamat`, `usia`, `no_hp`, `jumlah_pinjaman`, `jangka_waktu`, `jenis_pinjaman` FROM `pengajuan_kredit` WHERE status='diterima' AND created_at BETWEEN '" . $_GET['q'] . " 00:00:00' AND '" . $_GET['f'] . " 23:59:59'");
+
+        // $result = $this->db->get($table);
+
+        // print_r($queryutama);
+        // exit;
 
         $this->excel->setActiveSheetIndex(0);
 
@@ -174,10 +179,10 @@ class MY_Model extends CI_Model
             $this->excel->getActiveSheet()->getColumnDimension($col)->setWidth(20);
         }
 
-        $col_total = $column[count($fields) - 1];
+        $col_total = $column[count($fields)];
 
         //styling
-        $this->excel->getActiveSheet()->getStyle('A1:' . $col_total . '1')->applyFromArray(
+        $this->excel->getActiveSheet()->getStyle('A6:' . $col_total . '6')->applyFromArray(
             array(
                 'fill' => array(
                     'type' => PHPExcel_Style_Fill::FILL_SOLID,
@@ -190,34 +195,129 @@ class MY_Model extends CI_Model
             )
         );
 
+// ======================
+   
+
+   $styleArray = array(
+    'font'  => array(
+        'bold'  => true,
+        'color' => array('rgb' => '000'),
+        'size'  => 30,
+        'name'  => 'Verdana'
+    ),
+     'alignment' => array(
+        'horizontal' => 'center'
+    )
+
+);
+    $styleArray2 = array(
+    'font'  => array(
+        'bold'  => false,
+        'color' => array('rgb' => '000'),
+        'size'  => 15,
+        'name'  => 'Verdana'
+    ),
+    'alignment' => array(
+        'horizontal' => 'center'
+    )
+
+);
+
+ $this->excel->getActiveSheet()->setCellValueExplicit('B2' , 'PT. BPR Arsham Sejahtera', PHPExcel_Cell_DataType::TYPE_STRING);
+ $this->excel->getActiveSheet()->getCell('B3')->setValue('Jl. Durian No. 99 B, Kecamatan Sukajadi, Kota Pekanbaru, Riau');
+ $this->excel->getActiveSheet()->getCell('A6')->setValue('No');
+
+
+$sql1="SELECT COUNT(*) as a FROM `pengajuan_kredit` WHERE status='diterima' AND created_at BETWEEN '" . $_GET['q'] . " 00:00:00' AND '" . $_GET['f'] . " 23:59:59'";    
+$query1 = $this->db->query($sql1);
+$datas1 =  $query1->result_array();
+$totale1 = $datas1[0]['a'];
+ $nomor = 1;
+ $baris = 7;
+ for ($i=0; $i < $totale1 ; $i++) { 
+    $this->excel->getActiveSheet()->getCell('A'.$baris)->setValue($nomor);
+    $nomor++;
+    $baris++;
+ }
+
+$this->excel->getActiveSheet()->mergeCells('B2:G2');
+$this->excel->getActiveSheet()->mergeCells('B3:G3');
+
+$this->excel->getActiveSheet()->getStyle('B2')->applyFromArray($styleArray);
+$this->excel->getActiveSheet()->getStyle('B3')->applyFromArray($styleArray2);
+
+
+
+
+// ======================
         $phpColor = new PHPExcel_Style_Color();
         $phpColor->setRGB('FFFFFF');
 
-        $this->excel->getActiveSheet()->getStyle('A1:' . $col_total . '1')->getFont()->setColor($phpColor);
+       
 
-        $this->excel->getActiveSheet()->getRowDimension(1)->setRowHeight(40);
+        $this->excel->getActiveSheet()->getStyle('A6:' . $col_total . '6')->getFont()->setColor($phpColor);
 
-        $this->excel->getActiveSheet()->getStyle('A1:' . $col_total . '1')
+        $this->excel->getActiveSheet()->getRowDimension(6)->setRowHeight(40);
+
+        $this->excel->getActiveSheet()->getStyle('A6:' . $col_total . '6')
             ->getAlignment()->setWrapText(true);
 
         $col = 0;
         foreach ($fields as $field) {
 
-            $this->excel->getActiveSheet()->setCellValueByColumnAndRow($col, 1, ucwords(str_replace('_', ' ', $field)));
+            $this->excel->getActiveSheet()->setCellValueByColumnAndRow($col+1, 6, ucwords(str_replace('_', ' ', $field)));
             $col++;
         }
 
-        $row = 2;
+        $row = 7;
         foreach ($result->result() as $data) {
+
             $col = 0;
+
             foreach ($fields as $field) {
-                $this->excel->getActiveSheet()->setCellValueExplicit($column[$col] . $row, $data->$field, PHPExcel_Cell_DataType::TYPE_STRING);
-                //$this->excel->getActiveSheet()->setCellValueByColumnAndRow($col, $row, '' . $data->$field);
+                $this->excel->getActiveSheet()->setCellValueExplicit($column[$col+1] . $row, $data->$field, PHPExcel_Cell_DataType::TYPE_STRING);
                 $col++;
             }
 
             $row++;
         }
+
+        // Test =======
+        $sql="SELECT SUM(jumlah_pinjaman) as a FROM `pengajuan_kredit` WHERE status='diterima' AND created_at BETWEEN '" . $_GET['q'] . " 00:00:00' AND '" . $_GET['f'] . " 23:59:59'";    
+        $query = $this->db->query($sql);
+        $datas =  $query->result_array();
+        $totale = $datas[0]['a'];
+        if ($totale==null) {
+            $totale = 0;
+        }
+        // Test =======
+
+
+ $styleArray3 = array(
+     'alignment' => array(
+        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_RIGHT,
+        'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+    )
+
+);
+
+$styleArray4 = array(
+     'alignment' => array(
+        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_LEFT,
+        'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+    )
+
+);
+
+ $this->excel->getActiveSheet()->getStyle('A'.($row))->applyFromArray($styleArray3);
+ $this->excel->getActiveSheet()->getStyle('F'.($row))->applyFromArray($styleArray4);
+
+
+$this->excel->getActiveSheet()->getCell('A'.($row))->setValue('Total Pinjaman : ');
+$this->excel->getActiveSheet()->getCell('F'.($row))->setValue($totale);
+
+$this->excel->getActiveSheet()->mergeCells('A'.($row).':E'.($row));
+$this->excel->getActiveSheet()->mergeCells('F'.($row).':H'.($row));
 
         //set border
         $styleArray = array(
@@ -227,7 +327,7 @@ class MY_Model extends CI_Model
                 )
             )
         );
-        $this->excel->getActiveSheet()->getStyle('A1:' . $col_total . '' . $row)->applyFromArray($styleArray);
+        $this->excel->getActiveSheet()->getStyle('A6:' . $col_total . '' . $row)->applyFromArray($styleArray);
 
         $this->excel->getActiveSheet()->setTitle(ucwords($subject));
 

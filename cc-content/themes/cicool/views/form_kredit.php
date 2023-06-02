@@ -5,210 +5,210 @@
 <script src="<?= BASE_ASSET; ?>/fine-upload/jquery.fine-uploader.js"></script>
 <?php $this->load->view('core_template/fine_upload'); ?>
 <style>
-    #heading {
-        text-transform: uppercase;
-        color: #673AB7;
-        font-weight: normal
-    }
+#heading {
+    text-transform: uppercase;
+    color: #673AB7;
+    font-weight: normal
+}
 
-    #msform {
-        text-align: center;
-        position: relative;
-        margin-top: 20px
-    }
+#msform {
+    text-align: center;
+    position: relative;
+    margin-top: 20px
+}
 
-    #msform fieldset {
-        background: white;
-        border: 0 none;
-        border-radius: 0.5rem;
-        box-sizing: border-box;
-        width: 100%;
-        margin: 0;
-        padding-bottom: 20px;
-        position: relative
-    }
+#msform fieldset {
+    background: white;
+    border: 0 none;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative
+}
 
-    .form-card {
-        text-align: left
-    }
+.form-card {
+    text-align: left
+}
 
-    #msform fieldset:not(:first-of-type) {
-        display: none
-    }
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
 
-    #msform input,
-    #msform textarea {
-        padding: 8px 15px 8px 15px;
-        border: 1px solid #ccc;
-        border-radius: 0px;
-        margin-bottom: 25px;
-        margin-top: 2px;
-        width: 100%;
-        box-sizing: border-box;
-        font-family: montserrat;
-        color: #2C3E50;
-        background-color: #ECEFF1;
-        font-size: 16px;
-        letter-spacing: 1px
-    }
+#msform input,
+#msform textarea {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    margin-bottom: 25px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: montserrat;
+    color: #2C3E50;
+    background-color: #ECEFF1;
+    font-size: 16px;
+    letter-spacing: 1px
+}
 
-    #msform input:focus,
-    #msform textarea:focus {
-        -moz-box-shadow: none !important;
-        -webkit-box-shadow: none !important;
-        box-shadow: none !important;
-        border: 1px solid #673AB7;
-        outline-width: 0
-    }
+#msform input:focus,
+#msform textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #673AB7;
+    outline-width: 0
+}
 
-    #msform .action-button {
-        width: 100px;
-        background: #673AB7;
-        font-weight: bold;
-        color: white;
-        border: 0 none;
-        border-radius: 0px;
-        cursor: pointer;
-        padding: 10px 5px;
-        margin: 10px 0px 10px 5px;
-        float: right
-    }
+#msform .action-button {
+    width: 100px;
+    background: #673AB7;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 0px 10px 5px;
+    float: right
+}
 
-    #msform .action-button:hover,
-    #msform .action-button:focus {
-        background-color: #311B92
-    }
+#msform .action-button:hover,
+#msform .action-button:focus {
+    background-color: #311B92
+}
 
-    #msform .action-button-previous {
-        width: 100px;
-        background: #616161;
-        font-weight: bold;
-        color: white;
-        border: 0 none;
-        border-radius: 0px;
-        cursor: pointer;
-        padding: 10px 5px;
-        margin: 10px 5px 10px 0px;
-        float: right
-    }
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 0px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px 10px 0px;
+    float: right
+}
 
-    #msform .action-button-previous:hover,
-    #msform .action-button-previous:focus {
-        background-color: #000000
-    }
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    background-color: #000000
+}
 
-    .card {
-        z-index: 0;
-        border: none;
-        position: relative
-    }
+.card {
+    z-index: 0;
+    border: none;
+    position: relative
+}
 
-    .fs-title {
-        font-size: 25px;
-        color: #673AB7;
-        margin-bottom: 15px;
-        font-weight: normal;
-        text-align: left
-    }
+.fs-title {
+    font-size: 25px;
+    color: #673AB7;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: left
+}
 
-    .purple-text {
-        color: #673AB7;
-        font-weight: normal
-    }
+.purple-text {
+    color: #673AB7;
+    font-weight: normal
+}
 
-    .steps {
-        font-size: 25px;
-        color: gray;
-        margin-bottom: 10px;
-        font-weight: normal;
-        text-align: right
-    }
+.steps {
+    font-size: 25px;
+    color: gray;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: right
+}
 
-    .fieldlabels {
-        color: gray;
-        text-align: left
-    }
+.fieldlabels {
+    color: gray;
+    text-align: left
+}
 
-    #progressbar {
-        margin-bottom: 30px;
-        overflow: hidden;
-        color: lightgrey
-    }
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
 
-    #progressbar .active {
-        color: #673AB7
-    }
+#progressbar .active {
+    color: #673AB7
+}
 
-    #progressbar li {
-        list-style-type: none;
-        font-size: 15px;
-        width: 25%;
-        float: left;
-        position: relative;
-        font-weight: 400
-    }
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 25%;
+    float: left;
+    position: relative;
+    font-weight: 400
+}
 
-    #progressbar #account:before {
-        font-family: FontAwesome;
-        content: "\f13e"
-    }
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f13e"
+}
 
-    #progressbar #personal:before {
-        font-family: FontAwesome;
-        content: "\f007"
-    }
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
 
-    #progressbar #payment:before {
-        font-family: FontAwesome;
-        content: "\f030"
-    }
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f030"
+}
 
-    #progressbar #confirm:before {
-        font-family: FontAwesome;
-        content: "\f00c"
-    }
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
 
-    #progressbar li:before {
-        width: 50px;
-        height: 50px;
-        line-height: 45px;
-        display: block;
-        font-size: 20px;
-        color: #ffffff;
-        background: lightgray;
-        border-radius: 50%;
-        margin: 0 auto 10px auto;
-        padding: 2px
-    }
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
 
-    #progressbar li:after {
-        content: '';
-        width: 100%;
-        height: 2px;
-        background: lightgray;
-        position: absolute;
-        left: 0;
-        top: 25px;
-        z-index: -1
-    }
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
 
-    #progressbar li.active:before,
-    #progressbar li.active:after {
-        background: #673AB7
-    }
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #673AB7
+}
 
-    .progress {
-        height: 20px
-    }
+.progress {
+    height: 20px
+}
 
-    .progress-bar {
-        background-color: #673AB7
-    }
+.progress-bar {
+    background-color: #673AB7
+}
 
-    .fit-image {
-        width: 100%;
-        object-fit: cover
-    }
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
 </style>
 
 <body id="page-top">
@@ -294,7 +294,8 @@
                                                 data-placeholder="Select Jumlah Pinjaman">
                                                 <option value="">Pilih Jumlah Pinjaman</option>
                                                 <?php foreach (db_get_all_data('simulasi_kredit') as $row): ?>
-                                                    <option value="<?= $row->plafond ?>"><?= number_format($row->plafond, 0, '.', '.') ?></option>
+                                                <option value="<?= $row->plafond ?>">
+                                                    <?= number_format($row->plafond, 0, '.', '.') ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
@@ -310,74 +311,74 @@
         </div>
         <?= get_footer(); ?>
         <script>
-            $(document).ready(function () {
-                var current_fs, next_fs, previous_fs; //fieldsets
-                var opacity;
-                var current = 1;
-                var steps = 4;
-                setProgressBar(current);
-                $(".next").click(function () {
-                    current_fs = $(this).parent();
-                    next_fs = $(this).parent().next();
-                    //Add Class Active
-                    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-                    //show the next fieldset
-                    next_fs.show();
-                    //hide the current fieldset with style
-                    current_fs.animate({
-                        opacity: 0
-                    }, {
-                        step: function (now) {
-                            // for making fielset appear animation
-                            opacity = 1 - now;
-                            current_fs.css({
-                                'display': 'none',
-                                'position': 'relative'
-                            });
-                            next_fs.css({
-                                'opacity': opacity
-                            });
-                        },
-                        duration: 500
-                    });
-                    setProgressBar(++current);
+        $(document).ready(function() {
+            var current_fs, next_fs, previous_fs; //fieldsets
+            var opacity;
+            var current = 1;
+            var steps = 4;
+            setProgressBar(current);
+            $(".next").click(function() {
+                current_fs = $(this).parent();
+                next_fs = $(this).parent().next();
+                //Add Class Active
+                $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+                //show the next fieldset
+                next_fs.show();
+                //hide the current fieldset with style
+                current_fs.animate({
+                    opacity: 0
+                }, {
+                    step: function(now) {
+                        // for making fielset appear animation
+                        opacity = 1 - now;
+                        current_fs.css({
+                            'display': 'none',
+                            'position': 'relative'
+                        });
+                        next_fs.css({
+                            'opacity': opacity
+                        });
+                    },
+                    duration: 500
                 });
-                $(".previous").click(function () {
-                    current_fs = $(this).parent();
-                    previous_fs = $(this).parent().prev();
-                    //Remove class active
-                    $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-                    //show the previous fieldset
-                    previous_fs.show();
-                    //hide the current fieldset with style
-                    current_fs.animate({
-                        opacity: 0
-                    }, {
-                        step: function (now) {
-                            // for making fielset appear animation
-                            opacity = 1 - now;
-                            current_fs.css({
-                                'display': 'none',
-                                'position': 'relative'
-                            });
-                            previous_fs.css({
-                                'opacity': opacity
-                            });
-                        },
-                        duration: 500
-                    });
-                    setProgressBar(--current);
-                });
-
-                function setProgressBar(curStep) {
-                    var percent = parseFloat(100 / steps) * curStep;
-                    percent = percent.toFixed();
-                    $(".progress-bar")
-                        .css("width", percent + "%")
-                }
-                $(".submit").click(function () {
-                    return false;
-                })
+                setProgressBar(++current);
             });
+            $(".previous").click(function() {
+                current_fs = $(this).parent();
+                previous_fs = $(this).parent().prev();
+                //Remove class active
+                $("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
+                //show the previous fieldset
+                previous_fs.show();
+                //hide the current fieldset with style
+                current_fs.animate({
+                    opacity: 0
+                }, {
+                    step: function(now) {
+                        // for making fielset appear animation
+                        opacity = 1 - now;
+                        current_fs.css({
+                            'display': 'none',
+                            'position': 'relative'
+                        });
+                        previous_fs.css({
+                            'opacity': opacity
+                        });
+                    },
+                    duration: 500
+                });
+                setProgressBar(--current);
+            });
+
+            function setProgressBar(curStep) {
+                var percent = parseFloat(100 / steps) * curStep;
+                percent = percent.toFixed();
+                $(".progress-bar")
+                    .css("width", percent + "%")
+            }
+            $(".submit").click(function() {
+                return false;
+            })
+        });
         </script>
     </body>
