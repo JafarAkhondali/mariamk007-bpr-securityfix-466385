@@ -244,7 +244,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>
-                                                    File Rekening Listrik (Pdf) Max 700 MB<span class="text-dark">*
+                                                    File Rekening Listrik (Pdf) Max 30 MB<span class="text-dark">*
                                                         Tidak Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_rekening_listrik"
@@ -253,7 +253,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File PBB / STNK (Pdf) Max 700 MB<span class="text-dark">* Tidak
+                                                    File PBB / STNK (Pdf) Max 30 MB<span class="text-dark">* Tidak
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_pbb_stnk" id="file_pbb_stnk"
@@ -263,7 +263,7 @@
                                             <div class="form-group">
                                                 <label>
                                                     File Laporan Keuangan PT/CV 6 Bulan Terakhir Bagi yang punya PT/CV
-                                                    (Pdf) Max 700 MB<span class="text-dark">* Tidak Wajib Diisi</span>
+                                                    (Pdf) Max 30 MB<span class="text-dark">* Tidak Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_laporankeuangan" id="file_laporankeuangan"
                                                     class="form-control">
