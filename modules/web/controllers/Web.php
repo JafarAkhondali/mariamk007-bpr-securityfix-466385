@@ -93,6 +93,26 @@ class Web extends Front
         $this->template->build('detail_produk', $this->data);
     }
 
+    public function bayar_cash() 
+    {
+        $this->template->build('bayar_cash');
+    }
+
+    public function bayar_transfer()
+    {
+        $this->template->build('bayar_transfer');
+    }
+
+    public function bayar_va()
+    {
+        $this->template->build('bayar_va');
+    }
+
+    public function bayar_dompet_digital()
+    {
+        $this->template->build('bayar_dompet_digital');
+    }
+
     public function detail_kredit($id)
     {
         $this->data['kredits'] = $this->model_kredit->get_by_id($id);
