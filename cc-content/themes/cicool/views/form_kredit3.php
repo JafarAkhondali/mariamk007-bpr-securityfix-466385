@@ -246,7 +246,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>
-                                                    Pas Foto 3x4 (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">*
+                                                    Pas Foto 3x4 (PNG/JPG/JPEG) Max 1 mb <span class="text-danger">*
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_photo" class="form-control"
@@ -255,7 +255,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto KTP (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">* Wajib
+                                                    Foto KTP (PNG/JPG/JPEG) Max 1 mb <span class="text-danger">* Wajib
                                                         Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_ktp" id="file_ktp" class="form-control"
@@ -264,7 +264,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Keluarga (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">*
+                                                    Foto Keluarga (PNG/JPG/JPEG) Max 1 mb <span class="text-danger">*
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_kk" id="file_kk" class="form-control"
@@ -273,7 +273,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Surat nikah/cerai/kematian PDF Max 500 mb <span
+                                                    Foto Surat nikah/cerai/kematian PDF Max 30 mb <span
                                                         class="text-secondary">* Tidak Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_surat_nikah" id="file_surat_nikah"
@@ -282,7 +282,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Jaminan/Agunan (PNG/JPG/JPEG) Max 500 mb<span
+                                                    Foto Jaminan/Agunan (PNG/JPG/JPEG) Max 1 mb<span
                                                         class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="jaminan" id="jaminan" class="form-control"
@@ -291,7 +291,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 700 MB<span
+                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 30 MB<span
                                                         class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_jaminan" id="file_jaminan"
@@ -474,7 +474,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>
-                                                    Pas Foto 3x4 (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">*
+                                                    Pas Foto 3x4 (PNG/JPG/JPEG) Max 1 mb <span class="text-danger">*
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_photo" class="form-control"
@@ -483,7 +483,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto KTP (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">* Wajib
+                                                    Foto KTP (PNG/JPG/JPEG) Max 1 mb <span class="text-danger">* Wajib
                                                         Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_ktp" id="file_ktp" class="form-control"
@@ -492,7 +492,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Keluarga (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">*
+                                                    Foto Keluarga (PNG/JPG/JPEG) Max 1 mb <span class="text-danger">*
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_kk" id="file_kk" class="form-control"
@@ -501,7 +501,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Surat nikah/cerai/kematian PDF Max 500 mb <span
+                                                    Foto Surat nikah/cerai/kematian PDF Max 30 mb <span
                                                         class="text-secondary">* Tidak Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_surat_nikah" id="file_surat_nikah"
@@ -510,7 +510,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Jaminan/Agunan (PNG/JPG/JPEG) Max 500 mb<span
+                                                    Foto Jaminan/Agunan (PNG/JPG/JPEG) Max 1 mb<span
                                                         class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="jaminan" id="jaminan" class="form-control"
@@ -519,7 +519,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 700 MB<span
+                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 30 MB<span
                                                         class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_jaminan" id="file_jaminan"
@@ -528,7 +528,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Surat Keterangan Usaha (Bagi yang ada usaha) (pdf) Max 700
+                                                    File Surat Keterangan Usaha (Bagi yang ada usaha) (pdf) Max 30
                                                     MB<span class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_sku" id="file_sku" class="form-control"
@@ -537,7 +537,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Surat Keterangan Penghasilan (Karyawan) (pdf) Max 700 MB<span
+                                                    File Surat Keterangan Penghasilan (Karyawan) (pdf) Max 30 MB<span
                                                         class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_skp" id="file_skp" class="form-control"
@@ -774,7 +774,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>
-                                                    Pas Foto 3x4 (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">*
+                                                    Pas Foto 3x4 (PNG/JPG/JPEG) Max 1 mb <span class="text-danger">*
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_photo" class="form-control"
@@ -783,7 +783,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto KTP (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">* Wajib
+                                                    Foto KTP (PNG/JPG/JPEG) Max 1 mb <span class="text-danger">* Wajib
                                                         Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_ktp" id="file_ktp" class="form-control"
@@ -792,7 +792,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Keluarga (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">*
+                                                    Foto Keluarga (PNG/JPG/JPEG) Max 1 mb <span class="text-danger">*
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_kk" id="file_kk" class="form-control"
@@ -801,7 +801,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Surat nikah/cerai/kematian PDF Max 500 mb <span
+                                                    Foto Surat nikah/cerai/kematian PDF Max 30 mb <span
                                                         class="text-secondary">* Tidak Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_surat_nikah" id="file_surat_nikah"
@@ -810,7 +810,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Jaminan/Agunan (PNG/JPG/JPEG) Max 500 mb<span
+                                                    Foto Jaminan/Agunan (PNG/JPG/JPEG) Max 1 mb<span
                                                         class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="jaminan" id="jaminan" class="form-control"
@@ -819,7 +819,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 700 MB<span
+                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 30 MB<span
                                                         class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_jaminan" id="file_jaminan"
@@ -828,7 +828,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Bukti Penghasilan (pdf) Max 700 MB<span class="text-danger">*
+                                                    File Bukti Penghasilan (pdf) Max 30 MB<span class="text-danger">*
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_buktipenghasilan"
@@ -1041,7 +1041,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>
-                                                    Pas Foto 3x4 (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">*
+                                                    Pas Foto 3x4 (PNG/JPG/JPEG) Max 1 Mb <span class="text-danger">*
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_photo" class="form-control"
@@ -1050,7 +1050,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto KTP (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">* Wajib
+                                                    Foto KTP (PNG/JPG/JPEG) Max 1 Mb <span class="text-danger">* Wajib
                                                         Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_ktp" id="file_ktp" class="form-control"
@@ -1059,7 +1059,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Keluarga (PNG/JPG/JPEG) Max 500 mb <span class="text-danger">*
+                                                    Foto Keluarga (PNG/JPG/JPEG) Max 1 Mb <span class="text-danger">*
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_kk" id="file_kk" class="form-control"
@@ -1068,7 +1068,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Surat nikah/cerai/kematian PDF Max 500 mb <span
+                                                    Foto Surat nikah/cerai/kematian PDF Max 30 mb <span
                                                         class="text-secondary">* Tidak Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_surat_nikah" id="file_surat_nikah"
@@ -1077,7 +1077,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    Foto Jaminan/Agunan (PNG/JPG/JPEG) Max 500 mb<span
+                                                    Foto Jaminan/Agunan (PNG/JPG/JPEG) Max 1 mb<span
                                                         class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="jaminan" id="jaminan" class="form-control"
@@ -1086,7 +1086,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 700 MB<span
+                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 30 MB<span
                                                         class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_jaminan" id="file_jaminan"
@@ -1095,7 +1095,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Bukti Penghasilan (pdf) Max 700 MB<span class="text-danger">*
+                                                    File Bukti Penghasilan (pdf) Max 30 MB<span class="text-danger">*
                                                         Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_buktipenghasilan"
@@ -1104,7 +1104,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Slip Gaji 3 Bulan Terakhir (pdf) Max 700 MB<span
+                                                    File Slip Gaji 3 Bulan Terakhir (pdf) Max 30 MB<span
                                                         class="text-danger">* Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_slipgaji" id="file_slipgaji"

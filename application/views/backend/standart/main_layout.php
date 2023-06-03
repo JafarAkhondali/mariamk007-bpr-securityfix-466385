@@ -60,45 +60,45 @@
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.33/sweetalert2.css" rel="stylesheet"> -->
 
     <script>
-        "use strict";
+    "use strict";
 
-        var BASE_URL = "<?= base_url(); ?>";
-        var HTTP_REFERER = "<?= isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/'; ?>";
-        var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
-        var token = '<?= $this->security->get_csrf_hash(); ?>';
-        var _lang = [];
+    var BASE_URL = "<?= base_url(); ?>";
+    var HTTP_REFERER = "<?= isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/'; ?>";
+    var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
+    var token = '<?= $this->security->get_csrf_hash(); ?>';
+    var _lang = [];
 
-        <?php
+    <?php
         include(APPPATH . 'language/' . get_cookie('language') . '/web_lang.php');
         if ($this->uri->segment('2') == 'irrigation') {
             include(APPPATH . 'language/' . get_cookie('language') . '/irrigation_lang.php');
         }
         foreach ($lang as $key => $value) {
             ?>
-            _lang['<?= $key ?>'] = `<?= $value ?>`;
-            <?php
+    _lang['<?= $key ?>'] = `<?= $value ?>`;
+    <?php
         }
         ?>
 
-        var AdminLTEOptions = {
-            sidebarExpandOnHover: false,
-            navbarMenuSlimscroll: false,
-        };
+    var AdminLTEOptions = {
+        sidebarExpandOnHover: false,
+        navbarMenuSlimscroll: false,
+    };
 
-        $(document).ready(function () {
+    $(document).ready(function() {
 
-            toastr.options = {
-                "positionClass": "toast-top-center",
-            }
+        toastr.options = {
+            "positionClass": "toast-top-center",
+        }
 
-            var f_message = '<?= $this->session->flashdata('f_message'); ?>';
-            var f_type = '<?= $this->session->flashdata('f_type'); ?>';
+        var f_message = '<?= $this->session->flashdata('f_message'); ?>';
+        var f_type = '<?= $this->session->flashdata('f_type'); ?>';
 
-            if (f_message.length > 0) {
-                toastr[f_type](f_message);
-            }
+        if (f_message.length > 0) {
+            toastr[f_type](f_message);
+        }
 
-        });
+    });
     </script>
     <script src="<?= BASE_ASSET ?>js/page/main/top-script.js"></script>
 
@@ -155,30 +155,30 @@
                                 <li>
                                     <ul class="menu">
                                         <?php foreach ($notification as $notif): ?>
-                                            <?php if (get_user_data('is_featured') == 0): ?>
-                                                <li>
-                                                    <a href=""
-                                                        data-page="<?= base_url('/administrator/pengajuan_kredit/view/' . $notif->url) ?>"
-                                                        data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
-                                                        class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
-                                                        id="mark-all-as-read-button-admin">
-                                                        <i class="fa fa-circle-o text-aqua"></i>
-                                                        <?= $notif->title ?>
-                                                    </a>
-                                                </li>
-                                            <?php endif ?>
-                                            <?php if (get_user_data('is_featured') == 1): ?>
-                                                <li>
-                                                    <a href="#"
-                                                        data-page="<?= base_url('/administrator/pengajuan_kredit/user') ?>"
-                                                        data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
-                                                        class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
-                                                        id="mark-all-as-read-button">
-                                                        <i class="fa fa-circle-o text-aqua"></i>
-                                                        <?= $notif->title ?>
-                                                    </a>
-                                                </li>
-                                            <?php endif ?>
+                                        <?php if (get_user_data('is_featured') == 0): ?>
+                                        <li>
+                                            <a href=""
+                                                data-page="<?= base_url('/administrator/pengajuan_kredit/view/' . $notif->url) ?>"
+                                                data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
+                                                class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
+                                                id="mark-all-as-read-button-admin">
+                                                <i class="fa fa-circle-o text-aqua"></i>
+                                                <?= $notif->title ?>
+                                            </a>
+                                        </li>
+                                        <?php endif ?>
+                                        <?php if (get_user_data('is_featured') == 1): ?>
+                                        <li>
+                                            <a href=""
+                                                data-page="<?= base_url('/administrator/pengajuan_kredit/user') ?>"
+                                                data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
+                                                class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
+                                                id="mark-all-as-read-button">
+                                                <i class="fa fa-circle-o text-aqua"></i>
+                                                <?= $notif->title ?>
+                                            </a>
+                                        </li>
+                                        <?php endif ?>
                                         <?php endforeach ?>
                                     </ul>
                                 </li>
@@ -186,106 +186,106 @@
                         </li>
 
                         <script type="text/javascript">
-                            var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
-                            var token = '<?= $this->security->get_csrf_hash(); ?>';
-                            var notif = document.getElementById('mark-all-as-read-button');
-                            var id = notif.getAttribute('data-id');
-                            var username = notif.getAttribute('data-username');
-                            var page = notif.getAttribute('data-page');
-                            $(document).ready(function () {
-                                $('body').on('click', '#mark-all-as-read-button', function (e) {
-                                    e.stopPropagation();
-                                    e.preventDefault();
+                        var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
+                        var token = '<?= $this->security->get_csrf_hash(); ?>';
+                        var notif = document.getElementById('mark-all-as-read-button');
+                        var id = notif.getAttribute('data-id');
+                        var username = notif.getAttribute('data-username');
+                        var page = notif.getAttribute('data-page');
+                        $(document).ready(function() {
+                            $('body').on('click', '#mark-all-as-read-button', function(e) {
+                                e.stopPropagation();
+                                e.preventDefault();
 
-                                    $.ajax({
-                                        url: '<?= BASE_URL ?>' +
-                                            "web/set_notification_status_as_read/" + username,
-                                        type: 'post',
-                                        dataType: 'json',
-                                        data: {
-                                            '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
-                                        },
-                                        complete: function () {
-                                            $(".unread-notification").removeClass(
-                                                "unread-notification");
-                                            window.location.href = page
-                                        }
-                                    });
+                                $.ajax({
+                                    url: '<?= BASE_URL ?>' +
+                                        "web/set_notification_status_as_read/" + username,
+                                    type: 'post',
+                                    dataType: 'json',
+                                    data: {
+                                        '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                                    },
+                                    complete: function() {
+                                        $(".unread-notification").removeClass(
+                                            "unread-notification");
+                                        window.location.href = page
+                                    }
                                 });
                             });
+                        });
                         </script>
 
                         <script type="text/javascript">
-                            var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
-                            var token = '<?= $this->security->get_csrf_hash(); ?>';
-                            var notif = document.getElementById('mark-all-as-read-button-admin');
-                            var id = notif.getAttribute('data-id');
-                            var username = notif.getAttribute('data-username');
-                            var page = notif.getAttribute('data-page');
-                            $(document).ready(function () {
-                                $('body').on('click', '#mark-all-as-read-button-admin', function (e) {
-                                    e.stopPropagation();
-                                    e.preventDefault();
+                        var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
+                        var token = '<?= $this->security->get_csrf_hash(); ?>';
+                        var notif = document.getElementById('mark-all-as-read-button-admin');
+                        var id = notif.getAttribute('data-id');
+                        var username = notif.getAttribute('data-username');
+                        var page = notif.getAttribute('data-page');
+                        $(document).ready(function() {
+                            $('body').on('click', '#mark-all-as-read-button-admin', function(e) {
+                                e.stopPropagation();
+                                e.preventDefault();
 
-                                    $.ajax({
-                                        url: '<?= BASE_URL ?>' +
-                                            "web/set_notification_status_as_read/" + username,
-                                        type: 'post',
-                                        dataType: 'json',
-                                        data: {
-                                            '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
-                                        },
-                                        complete: function () {
-                                            $(".unread-notification").removeClass(
-                                                "unread-notification");
-                                            window.location.href = page
-                                        }
-                                    });
+                                $.ajax({
+                                    url: '<?= BASE_URL ?>' +
+                                        "web/set_notification_status_as_read/" + username,
+                                    type: 'post',
+                                    dataType: 'json',
+                                    data: {
+                                        '<?php echo $this->security->get_csrf_token_name(); ?>': '<?php echo $this->security->get_csrf_hash(); ?>',
+                                    },
+                                    complete: function() {
+                                        $(".unread-notification").removeClass(
+                                            "unread-notification");
+                                        window.location.href = page
+                                    }
                                 });
                             });
+                        });
                         </script>
                 </div>
 
                 <?php if ($this->aauth->get_user()): ?>
-                    <div class="navbar-custom-menu">
-                        <ul class="nav navbar-nav">
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
 
-                            <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
+                                    class="user-image" alt="User Image">
+                                <span class="hidden-xs">
+                                    <?= _ent(ucwords(clean_snake_case(get_user_data('full_name')))); ?>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-header">
                                     <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
-                                        class="user-image" alt="User Image">
-                                    <span class="hidden-xs">
-                                        <?= _ent(ucwords(clean_snake_case(get_user_data('full_name')))); ?>
-                                    </span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="user-header">
-                                        <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
-                                            class="img-circle" alt="User Image">
+                                        class="img-circle" alt="User Image">
 
-                                        <p>
-                                            <?= _ent(ucwords(clean_snake_case($this->aauth->get_user()->full_name))); ?>
-                                            <small>Last Login,
-                                                <?= date('Y-M-D', strtotime(get_user_data('last_login'))); ?>
-                                            </small>
-                                        </p>
-                                    </li>
+                                    <p>
+                                        <?= _ent(ucwords(clean_snake_case($this->aauth->get_user()->full_name))); ?>
+                                        <small>Last Login,
+                                            <?= date('Y-M-D', strtotime(get_user_data('last_login'))); ?>
+                                        </small>
+                                    </p>
+                                </li>
 
-                                    <li class="user-footer">
-                                        <div class="pull-left">
-                                            <?php if (get_user_data('is_featured') == 0): ?>
-                                                <a href="<?= site_url('administrator/user/profile'); ?>"
-                                                    class="btn btn-default btn-flat"><?= cclang('profile'); ?></a>
-                                            <?php endif ?>
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="<?= site_url('administrator/auth/logout'); ?>"
-                                                class="btn btn-default btn-flat"><?= cclang('sign_out'); ?></a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <!-- <li class="dropdown ">
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <?php if (get_user_data('is_featured') == 0): ?>
+                                        <a href="<?= site_url('administrator/user/profile'); ?>"
+                                            class="btn btn-default btn-flat"><?= cclang('profile'); ?></a>
+                                        <?php endif ?>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="<?= site_url('administrator/auth/logout'); ?>"
+                                            class="btn btn-default btn-flat"><?= cclang('sign_out'); ?></a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- <li class="dropdown ">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                   <span class="flag-icon <?= get_current_initial_lang(); ?>"></span> <?= get_current_lang(); ?> </a>
                 <ul class="dropdown-menu" role="menu">
@@ -294,8 +294,8 @@
                     <?php endforeach; ?>
                 </ul>
               </li> -->
-                        </ul>
-                    </div>
+                    </ul>
+                </div>
                 <?php endif ?>
 
             </nav>
@@ -304,29 +304,29 @@
         </div>
         <div class="flash-data-gagal" data-gagal="<?= $this->session->flashdata('error'); ?>"></div>
         <?php if (get_user_data('is_featured') == 0): ?>
-            <aside class="main-sidebar">
-                <section class="sidebar sidebar-admin">
-                    <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
-                        <?= display_menu_admin(0, 1); ?>
-                    </ul>
-                </section>
-            </aside>
-            <!-- <?php endif; ?> -->
+        <aside class="main-sidebar">
+            <section class="sidebar sidebar-admin">
+                <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
+                    <?= display_menu_admin(0, 1); ?>
+                </ul>
+            </section>
+        </aside>
+        <!-- <?php endif; ?> -->
         <?php if (get_user_data('is_featured') == 1): ?>
-            <aside class="main-sidebar">
-                <section class="sidebar sidebar-admin">
-                    <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
-                        <li class="header treeview">MENU</li>
-                        <li class=" ">
-                            <a href="<?= base_url(); ?>administrator/pengajuan_kredit/user" data-original-title=""
-                                title=""><i class="fa fa-clone default"></i> <span>Data Pengajuan Kredit</span>
-                                <span class="pull-right-container">
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </section>
-            </aside>
+        <aside class="main-sidebar">
+            <section class="sidebar sidebar-admin">
+                <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
+                    <li class="header treeview">MENU</li>
+                    <li class=" ">
+                        <a href="<?= base_url(); ?>administrator/pengajuan_kredit/user" data-original-title=""
+                            title=""><i class="fa fa-clone default"></i> <span>Data Pengajuan Kredit</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
         <?php endif; ?>
 
         <div class="content-wrapper">
@@ -381,26 +381,26 @@
     <script src="<?= BASE_ASSET ?>js/custom.js"></script>
     <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script> -->
     <script>
-        const flashDataSuccess = $('.flash-data-berhasil').data('berhasil');
-        const flashDataError = $('.flash-data-gagal').data('gagal');
+    const flashDataSuccess = $('.flash-data-berhasil').data('berhasil');
+    const flashDataError = $('.flash-data-gagal').data('gagal');
 
-        if (flashDataSuccess) {
-            Swal.fire({
-                title: 'Berhasil',
-                text: flashDataSuccess,
-                icon: 'success',
-                allowOutsideClick: false,
-                timer: 1500
-            });
-        }
-        if (flashDataError) {
-            Swal.fire({
-                title: 'Gagal',
-                text: flashDataError,
-                icon: 'error',
-                allowOutsideClick: false
-            });
-        }
+    if (flashDataSuccess) {
+        Swal.fire({
+            title: 'Berhasil',
+            text: flashDataSuccess,
+            icon: 'success',
+            allowOutsideClick: false,
+            timer: 1500
+        });
+    }
+    if (flashDataError) {
+        Swal.fire({
+            title: 'Gagal',
+            text: flashDataError,
+            icon: 'error',
+            allowOutsideClick: false
+        });
+    }
     </script>
 </body>
 

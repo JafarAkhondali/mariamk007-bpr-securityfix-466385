@@ -8,13 +8,13 @@
 #heading {
     text-transform: uppercase;
     color: #673AB7;
-    font-weight: normal
+    font-weight: normal;
 }
 
 #msform {
     text-align: center;
     position: relative;
-    margin-top: 20px
+    margin-top: 20px;
 }
 
 #msform fieldset {
@@ -25,7 +25,7 @@
     width: 100%;
     margin: 0;
     padding-bottom: 20px;
-    position: relative
+    position: relative;
 }
 
 .form-card {
