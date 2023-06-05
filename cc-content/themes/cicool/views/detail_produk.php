@@ -24,14 +24,6 @@
                     </div>
                 </div>
                 <?php endforeach; ?>
-                <?php if (app()->aauth->is_loggedin()): ?>
-                <a href="<?= BASE_URL . 'web/ajukan_kredit' ?>"><button class="btn btn-success">Ajukan
-                        Kredit </button></a>
-                <?php else: ?>
-                <div class="bg-danger" style="padding: 10px;color:red;">MOHON LOGIN UNTUK MENGAJUKAN
-                    KREDIT
-                </div>
-                <?php endif; ?>
             </div>
         </div>
 
