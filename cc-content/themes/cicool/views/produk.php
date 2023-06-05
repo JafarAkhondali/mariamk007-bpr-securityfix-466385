@@ -115,6 +115,14 @@ ul {
     -webkit-line-clamp: 3;
     overflow: hidden;
 }
+
+@media only screen and (max-width: 620px) {
+
+    /* For mobile phones: */
+    .cards {
+        width: 100%;
+    }
+}
 </style>
 
 <body id="page-top">

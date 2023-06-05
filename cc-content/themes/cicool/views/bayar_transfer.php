@@ -39,6 +39,14 @@
 .green {
     border-left: 3px solid #3bb54a;
 }
+
+@media only screen and (max-width: 620px) {
+
+    /* For mobile phones: */
+    .row {
+        width: 100%;
+    }
+}
 </style>
 
 <body id="page-top">

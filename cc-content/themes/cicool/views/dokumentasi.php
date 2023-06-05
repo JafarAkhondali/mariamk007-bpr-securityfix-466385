@@ -92,6 +92,14 @@
     display: block;
     margin-top: 5px;
 }
+
+@media only screen and (max-width: 620px) {
+
+    /* For mobile phones: */
+    .box {
+        width: 100%;
+    }
+}
 </style>
 
 <body id="page-top">
