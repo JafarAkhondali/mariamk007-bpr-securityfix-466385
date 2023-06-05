@@ -7,12 +7,17 @@ ul {
 }
 
 ul {
+    --surface-color: #fff;
+    --curve: 40;
+}
+
+ul {
     box-sizing: border-box;
 }
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
     gap: 2rem;
     margin: 4rem 5vw;
     padding: 0;
@@ -119,7 +124,7 @@ ul {
 @media only screen and (max-width: 620px) {
 
     /* For mobile phones: */
-    .cards {
+    .header-content {
         width: 100%;
     }
 }
