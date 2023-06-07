@@ -263,7 +263,7 @@
                                         <div class="form-group group-no_hp ">
                                             <label for="no_hp">No Hp <i class="required">*</i>
                                             </label>
-                                            <input type="text" class="form-control" name="nohp" id="nohp"
+                                            <input type="number" class="form-control" name="nohp" id="nohp"
                                                 placeholder="No Hp" value="<?= set_value('nohp'); ?>" required>
                                         </div>
                                         <div class="form-group group-no_hp ">
