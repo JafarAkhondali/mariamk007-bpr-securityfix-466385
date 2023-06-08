@@ -157,8 +157,15 @@
                                         <?php foreach ($notification as $notif): ?>
                                         <?php if (get_user_data('is_featured') == 0): ?>
                                         <li>
-                                            <a href=""
+                                            <!-- <a href=""
                                                 data-page="<?= base_url('/administrator/pengajuan_kredit/view/' . $notif->url) ?>"
+                                                data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
+                                                class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
+                                                id="mark-all-as-read-button-admin">
+                                                <i class="fa fa-circle-o text-aqua"></i>
+                                                <?= $notif->title ?>
+                                            </a> -->
+                                            <a href="" data-page="<?= base_url('/administrator/pengajuan_kredit') ?>"
                                                 data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
                                                 class="<?= $notif->read == 0 ? 'unread-notification' : '' ?>"
                                                 id="mark-all-as-read-button-admin">
