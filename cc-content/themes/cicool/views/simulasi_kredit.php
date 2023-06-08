@@ -1,101 +1,169 @@
 <?= get_header(); ?>
 
 <style type="text/css">
-i {
-    font-size: 50px;
+.ag-format-container {
+    width: 1142px;
+    margin: 0 auto;
+    position: center;
+    /* top: 50%;
+    left: 30%;
+    margin: -25px 0 0 -25px; */
 }
 
-.tm-fa-6x {
-    font-size: 4em;
+.ag-courses_box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    padding: 50px 0;
 }
 
-.tm-fa-5x {
-    font-size: 3.5em;
+.ag-courses_item {
+    -ms-flex-preferred-size: calc(33.33333% - 30px);
+    flex-basis: calc(33.33333% - 30px);
+
+    margin: 0 15px 30px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
 }
 
-.tm-margin-b-20 {
-    margin-bottom: 3px;
-}
-
-.badge-lg {
-    font-size: 20px;
-    font-weight: 100px;
-    padding: 10px;
-    border-radius: 1em;
-}
-
-.card-nganu {
-    padding-top: 61px;
-    padding-bottom: 61px;
-    border-color: #3c763d !important;
-}
-
-.float-right {
-    float: right;
-}
-
-.float-left {
-    float: left;
-}
-
-.justify-content-center {
-    justify-content: center;
-}
-
-h5 {
-    font-size: 15px;
-    font-weight: bold;
-}
-
-.pb-3 {
-    padding-bottom: 10px;
-}
-
-.pt-3 {
-    padding-top: 10px;
-}
-
-.mt-4 {
-    margin-top: 30px;
-}
-
-.mt-5 {
-    margin-top: 40px;
-}
-
-.justify-content-center {
-    align-self: center;
-
-}
-
-.labl {
+.ag-courses-item_link {
     display: block;
+    padding: 30px 20px;
+    background-color: #121212;
+
+    overflow: hidden;
+
+    position: relative;
 }
 
-.labl>input {
-    /* HIDE RADIO */
-    visibility: hidden;
-    /* Makes input not-clickable */
+.ag-courses-item_link:hover,
+.ag-courses-item_link:hover .ag-courses-item_date {
+    text-decoration: none;
+    color: #FFF;
+}
+
+.ag-courses-item_link:hover .ag-courses-item_bg {
+    -webkit-transform: scale(10);
+    -ms-transform: scale(10);
+    transform: scale(10);
+}
+
+.ag-courses-item_title {
+    min-height: 87px;
+    margin: 0 0 25px;
+
+    overflow: hidden;
+
+    font-weight: bold;
+    font-size: 30px;
+    color: #FFF;
+
+    z-index: 2;
+    position: relative;
+}
+
+.ag-courses-item_date-box {
+    font-size: 18px;
+    color: #FFF;
+
+    z-index: 2;
+    position: relative;
+}
+
+.ag-courses-item_date {
+    font-weight: bold;
+    color: #f9b234;
+
+    -webkit-transition: color .5s ease;
+    -o-transition: color .5s ease;
+    transition: color .5s ease
+}
+
+.ag-courses-item_bg {
+    height: 128px;
+    width: 128px;
+    background-color: #f9b234;
+
+    z-index: 1;
     position: absolute;
-    /* Remove input from document flow */
+    top: -75px;
+    right: -75px;
+
+    border-radius: 50%;
+
+    -webkit-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
 }
 
-.labl>input+div {
-    /* DIV STYLES */
-    cursor: pointer;
-    border: 2px solid #3c763d;
-    padding: 10px;
-    border-radius: 5px;
+.ag-courses_item:nth-child(2n) .ag-courses-item_bg {
+    background-color: #3ecd5e;
+}
+
+.ag-courses_item:nth-child(3n) .ag-courses-item_bg {
+    background-color: #e44002;
+}
+
+.ag-courses_item:nth-child(4n) .ag-courses-item_bg {
+    background-color: #952aff;
+}
+
+.ag-courses_item:nth-child(5n) .ag-courses-item_bg {
+    background-color: #cd3e94;
+}
+
+.ag-courses_item:nth-child(6n) .ag-courses-item_bg {
+    background-color: #4c49ea;
+}
+
+
+
+@media only screen and (max-width: 979px) {
+    .ag-courses_item {
+        -ms-flex-preferred-size: calc(50% - 30px);
+        flex-basis: calc(50% - 30px);
+    }
+
+    .ag-courses-item_title {
+        font-size: 24px;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .ag-format-container {
+        width: 96%;
+    }
 
 }
 
-.labl>input:checked+div {
-    /* (RADIO CHECKED) DIV STYLES */
-    background-color: #3c763d;
-    border: 2px solid #3c763d;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
+@media only screen and (max-width: 639px) {
+    .ag-courses_item {
+        -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    }
+
+    .ag-courses-item_title {
+        min-height: 72px;
+        line-height: 1;
+
+        font-size: 24px;
+    }
+
+    .ag-courses-item_link {
+        padding: 22px 40px;
+    }
+
+    .ag-courses-item_date-box {
+        font-size: 16px;
+    }
 }
 </style>
 
@@ -154,222 +222,43 @@ h5 {
                     </div>
                 </form>
             </div>
-            <div>
-                <h1 style="color:green;">Kalkulator Kredit</h1>
-                <hr class="hrcenter">
-                <div class="container mt-5">
-                    <div class="col-lg-5" style="float:none;margin:0 auto;">
-                        <div class="row">
-                            <div class="col-lg-3">
+            <h1 style="color:green;">Pilih Tampilan Simulasi Kredit</h1>
+            <hr class="hrcenter">
+            <div class="ag-format-container">
+                <div class="ag-courses_box" style="justify-content: center;">
 
-                                <label class="labl" align="center">
-                                    <input type="radio" class="radio" name="radioname" value="1" />
-                                    <div><i class="fa tm-fa-6x fa-dollar tm-margin-b-20"></i></div>
-                                    <span>Modal</span>
-                                </label>
+                    <div class="ag-courses_item">
+                        <a href="<?= base_url('web/detail_simulasi_kredit') ?>" class="ag-courses-item_link">
+                            <div class="ag-courses-item_bg"></div>
 
-
+                            <div class="ag-courses-item_title">
+                                SIMULASI KREDIT
                             </div>
-                            <div class="col-lg-3">
-
-                                <label class="labl" align="center">
-                                    <input type="radio" class="radio" name="radioname" value="2" id="investasi" />
-                                    <div><i class="fa tm-fa-6x fa-dollar tm-margin-b-20"></i></div>
-                                    <span>Investasi</span>
-                                </label>
-
-
+                            <div class="ag-courses-item_date-box">
+                                Digunakan:
+                                <span class="ag-courses-item_date">
+                                    Untuk simulasi pinjaman
+                                </span>
                             </div>
-                            <div class="col-lg-3">
-
-                                <label class="labl" align="center">
-                                    <input type="radio" class="radio" name="radioname" value="3" id="konsumtif" />
-                                    <div><i class="fa tm-fa-6x fa-dollar tm-margin-b-20"></i></div>
-                                    <span>Konsumtif</span>
-                                </label>
-
-
-                            </div>
-
-                            <div class="col-lg-3">
-
-                                <label class="labl" align="center">
-                                    <input type="radio" class="radio" name="radioname" value="4" id="kartama" />
-                                    <div><i class="fa tm-fa-6x fa-dollar tm-margin-b-20"></i></div>
-                                    <span>Kartama</span>
-                                </label>
-
-
-                            </div>
-
-
-                        </div>
+                        </a>
                     </div>
 
-                    <div class="row justify-content-center">
-                        <div class="col-lg-6">
-                            <div class="panel panel-default border border-success border-5"
-                                style="display:table;padding: 30px;border-color: #3c763d !important;height: 563px;">
-                                <div class="panel-body card-nganu" style="display: table-cell;vertical-align: middle;">
-                                    <div class="row">
-                                        <div class="col-lg-6" style="display:table;">
-                                            <h5 style="display: table-cell;vertical-align: middle;" class="float-left">
-                                                Nominal Pinjaman</h5>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="input-group">
-                                                <span class="input-group-addon" id="result"
-                                                    style="border-color: #3c763d;color: #3c763d !important;background: #fff;">Rp.</span>
-                                                <input type="text" class="form-control text-success" id="results"
-                                                    value="0"
-                                                    style="border-left:0px;border-color: #3c763d;color: #3c763d !important;">
-                                            </div>
-                                        </div>
+                    <div class="ag-courses_item">
+                        <a href="detail_kalkulator_kredit" class="ag-courses-item_link">
+                            <div class="ag-courses-item_bg"></div>
 
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label for="price"></label>
-                                                <input type="range" class="form-control-range" id="price" value="0">
-                                                <span class="float-left" id="spanmin">Rp. 12.000.000</span>
-                                                <span class="float-right" id="spanmax">Rp. 100.000.000</span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row d-flex" style="margin-top: 20px;">
-                                        <div class="col-lg-6" style="display:table;">
-                                            <h5 style="display: table-cell;vertical-align: middle;" class="float-left">
-                                                Lama Pinjaman</h5>
-                                        </div>
-                                        <div class="col-lg-6" style="display:table-cell;">
-                                            <select class="form-control w-100 p-1 text-success"
-                                                aria-label="Default select example" id="bulan"
-                                                style="border-color: #3c763d;color: #3c763d !important;vertical-align: middle;">
-                                                <!-- <option>--Bulan--</option> -->
-                                                <option value="1" selected>1 Bulan</option>
-                                                <option value="3">3 Bulan</option>
-                                                <option value="6">6 Bulan</option>
-                                                <option value="12">12 Bulan</option>
-                                                <option value="24">24 Bulan</option>
-                                                <option value="36">36 Bulan</option>
-                                                <option value="48">48 Bulan</option>
-                                                <option value="60">60 Bulan</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-lg-12">
-
-
-                                            <div class="form-group">
-                                                <label for="formControlRange"></label>
-                                                <input type="range" class="form-control-range" id="range_bulan"
-                                                    value="0" min="0" max="7" step="1">
-                                                <span class="float-left">1</span>
-                                                <span class="float-right">60</span>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-
-
-
-                                    <div class="row d-flex" style="margin-top:10px">
-                                        <div class="col-lg-6" style="display:table;">
-                                            <h5 style="display: table-cell;vertical-align: middle;" class="float-left">
-                                                Suku Bunga</h5>
-                                        </div>
-                                        <div class="col-lg-6 ">
-                                            <div class="input-group">
-
-                                                <input type="text" class="form-control text-success"
-                                                    aria-label="Amount (to the nearest dollar)" id="bunga_input"
-                                                    value="2"
-                                                    style="border-right:0px;border-color: #3c763d;color: #3c763d !important;">
-                                                <span class="input-group-addon" id="result"
-                                                    style="border-color: #3c763d;color: #3c763d !important;background: #fff;">%</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label for="formControlRange"></label>
-                                                <input type="range" class="form-control-range" id="range_bunga" min="2"
-                                                    max="20" value="0">
-                                            </div>
-                                            <span class="float-left">2%</span>
-                                            <span class="float-right">20%</span>
-                                        </div>
-                                    </div>
-
-                                    <form>
-
-                                    </form>
-
-                                </div>
+                            <div class="ag-courses-item_title">
+                                KALKULATOR KREDIT
                             </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="panel panel-default badge-dark justify-content-center"
-                                style="padding:25px;background: #343a40;color: #fff;">
-                                <div align="center">
-                                    <div class="panel-body">
-                                        <h3 class="text-center">Cicilan Bulanan Kamu</h3>
-                                        <span class="badge badge-light badge-lg"
-                                            style="margin-top: 10px;margin-bottom: 10px;padding: 10px;background: #fff;color: #000;">Rp.<span
-                                                id="hasil_id">....</span></span>
-                                        <h3 class="text-center">Termasuk Biaya Bulanan</h3>
-                                        <p><i style="font-size: 15px;">* Perhitungan bersifat simulasi dan bertujuan
-                                                simulasi</i></p>
-                                    </div>
-                                    <div class="row pb-3 pt-3">
-                                        <div class="col-lg-3 col-xs-3">
-                                            <i class="fa tm-fa-5x fa-clock-o tm-margin-b-20"></i>
-                                        </div>
-                                        <div class="col-lg-9 col-xs-9">
-                                            <div class="float-left">
-                                                Berapa lama proses pengajuannya?
-                                                <h6><strong class="float-left">Sekitar 5 Hari</strong></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row pb-3 pt-3">
-                                        <div class="col-lg-3 col-xs-3">
-                                            <i class="fa tm-fa-5x fa-clock-o tm-margin-b-20"></i>
-                                        </div>
-                                        <div class="col-lg-9 col-xs-9">
-                                            <div class="float-left">
-                                                Apa saja yang diperlukan?
-                                                <h6><strong class="float-left">KTP + Lainnya</strong></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row pb-3 pt-3">
-                                        <div class="col-lg-3 p-0 col-xs-3">
-                                            <i class="fa tm-fa-5x fa-clock-o tm-margin-b-20"></i>
-                                        </div>
-                                        <div class="col-lg-9 col-xs-9">
-                                            <div class="float-left">
-                                                Kemana kamu dapat mengajukan?
-                                                <h6><strong class="float-left">BPR Arsham Sejahtera</strong></h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row justify-content-center mt-3" align="center">
-                                    <button class="btn bg-white text-success">
-                                        <h5><strong>AJUKAN SEKARANG</strong></h5>
-                                    </button>
-                                </div>
+                            <div class="ag-courses-item_date-box">
+                                Digunakan:
+                                <span class="ag-courses-item_date">
+                                    Untuk kalkulasi kredit
+                                </span>
                             </div>
-
-
-                        </div>
+                        </a>
                     </div>
-
-
                 </div>
-
             </div>
         </div>
 

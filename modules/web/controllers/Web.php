@@ -113,6 +113,16 @@ class Web extends Front
         $this->template->build('bayar_dompet_digital');
     }
 
+    public function detail_kalkulator_kredit()
+    {
+        $this->template->build('detail_kalkulator_kredit');
+    }
+
+    public function detail_simulasi_kredit()
+    {
+        $this->template->build('detail_simulasi_kredit');
+    }
+
     public function detail_kredit($id)
     {
         $this->data['kredits'] = $this->model_kredit->get_by_id($id);
