@@ -123,7 +123,7 @@
             <?php if (get_user_data('is_featured') == 0): ?>
             <a href="<?= site_url('/'); ?>" class="logo">
                 <span class="logo-mini"><b><img src="<?= base_url($logo) ?>" height="30px"></b></span>
-                <span class="logo-lg"><b><img src="<?= base_url($logo) ?>" height="40px" width="100%"></b></span>
+                <span class="logo-lg"><b><img src="<?= base_url($logo) ?>" height="40px"></b></span>
             </a>
             <?php endif ?>
             <nav class="navbar navbar-static-top">
