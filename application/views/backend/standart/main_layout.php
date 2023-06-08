@@ -149,9 +149,9 @@
                             </a>
                             <ul class="dropdown-menu">
 
-                                <!-- <li class="header">
-                    <?= COUNT($count_notification) ?> Notification
-                  </li> -->
+                                <li class="header">
+                                    <?= COUNT($count_notification) ?> Notification
+                                </li>
                                 <li>
                                     <ul class="menu">
                                         <?php foreach ($notification as $notif): ?>
