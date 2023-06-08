@@ -121,10 +121,10 @@
             }
             ?>
 
-            <!-- <a href="<?= site_url('/'); ?>" class="logo">
-        <span class="logo-mini"><b><img src="<?= BASE_ASSET ?>img/icon-small.png" height="40px"></b></span>
-        <span class="logo-lg"><b><img src="<?= base_url($logo) ?>" height="40px"></b></span>
-      </a> -->
+            <a href="<?= site_url('/'); ?>" class="logo">
+                <span class="logo-mini"><b><img src="<?= base_url($logo) ?>" height="30px"></b></span>
+                <span class="logo-lg"><b><img src="<?= base_url($logo) ?>" height="40px" width="100%"></b></span>
+            </a>
             <nav class="navbar navbar-static-top">
 
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
