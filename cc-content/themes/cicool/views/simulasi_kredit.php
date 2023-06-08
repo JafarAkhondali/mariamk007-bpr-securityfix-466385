@@ -5,9 +5,6 @@
     width: 1142px;
     margin: 0 auto;
     position: center;
-    /* top: 50%;
-    left: 30%;
-    margin: -25px 0 0 -25px; */
 }
 
 .ag-courses_box {
