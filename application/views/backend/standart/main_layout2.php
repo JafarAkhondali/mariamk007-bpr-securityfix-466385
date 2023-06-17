@@ -131,16 +131,9 @@
                     <span class="sr-only">Toggle navigation</span>
                 </a>
 
-                <?php 
-                app()->load->model('user/model_user');
-
+                <?php app()->load->model('user/model_user');
                 $count_notification = app()->model_user->count_notification($this->aauth->get_user()->username);
                 $notification = app()->model_user->notification($this->aauth->get_user()->username);
-
-                if (get_user_data('is_featured') == 0){
-                    $count_notification = app()->model_user->count_notification_admin();
-                    $notification = app()->model_user->notification_admin();
-                }
                 ?>
 
                 <div class="navbar-custom-menu">
@@ -162,26 +155,19 @@
                                 <li>
                                     <ul class="menu">
                                         <?php foreach ($notification as $notif): ?>
-                                        <?php if (get_user_data('is_featured') == 0): 
-
-                                             $count_notification = app()->model_user->count_notification_admin();
-                                             $notification = app()->model_user->notification_admin();
-
-                                            ?>
+                                        <?php if (get_user_data('is_featured') == 0): ?>
                                         <li>
                                             <a href=""
                                                 data-page="<?= base_url('/administrator/pengajuan_kredit/view/' . $notif->url) ?>"
                                                 data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
-                                                class="<?= $notif->read_m == 0 ? 'unread-notification mark-all-as-read-button-admin' : 'mark-all-as-read-button-admin' ?>"
+                                                class="<?= $notif->read == 0 ? 'unread-notification mark-all-as-read-button-admin' : 'mark-all-as-read-button-admin' ?>"
                                                 id="mark-all-as-read-button-admin">
                                                 <i class="fa fa-circle-o text-aqua"></i>
                                                 <?= $notif->title ?>
                                             </a>
                                         </li>
                                         <?php endif ?>
-                                        <?php if (get_user_data('is_featured') == 1): 
-                                            
-                                            ?>
+                                        <?php if (get_user_data('is_featured') == 1): ?>
                                         <li>
                                             <a href=""
                                                 data-page="<?= base_url('/administrator/pengajuan_kredit/user') ?>"
@@ -200,32 +186,16 @@
                         </li>
 
                         <script type="text/javascript">
-                        // var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
-                        // var token = '<?= $this->security->get_csrf_hash(); ?>';
-                        // var notif = $('.mark-all-as-read-button');
-                        // var id = notif.attr('data-id');
-                        // var username = notif.attr('data-username');
-                        // var page = notif.attr('data-page');
-                        // console.log(username);
+                        var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
+                        var token = '<?= $this->security->get_csrf_hash(); ?>';
+                        var notif = $('.mark-all-as-read-button');
+                        var id = notif.attr('data-id');
+                        var username = notif.attr('data-username');
+                        var page = notif.attr('data-page');
                         $(document).ready(function() {
-
-                            var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
-                            var token = '<?= $this->security->get_csrf_hash(); ?>';
-                            var notif = $('.mark-all-as-read-button');
-                            var id = notif.attr('data-id');
-                            var username = notif.attr('data-username');
-                            var page = notif.attr('data-page');
-
                             $('body').on('click', '.mark-all-as-read-button', function(e) {
-
                                 e.stopPropagation();
                                 e.preventDefault();
-
-                                console.log(username);
-                                console.log($(this));
-                                //  return;
-
-
 
                                 $.ajax({
                                     url: '<?= BASE_URL ?>' +
@@ -246,25 +216,22 @@
                         </script>
 
                         <script type="text/javascript">
+                        var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
+                        var token = '<?= $this->security->get_csrf_hash(); ?>';
+                        // var notif = document.getElementByClassName('mark-all-as-read-button-admin');
+                        var notif = $('.mark-all-as-read-button-admin');
+                        var id = notif.attr('data-id');
+                        var username = notif.attr('data-username');
+
                         $(document).ready(function() {
-
-                            var csrf = '<?= $this->security->get_csrf_token_name(); ?>';
-                            var token = '<?= $this->security->get_csrf_hash(); ?>';
-                            // var notif = document.getElementByClassName('mark-all-as-read-button-admin');
-                            var notif = $('.mark-all-as-read-button-admin');
-                            var id = notif.attr('data-id');
-                            var username = notif.attr('data-username');
-
                             $('body').on('click', '.mark-all-as-read-button-admin', function(e) {
-                                // console.log('awokaowk');exit;
                                 var page = $(this).attr('data-page');
-
                                 e.stopPropagation();
                                 e.preventDefault();
 
                                 $.ajax({
                                     url: '<?= BASE_URL ?>' +
-                                        "web/set_notification_status_as_read_admin",
+                                        "web/set_notification_status_as_read/" + username,
                                     type: 'post',
                                     dataType: 'json',
                                     data: {

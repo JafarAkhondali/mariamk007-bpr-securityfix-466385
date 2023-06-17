@@ -241,11 +241,13 @@ jQuery(document).ready(domo);
 
                         <form action="<?= base_url('administrator/pengajuan_kredit/laporan') ?>">
                             <div class="col-sm-9 padd-left-0 " style="margin-bottom:10px;margin-top:10px;">
+                                <p>Tanggal Awal</p>
                                 <input type="date" class="form-control" name="awal" id="Tanggal Awal"
                                     placeholder="<?= cclang('Tanggal Awal'); ?>"
                                     value="<?= $this->input->get('awal'); ?>" required>
                             </div>
                             <div class="col-sm-9 padd-left-0  " style="margin-bottom:10px;margin-top:10px;">
+                                <p>Tanggal Akhir</p>
                                 <input type="date" class="form-control" name="akhir" id="Tanggal Akhir"
                                     placeholder="<?= cclang('Tanggal Akhir'); ?>"
                                     value="<?= $this->input->get('akhir'); ?>" required>

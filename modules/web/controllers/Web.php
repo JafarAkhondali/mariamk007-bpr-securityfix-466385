@@ -113,16 +113,6 @@ class Web extends Front
         $this->template->build('bayar_dompet_digital');
     }
 
-    public function detail_kalkulator_kredit()
-    {
-        $this->template->build('detail_kalkulator_kredit');
-    }
-
-    public function detail_simulasi_kredit()
-    {
-        $this->template->build('detail_simulasi_kredit');
-    }
-
     public function detail_kredit($id)
     {
         $this->data['kredits'] = $this->model_kredit->get_by_id($id);
@@ -419,6 +409,7 @@ class Web extends Front
 
     public function ajukan_kredit4()
     {
+
         $this->form_validation->set_rules('idkredit', 'Id Kredit', 'required');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
         $kredit = $this->db->where('id', $this->session->userdata('idkredit'))->get('kredit')->row();
@@ -474,7 +465,8 @@ class Web extends Front
                 }
             }
             $id = $this->db->insert('pengajuan_kredit', $simpan);
-            $idkredit = $this->db->insert_id();
+            $idkredit = $this->db->insert_id($id);
+            $username = $this->session->userdata('username');
             $data = [
                 'title' => 'Pengajuan baru ' . $jenis_pinjaman . ' atas nama : ' . $this->session->userdata('username'),
                 'content' => '-',
@@ -483,9 +475,9 @@ class Web extends Front
                 'username' => 'management',
 				'created_at' => date('Y-m-d H:i:s'),
             ];
-
             $this->db->insert('notification', $data);
-            $this->session->set_flashdata('success', 'Pengajuan Kredit anda berhasil di simpan, mohon menunggu konfirmasi admin');
+            
+            $this->session->set_flashdata('success', 'Pengajuan Kredit anda berhasil di simpan, mohon menunggu konfirmasi management');
 
             redirect(base_url('administrator/pengajuan_kredit/user'));
         } else {
@@ -512,6 +504,10 @@ class Web extends Front
     public function set_notification_status_as_read($username)
     {
         $this->model_user->set_notification_status_as_readss($username);
+    }
+    public function set_notification_status_as_read_admin()
+    {
+        $this->model_user->set_notification_status_as_readss_admin();
     }
 
     public function dokumentasi()

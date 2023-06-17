@@ -119,6 +119,21 @@ class Model_user extends MY_Model {
         return $this->db->query($query);
     }
 
+	public function count_notification_admin() {
+        $query = $this->db->query("SELECT * FROM `notification`  WHERE  notification.username = 'management' AND notification.read_m = 0");
+        return $query->result();
+    }
+
+	public function notification_admin() {
+        $query = $this->db->query("SELECT * FROM `notification` WHERE notification.username='management'");
+        return $query->result();
+    }
+
+	public function set_notification_status_as_readss_admin() {
+		$query = $this->db->query("UPDATE `notification` SET `read_m` = 1");
+        return $this->db->query($query);
+    }
+
 }
 
 

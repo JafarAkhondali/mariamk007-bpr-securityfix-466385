@@ -4,13 +4,11 @@
 <link href="<?= BASE_ASSET; ?>/fine-upload/fine-uploader-gallery.min.css" rel="stylesheet">
 <script src="<?= BASE_ASSET; ?>/fine-upload/jquery.fine-uploader.js"></script>
 <script src="<?= BASE_ASSET; ?>/js/alert.js"></script>
-
 <?php $this->load->view('core_template/fine_upload'); ?>
-
 <style>
 #heading {
     text-transform: uppercase;
-    color: #3AB759;
+    color: #673AB7;
     font-weight: normal
 }
 
@@ -59,13 +57,13 @@
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #3AB759;
+    border: 1px solid #673AB7;
     outline-width: 0
 }
 
 #msform .action-button {
     width: 100px;
-    background: #3AB759;
+    background: #673AB7;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -107,14 +105,14 @@
 
 .fs-title {
     font-size: 25px;
-    color: #3AB759;
+    color: #673AB7;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
 }
 
 .purple-text {
-    color: #3AB759;
+    color: #673AB7;
     font-weight: normal
 }
 
@@ -139,7 +137,7 @@
 }
 
 #progressbar .active {
-    color: #3AB759
+    color: #673AB7
 }
 
 #progressbar li {
@@ -197,7 +195,7 @@
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: #3AB759
+    background: #673AB7
 }
 
 .progress {
@@ -205,7 +203,7 @@
 }
 
 .progress-bar {
-    background-color: #3AB759
+    background-color: #673AB7
 }
 
 .fit-image {
