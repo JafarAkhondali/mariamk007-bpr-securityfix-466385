@@ -286,17 +286,17 @@
                     <ul class="nav navbar-nav">
 
                         <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: darkcyan;">
                                 <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
                                     class="user-image" alt="User Image">
                                 <span class="hidden-xs">
                                     <?= _ent(ucwords(clean_snake_case(get_user_data('full_name')))); ?>
                                 </span>
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="background-color: darkcyan;">
                                 <li class="user-header">
                                     <img src="<?= BASE_URL . 'uploads/user/' . (!empty(get_user_data('avatar')) ? get_user_data('avatar') : 'default.png'); ?>"
-                                        class="img-circle" alt="User Image">
+                                        class="img-circle" alt="User Image" style="background-color: darkcyan;">
 
                                     <p>
                                         <?= _ent(ucwords(clean_snake_case($this->aauth->get_user()->full_name))); ?>
