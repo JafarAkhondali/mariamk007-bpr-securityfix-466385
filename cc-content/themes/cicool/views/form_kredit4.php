@@ -3,11 +3,14 @@
 
 <link href="<?= BASE_ASSET; ?>/fine-upload/fine-uploader-gallery.min.css" rel="stylesheet">
 <script src="<?= BASE_ASSET; ?>/fine-upload/jquery.fine-uploader.js"></script>
+<script src="<?= BASE_ASSET; ?>/js/alert.js"></script>
+
 <?php $this->load->view('core_template/fine_upload'); ?>
+
 <style>
 #heading {
     text-transform: uppercase;
-    color: #673AB7;
+    color: #3AB759;
     font-weight: normal
 }
 
@@ -56,13 +59,13 @@
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #673AB7;
+    border: 1px solid #3AB759;
     outline-width: 0
 }
 
 #msform .action-button {
     width: 100px;
-    background: #673AB7;
+    background: #3AB759;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -104,14 +107,14 @@
 
 .fs-title {
     font-size: 25px;
-    color: #673AB7;
+    color: #3AB759;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
 }
 
 .purple-text {
-    color: #673AB7;
+    color: #3AB759;
     font-weight: normal
 }
 
@@ -136,7 +139,7 @@
 }
 
 #progressbar .active {
-    color: #673AB7
+    color: #3AB759
 }
 
 #progressbar li {
@@ -194,7 +197,7 @@
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: #673AB7
+    background: #3AB759
 }
 
 .progress {
@@ -202,7 +205,7 @@
 }
 
 .progress-bar {
-    background-color: #673AB7
+    background-color: #3AB759
 }
 
 .fit-image {
@@ -361,9 +364,17 @@
                                         </script>
                                     </div>
                                     <!-- batas upload file -->
-                                    <div class="pull-right">
+                                    <!-- <div class="pull-right">
                                         <button class="btn btn-success" type="submit">SUBMIT</button>
+                                    </div> -->
+
+                                    <div class="pull-right">
+                                        <button class="btn btn-success" id="submit" type="button">SUBMIT</button>
+                                        <input type="submit" id="submit-real" style="display: none;">
                                     </div>
+
+
+
                                     <div class="pull-left">
                                         <a href="<?= base_url('web/ajukan_kredit3') ?>"
                                             class="btn btn-danger">Sebelumnya</a>
@@ -377,6 +388,10 @@
             </div>
         </div>
         <?= get_footer(); ?>
+
+        <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+
+
         <script>
         $(document).ready(function() {
             var current_fs, next_fs, previous_fs; //fieldsets
@@ -446,6 +461,19 @@
             $(".submit").click(function() {
                 return false;
             })
+
+            $('#submit').click(function() {
+                Swal.fire(
+                    'Berhasil!',
+                    'Pengajuan kamu telah di masukkan',
+                    'success'
+                ).then(function() {
+                    $('#submit-real').click();
+                });
+
+            });
+
+
         });
         </script>
     </body>

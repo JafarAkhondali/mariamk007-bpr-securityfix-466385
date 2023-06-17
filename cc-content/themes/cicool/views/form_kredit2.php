@@ -7,7 +7,7 @@
 <style>
 #heading {
     text-transform: uppercase;
-    color: #673AB7;
+    color: #3AB759;
     font-weight: normal;
 }
 
@@ -57,13 +57,13 @@
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #673AB7;
+    border: 1px solid #3AB759;
     outline-width: 0
 }
 
 #msform .action-button {
     width: 100px;
-    background: #673AB7;
+    background: #3AB759;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -105,14 +105,14 @@
 
 .fs-title {
     font-size: 25px;
-    color: #673AB7;
+    color: #3AB759;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
 }
 
 .purple-text {
-    color: #673AB7;
+    color: #3AB759;
     font-weight: normal
 }
 
@@ -136,7 +136,7 @@
 }
 
 #progressbar .active {
-    color: #673AB7
+    color: #3AB759
 }
 
 #progressbar li {
@@ -145,7 +145,7 @@
     width: 25%;
     float: left;
     position: relative;
-    font-weight: 400
+    font-weight: 400;
 }
 
 #progressbar #account:before {
@@ -194,7 +194,7 @@
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: #673AB7
+    background: #3AB759
 }
 
 .progress {
@@ -202,7 +202,7 @@
 }
 
 .progress-bar {
-    background-color: #673AB7
+    background-color: #3AB759
 }
 
 .fit-image {
@@ -247,7 +247,7 @@
                                                 <input type="hidden" name="idkredit" value="<?= $kredit->id ?>">
                                                 <div class="card-body" style="padding: 15px;">
                                                     <img src="<?= base_url('uploads/kredit/' . $kredit->photo) ?>"
-                                                        width="100%">
+                                                        width="90px" height="90px">
                                                     <br>
                                                     <br>
                                                     <button type="submit" class="btn btn btn-success">Ajukan Kredit
