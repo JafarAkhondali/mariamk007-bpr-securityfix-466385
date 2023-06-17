@@ -184,7 +184,7 @@ h5 {
                                                     <label for="price"></label>
                                                     <input type="range" class="form-control-range" id="price" value="0">
                                                     <span class="float-left" id="spanmin">Rp. 12.000.000</span>
-                                                    <span class="float-right" id="spanmax">Rp. 100.000.000</span>
+                                                    <span class="float-right" id="spanmax">Rp. 500.000.000</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -204,6 +204,7 @@ h5 {
                                                     <option value="3">3 Bulan</option>
                                                     <option value="6">6 Bulan</option>
                                                     <option value="12">12 Bulan</option>
+                                                    <option value="18">18 Bulan</option>
                                                     <option value="24">24 Bulan</option>
                                                     <option value="36">36 Bulan</option>
                                                     <option value="48">48 Bulan</option>
@@ -217,7 +218,7 @@ h5 {
                                                 <div class="form-group">
                                                     <label for="formControlRange"></label>
                                                     <input type="range" class="form-control-range" id="range_bulan"
-                                                        value="0" min="0" max="7" step="1">
+                                                        value="0" min="0" max="8" step="1">
                                                     <span class="float-left">1</span>
                                                     <span class="float-right">60</span>
                                                 </div>
@@ -343,7 +344,7 @@ h5 {
         var c = document.getElementById("bulan");
         var d = document.getElementById("results");
 
-        const values = [1, 3, 6, 12, 24, 36, 48, 60];
+        const values = [1, 3, 6, 12, 18, 24, 36, 48, 60];
 
         p.addEventListener("input", function() {
             $('#results').val(format(p.value));
@@ -372,14 +373,16 @@ h5 {
                 $('#range_bulan').val(2);
             } else if (isi == 12) {
                 $('#range_bulan').val(3);
-            } else if (isi == 24) {
+            } else if (isi == 18) {
                 $('#range_bulan').val(4);
-            } else if (isi == 36) {
+            } else if (isi == 24) {
                 $('#range_bulan').val(5);
-            } else if (isi == 48) {
+            } else if (isi == 36) {
                 $('#range_bulan').val(6);
-            } else if (isi == 60) {
+            } else if (isi == 48) {
                 $('#range_bulan').val(7);
+            } else if (isi == 60) {
+                $('#range_bulan').val(8);
             }
 
             hasil();
@@ -432,13 +435,13 @@ h5 {
                 max = 15000000;
             } else if (val == 2) {
                 min = 12000000;
-                max = 100000000;
+                max = 500000000;
             } else if (val == 3) {
                 min = 500000;
                 max = 25000000;
             } else if (val == 4) {
                 min = 8000000;
-                max = 100000000;
+                max = 500000000;
             }
 
             console.log(min);

@@ -292,7 +292,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/0.9.0/jquery.mask.min.js"></script>
 
-    <script>
+    <!-- <script>
     $(document).ready(function() {
         $('#results').mask('000.000.000', {
             reverse: true
@@ -465,7 +465,7 @@
         }
 
     });
-    </script>
+    </script> -->
 
     </section class="container" style="color: black;text-align:center">
 

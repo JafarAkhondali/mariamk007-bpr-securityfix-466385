@@ -58,7 +58,7 @@ function metode_flat($jumlahPinjaman, $jangkaWaktu, $sukuBunga) {
     $angsuran = [];
     $sukuBunga = $sukuBunga / 100;
     $pokok = $jumlahPinjaman / $jangkaWaktu;
-    $bunga = $jumlahPinjaman * $sukuBunga / $jangkaWaktu;
+    $bunga = $jumlahPinjaman * $sukuBunga;
     $sisaPinjaman = $jumlahPinjaman;
     $jumlahAngsuran = $pokok + $bunga;
 

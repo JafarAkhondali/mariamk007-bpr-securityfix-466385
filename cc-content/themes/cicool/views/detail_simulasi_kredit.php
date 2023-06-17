@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="bungaPertahun">Bunga Pertahun <em>(%)</em>: </label>
+                            <label for="bungaPertahun">Bunga Per Bulan (Per Bulan/1 Tahun) <em>(%)</em>: </label>
                             <input type="number" class="form-control" id="bungaPertahun" name="bungaPertahun"
                                 placeholder="Contoh: 10.5" value="1.5">
                         </div>
@@ -64,7 +64,7 @@
                             <div class="col-md-9">: <span id="resultLamaPinjaman"></span></div>
                         </div>
                         <div class="row d-flex justify-content-center">
-                            <div class="col-md-3">Bunga Pertahun</div>
+                            <div class="col-md-3">Bunga Per Bulan (Per Bulan/1 Tahun)</div>
                             <div class="col-md-9">: <span id="resultBungaPertahun"></span></div>
                         </div>
                         <div class="flatOnly">
