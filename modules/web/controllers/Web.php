@@ -125,6 +125,16 @@ class Web extends Front
         $this->template->build('simulasi_kredit', $this->data);
     }
 
+    public function detail_simulasi_kredit()
+    {
+        $this->template->build('detail_simulasi_kredit');
+    }
+
+    public function detail_kalkulator_kredit()
+    {
+        $this->template->build('detail_kalkulator_kredit');
+    }
+
     public function getKredit($plafond)
     {
         $query = $this->db->query("SELECT * FROM `simulasi_kredit` WHERE simulasi_kredit.plafond =" . $plafond . "");
