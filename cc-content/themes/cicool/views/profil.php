@@ -378,7 +378,8 @@
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <?php foreach ($pekerjaans as $pekerjaan): ?>
                 <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="heading<?= $pekerjaan->id ?>">
+                    <div class="panel-heading" role="tab" id="heading<?= $pekerjaan->id ?>"
+                        style="background-color:#aff1b6;">
                         <h4 class="panel-title">
                             <a role="button" data-toggle="collapse" data-parent="#accordion"
                                 href="#collapse<?= $pekerjaan->id ?>" aria-expanded="true"
@@ -402,9 +403,9 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Jabatan</th>
+                            <th class="success" scope="col">No</th>
+                            <th class="success" scope="col">Nama</th>
+                            <th class="success" scope="col">Jabatan</th>
                         </tr>
                     </thead>
                     <tbody>
