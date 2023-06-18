@@ -113,7 +113,7 @@ jQuery(document).ready(domo);
                                             <option <?= $this->input->get('f') == 'created_at' ? 'selected' :''; ?>
                                                 value="created_at">Created At</option>
                                             <option <?= $this->input->get('f') == 'username' ? 'selected' :''; ?>
-                                                value="username">Username</option>
+                                                value="username">Nama Debitur</option>
                                             <option <?= $this->input->get('f') == 'status_layak' ? 'selected' :''; ?>
                                                 value="status_layak">Status Layak</option>
                                         </select>
@@ -164,7 +164,7 @@ jQuery(document).ready(domo);
                                             <th data-field="created_at" data-sort="1" data-primary-key="0">
                                                 <?= cclang('created_at') ?></th>
                                             <th data-field="username" data-sort="1" data-primary-key="0">
-                                                <?= cclang('username') ?></th>
+                                                <?= cclang('username') ?> Debitur</th>
                                             <th data-field="status_layak" data-sort="1" data-primary-key="0">
                                                 <?= cclang('status_layak') ?></th>
                                             <th>Action</th>

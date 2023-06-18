@@ -106,7 +106,7 @@ jQuery(document).ready(domo);
                             </div>
 
                             <div class="form-group ">
-                                <label for="content" class="col-sm-2 control-label">Username </label>
+                                <label for="content" class="col-sm-2 control-label">Nama Debitur </label>
 
                                 <div class="col-sm-8">
                                     <?= _ent($survei_lapangan->username); ?>

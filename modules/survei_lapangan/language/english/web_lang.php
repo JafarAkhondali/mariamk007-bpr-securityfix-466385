@@ -10,5 +10,5 @@ $lang['informasi_harga_jaminan'] = 'Informasi Harga Jaminan';
 $lang['situasi_jaminan'] = 'Deskripsi Jaminan (Analisa Kelebihan dan Kekurangan)';
 $lang['nilai_taksasi_jaminan'] = 'Nilai Taksasi Jaminan';
 $lang['created_at'] = 'Created At';
-$lang['username'] = 'Username';
+$lang['username'] = 'Nama Debitur';
 $lang['status_layak'] = 'Status Layak';

@@ -140,10 +140,10 @@ jQuery(document).ready(domo);
 
 
                         <div class="form-group group-username">
-                            <label for="username" class="col-sm-2 control-label">Username </label>
+                            <label for="username" class="col-sm-2 control-label">Nama Debitur </label>
                             <div class="col-sm-8">
                                 <select class="form-control chosen chosen-select-deselect" name="username" id="username"
-                                    data-placeholder="Select Username">
+                                    data-placeholder="Pilih Debitur">
                                     <option value=""></option>
                                     <?php
                                         $conditions = [
@@ -171,15 +171,16 @@ jQuery(document).ready(domo);
                                 <div class="col-md-2 padding-left-0">
                                     <label>
                                         <input type="radio" class="flat-red" name="status_layak" id="status_layak"
-                                            value="yes"
-                                            <?= $survei_lapangan->status_layak == "yes" ? "checked" : ""; ?>>
+                                            value="layak"
+                                            <?= $survei_lapangan->status_layak == "layak" ? "checked" : ""; ?>>
                                         Layak
                                     </label>
                                 </div>
                                 <div class="col-md-14">
                                     <label>
                                         <input type="radio" class="flat-red" name="status_layak" id="status_layak"
-                                            value="no" <?= $survei_lapangan->status_layak == "no" ? "checked" : ""; ?>>
+                                            value="tidak layak"
+                                            <?= $survei_lapangan->status_layak == "tidak layak" ? "checked" : ""; ?>>
                                         Tidak Layak
                                     </label>
                                 </div>
