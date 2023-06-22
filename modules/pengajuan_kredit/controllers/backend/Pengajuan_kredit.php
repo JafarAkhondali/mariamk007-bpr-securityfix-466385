@@ -539,7 +539,7 @@ class Pengajuan_kredit extends Admin
 			];
 
 			$data = [
-				'title' => $this->input->post('status') === 'ditolak' ? 'Maaf pengajuan kredit anda ditolak, silahkan hubungi customer service untuk penjelasan detail' : 'Selamat pengajuan kredit anda berhasil, hubungi customer service untuk keterangan lebih lanjut.',
+				'title' => $this->input->post('status') === 'ditolak' ? 'Maaf pengajuan kredit anda ditolak, silahkan hubungi kontak yang tersedia untuk penjelasan detail' : 'Selamat pengajuan kredit anda diterima, tim kami akan menghubungi Anda untuk info selanjutnya.',
 				'content' => '-',
 				'url' => '#',
 				'read' => 0,
