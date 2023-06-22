@@ -149,7 +149,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-bell-o"></i>
                                 <span
-                                    style="<?= COUNT($count_notification) == 0 ? 'background: #ccc !important; color#fff !important;' : '' ?>"
+                                    style="<?= COUNT($count_notification) == 0 ? 'background: #ccc !important; color:#fff !important;' : '' ?>"
                                     class="label label-<?= COUNT($count_notification) > 0 ? 'warning' : '' ?>">
                                     <?= COUNT($count_notification) ?>
                                 </span>
@@ -174,7 +174,7 @@
                                                 data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
                                                 class="<?= $notif->read_m == 0 ? 'unread-notification mark-all-as-read-button-admin' : 'mark-all-as-read-button-admin' ?>"
                                                 id="mark-all-as-read-button-admin">
-                                                <i class="fa fa-circle-o text-aqua"></i>
+                                                <i class="fa fa-envelope-o text-green"></i>
                                                 <?= $notif->title ?>
                                             </a>
                                         </li>
@@ -188,7 +188,7 @@
                                                 data-username="<?= $notif->username ?>" data-id="<?= $notif->id ?>"
                                                 class="<?= $notif->read == 0 ? 'unread-notification mark-all-as-read-button' : 'mark-all-as-read-button' ?>"
                                                 id="mark-all-as-read-button">
-                                                <i class="fa fa-circle-o text-aqua"></i>
+                                                <i class="fa fa-envelope-o text-green"></i>
                                                 <?= $notif->title ?>
                                             </a>
                                         </li>
