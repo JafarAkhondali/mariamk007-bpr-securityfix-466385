@@ -195,13 +195,13 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">Jangka Waktu 12</th>
-                                    <th scope="col">Jangka Waktu 18</th>
-                                    <th scope="col">Jangka Waktu 24</th>
-                                    <th scope="col">Jangka Waktu 30</th>
-                                    <th scope="col">Jangka Waktu 36</th>
-                                    <th scope="col">Jangka Waktu 48</th>
-                                    <th scope="col">Jangka Waktu 60</th>
+                                    <th scope="col">Jangka Waktu 12 Bulan</th>
+                                    <th scope="col">Jangka Waktu 18 Bulan</th>
+                                    <th scope="col">Jangka Waktu 24 Bulan</th>
+                                    <th scope="col">Jangka Waktu 30 Bulan</th>
+                                    <th scope="col">Jangka Waktu 36 Bulan</th>
+                                    <th scope="col">Jangka Waktu 48 Bulan</th>
+                                    <th scope="col">Jangka Waktu 60 Bulan</th>
                                 </tr>
                             </thead>
                             <tbody>
