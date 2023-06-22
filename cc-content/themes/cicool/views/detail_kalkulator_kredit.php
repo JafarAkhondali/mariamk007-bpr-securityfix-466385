@@ -174,7 +174,7 @@ h5 {
                                                     <span class="input-group-addon" id="result"
                                                         style="border-color: #3c763d;color: #3c763d !important;background: #fff;">Rp.</span>
                                                     <input type="text" class="form-control text-success" id="results"
-                                                        value="0"
+                                                        value="500000" min="500000" max="500000000"
                                                         style="border-left:0px;border-color: #3c763d;color: #3c763d !important;">
                                                 </div>
                                             </div>
@@ -182,8 +182,9 @@ h5 {
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="price"></label>
-                                                    <input type="range" class="form-control-range" id="price" value="0">
-                                                    <span class="float-left" id="spanmin">Rp. 12.000.000</span>
+                                                    <input type="range" class="form-control-range" id="price"
+                                                        value="500000" min="500000" max="500000000">
+                                                    <span class=" float-left" id="spanmin">Rp. 500.000</span>
                                                     <span class="float-right" id="spanmax">Rp. 500.000.000</span>
                                                 </div>
                                             </div>
