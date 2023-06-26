@@ -207,6 +207,7 @@ h5 {
                                                     <option value="12" selected>12 Bulan</option>
                                                     <option value="18">18 Bulan</option>
                                                     <option value="24">24 Bulan</option>
+                                                    <option value="30">30 Bulan</option>
                                                     <option value="36">36 Bulan</option>
                                                     <option value="48">48 Bulan</option>
                                                     <option value="60">60 Bulan</option>
@@ -219,7 +220,7 @@ h5 {
                                                 <div class="form-group">
                                                     <label for="formControlRange"></label>
                                                     <input type="range" class="form-control-range" id="range_bulan"
-                                                        value="3" min="3" max="8" step="1">
+                                                        value="3" min="3" max="9" step="1">
                                                     <span class="float-left">12</span>
                                                     <span class="float-right">60</span>
                                                 </div>
@@ -378,12 +379,14 @@ h5 {
                 $('#range_bulan').val(4);
             } else if (isi == 24) {
                 $('#range_bulan').val(5);
-            } else if (isi == 36) {
+            } else if (isi == 30) {
                 $('#range_bulan').val(6);
-            } else if (isi == 48) {
+            } else if (isi == 36) {
                 $('#range_bulan').val(7);
-            } else if (isi == 60) {
+            } else if (isi == 48) {
                 $('#range_bulan').val(8);
+            } else if (isi == 60) {
+                $('#range_bulan').val(9);
             }
 
             hasil();
