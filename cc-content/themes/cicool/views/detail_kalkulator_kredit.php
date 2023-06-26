@@ -174,7 +174,7 @@ h5 {
                                                     <span class="input-group-addon" id="result"
                                                         style="border-color: #3c763d;color: #3c763d !important;background: #fff;">Rp.</span>
                                                     <input type="text" class="form-control text-success" id="results"
-                                                        value="500000" min="500000" max="500000000"
+                                                        value="5000000" min="5000000" max="500000000"
                                                         style="border-left:0px;border-color: #3c763d;color: #3c763d !important;">
                                                 </div>
                                             </div>
@@ -183,8 +183,8 @@ h5 {
                                                 <div class="form-group">
                                                     <label for="price"></label>
                                                     <input type="range" class="form-control-range" id="price"
-                                                        value="500000" min="500000" max="500000000">
-                                                    <span class=" float-left" id="spanmin">Rp. 500.000</span>
+                                                        value="5000000" min="5000000" max="500000000">
+                                                    <span class=" float-left" id="spanmin">Rp. 5.000.000</span>
                                                     <span class="float-right" id="spanmax">Rp. 500.000.000</span>
                                                 </div>
                                             </div>
@@ -201,10 +201,10 @@ h5 {
                                                     aria-label="Default select example" id="bulan"
                                                     style="border-color: #3c763d;color: #3c763d !important;vertical-align: middle;">
                                                     <!-- <option>--Bulan--</option> -->
-                                                    <option value="1" selected>1 Bulan</option>
+                                                    <!-- <option value="1" selected>1 Bulan</option>
                                                     <option value="3">3 Bulan</option>
-                                                    <option value="6">6 Bulan</option>
-                                                    <option value="12">12 Bulan</option>
+                                                    <option value="6">6 Bulan</option> -->
+                                                    <option value="12" selected>12 Bulan</option>
                                                     <option value="18">18 Bulan</option>
                                                     <option value="24">24 Bulan</option>
                                                     <option value="36">36 Bulan</option>
@@ -219,8 +219,8 @@ h5 {
                                                 <div class="form-group">
                                                     <label for="formControlRange"></label>
                                                     <input type="range" class="form-control-range" id="range_bulan"
-                                                        value="0" min="0" max="8" step="1">
-                                                    <span class="float-left">1</span>
+                                                        value="3" min="3" max="8" step="1">
+                                                    <span class="float-left">12</span>
                                                     <span class="float-right">60</span>
                                                 </div>
 
