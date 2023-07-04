@@ -164,7 +164,7 @@ jQuery(document).ready(domo);
                                             <th data-field="created_at" data-sort="1" data-primary-key="0">
                                                 <?= cclang('created_at') ?></th>
                                             <th data-field="username" data-sort="1" data-primary-key="0">
-                                                Nama Debitur</th>
+                                                Username Debitur</th>
                                             <th data-field="status_layak" data-sort="1" data-primary-key="0">
                                                 <?= cclang('status_layak') ?></th>
                                             <th>Action</th>
