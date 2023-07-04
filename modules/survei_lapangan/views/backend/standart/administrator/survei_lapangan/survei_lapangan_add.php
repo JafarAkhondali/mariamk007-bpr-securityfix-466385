@@ -217,12 +217,14 @@ $(document).ready(function() {
     window.event_submit_and_action = '';
 
 
-
-
-
-
     CKEDITOR.replace('situasi_jaminan');
+    CKEDITOR.replace('informasi_harga_jaminan');
+    CKEDITOR.replace('nilai_taksasi_jaminan');
+
     var situasi_jaminan = CKEDITOR.instances.situasi_jaminan;
+    var informasi_harga_jaminan = CKEDITOR.instances.informasi_harga_jaminan;
+    var nilai_taksasi_jaminan = CKEDITOR.instances.nilai_taksasi_jaminan;
+
 
     $('#btn_cancel').click(function() {
         swal({
@@ -248,6 +250,8 @@ $(document).ready(function() {
     $('.btn_save').click(function() {
         $('.message').fadeOut();
         $('#situasi_jaminan').val(situasi_jaminan.getData());
+        $('#informasi_harga_jaminan').val(informasi_harga_jaminan.getData());
+        $('#nilai_taksasi_jaminan').val(nilai_taksasi_jaminan.getData());
 
         var form_survei_lapangan = $('#form_survei_lapangan');
         var data_post = form_survei_lapangan.serializeArray();
