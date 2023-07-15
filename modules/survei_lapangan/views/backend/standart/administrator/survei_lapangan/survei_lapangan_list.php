@@ -95,9 +95,8 @@ jQuery(document).ready(domo);
                                         <select type="text" class="form-control chosen chosen-select" name="f"
                                             id="field">
                                             <option value=""><?= cclang('all'); ?></option>
-                                            <option
-                                                <?= $this->input->get('f') == 'petugas_pemeriksa' ? 'selected' :''; ?>
-                                                value="petugas_pemeriksa">Nama Petugas Pemeriksa</option>
+                                            <option <?= $this->input->get('f') == 'nama' ? 'selected' :''; ?>
+                                                value="nama">Nama Petugas Pemeriksa</option>
                                             <option <?= $this->input->get('f') == 'jaminan_kredit' ? 'selected' :''; ?>
                                                 value="jaminan_kredit">Jaminan Kredit</option>
                                             <option <?= $this->input->get('f') == 'lokasi_jaminan' ? 'selected' :''; ?>
@@ -149,8 +148,8 @@ jQuery(document).ready(domo);
                                                 <input type="checkbox" class="flat-red toltip" id="check_all"
                                                     name="check_all" title="check all">
                                             </th>
-                                            <th data-field="petugas_pemeriksa" data-sort="1" data-primary-key="0">
-                                                <?= cclang('petugas_pemeriksa') ?></th>
+                                            <th data-field="nama" data-sort="1" data-primary-key="0">
+                                                Nama Petugas Pemeriksa</th>
                                             <th data-field="jaminan_kredit" data-sort="1" data-primary-key="0">
                                                 <?= cclang('jaminan_kredit') ?></th>
                                             <th data-field="lokasi_jaminan" data-sort="1" data-primary-key="0">
@@ -162,7 +161,7 @@ jQuery(document).ready(domo);
                                             <th data-field="nilai_taksasi_jaminan" data-sort="1" data-primary-key="0">
                                                 <?= cclang('nilai_taksasi_jaminan') ?></th>
                                             <th data-field="created_at" data-sort="1" data-primary-key="0">
-                                                <?= cclang('created_at') ?></th>
+                                                Tgl Survei</th>
                                             <th data-field="username" data-sort="1" data-primary-key="0">
                                                 Username Debitur</th>
                                             <th data-field="status_layak" data-sort="1" data-primary-key="0">
@@ -179,7 +178,7 @@ jQuery(document).ready(domo);
                                             </td>
 
                                             <td><span
-                                                    class="list_group-petugas_pemeriksa"><?= _ent($survei_lapangan->petugas_pemeriksa); ?></span>
+                                                    class="list_group-nama"><?= _ent($survei_lapangan->nama); ?></span>
                                             </td>
 
                                             <td><span

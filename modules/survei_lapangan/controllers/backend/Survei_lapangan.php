@@ -78,7 +78,7 @@ class Survei_lapangan extends Admin
 		
 		
 
-		$this->form_validation->set_rules('petugas_pemeriksa', 'Nama Petugas Pemeriksa', 'trim|required|max_length[50]');		
+		$this->form_validation->set_rules('nama', 'Nama Petugas Pemeriksa', 'trim|required|max_length[50]');		
 
 		$this->form_validation->set_rules('jaminan_kredit', 'Jaminan Kredit', 'trim|required|max_length[255]');
 		
@@ -97,7 +97,7 @@ class Survei_lapangan extends Admin
 		if ($this->form_validation->run()) {
 		
 			$save_data = [
-				'petugas_pemeriksa' => $this->input->post('petugas_pemeriksa'),
+				'nama' => $this->input->post('nama'),
 				'jaminan_kredit' => $this->input->post('jaminan_kredit'),
 				'lokasi_jaminan' => $this->input->post('lokasi_jaminan'),
 				'informasi_harga_jaminan' => $this->input->post('informasi_harga_jaminan'),
@@ -188,7 +188,7 @@ class Survei_lapangan extends Admin
 				]);
 			exit;
 		}
-		$this->form_validation->set_rules('petugas_pemeriksa', 'Nama Petugas Pemeriksa', 'trim|required|max_length[50]');
+		$this->form_validation->set_rules('nama', 'Nama Petugas Pemeriksa', 'trim|required|max_length[50]');
 
 		$this->form_validation->set_rules('jaminan_kredit', 'Jaminan Kredit', 'trim|required|max_length[255]');
 
@@ -206,7 +206,7 @@ class Survei_lapangan extends Admin
 		if ($this->form_validation->run()) {
 		
 			$save_data = [
-				'petugas_pemeriksa' => $this->input->post('petugas_pemeriksa'),
+				'nama' => $this->input->post('nama'),
 				'jaminan_kredit' => $this->input->post('jaminan_kredit'),
 				'lokasi_jaminan' => $this->input->post('lokasi_jaminan'),
 				'informasi_harga_jaminan' => $this->input->post('informasi_harga_jaminan'),

@@ -57,15 +57,20 @@ jQuery(document).ready(domo);
                         $user_groups = $this->model_group->get_user_group_ids();
                         ?>
 
-                        <div class="form-group group-petugas_pemeriksa ">
-                            <label for="petugas_pemeriksa" class="col-sm-2 control-label">Nama Petugas Pemeriksa <i
+                        <div class="form-group group-nama ">
+                            <label for="nama" class="col-sm-2 control-label">Nama Petugas Pemeriksa <i
                                     class="required">*</i>
                             </label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" name="petugas_pemeriksa" id="petugas_pemeriksa"
-                                    placeholder="Nama Petugas Pemeriksa" value="<?= set_value('petugas_pemeriksa'); ?>">
+                                <select class="form-control chosen chosen-select-deselect" name="nama" id="nama"
+                                    data-placeholder="Pilih Pegawai">
+                                    <option value=""></option>
+                                    <?php foreach (db_get_all_data('pegawai', $conditions) as $row): ?>
+                                    <option value="<?= $row->nama ?>"><?= $row->nama; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
                                 <small class="info help-block">
-                                    <b>Input Nama Petugas Pemeriksa</b> Max Length : 50.</small>
+                                </small>
                             </div>
                         </div>
 
@@ -131,7 +136,7 @@ jQuery(document).ready(domo);
                         </div>
 
                         <div class="form-group group-username ">
-                            <label for="username" class="col-sm-2 control-label">Nama Debitur </label>
+                            <label for="username" class="col-sm-2 control-label">Username Debitur </label>
                             <div class="col-sm-8">
                                 <select class="form-control chosen chosen-select-deselect" name="username" id="username"
                                     data-placeholder="Pilih Debitur">

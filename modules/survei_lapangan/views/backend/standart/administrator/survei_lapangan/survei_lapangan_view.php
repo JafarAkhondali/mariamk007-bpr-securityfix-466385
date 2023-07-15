@@ -55,8 +55,7 @@ jQuery(document).ready(domo);
                                 <label for="content" class="col-sm-2 control-label">Nama Petugas Pemeriksa</label>
 
                                 <div class="col-sm-8">
-                                    <span
-                                        class="detail_group-petugas_pemeriksa"><?= _ent($survei_lapangan->petugas_pemeriksa); ?></span>
+                                    <span class="detail_group-nama"><?= _ent($survei_lapangan->nama); ?></span>
                                 </div>
                             </div>
 
@@ -106,7 +105,7 @@ jQuery(document).ready(domo);
                             </div>
 
                             <div class="form-group ">
-                                <label for="content" class="col-sm-2 control-label">Nama Debitur </label>
+                                <label for="content" class="col-sm-2 control-label">Username Debitur </label>
 
                                 <div class="col-sm-8">
                                     <?= _ent($survei_lapangan->username); ?>
