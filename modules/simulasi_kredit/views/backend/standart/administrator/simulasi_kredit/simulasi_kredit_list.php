@@ -219,29 +219,28 @@ jQuery(document).ready(domo);
                                                     value="<?= $simulasi_kredit->id; ?>">
                                             </td>
 
-                                            <td><span
-                                                    class="list_group-plafond"><?= number_format($simulasi_kredit->plafond, 0, '.', '.')  ?></span>
+                                            <td><span class="list_group-plafond"><?= $simulasi_kredit->plafond ?></span>
                                             </td>
                                             <td><span
-                                                    class="list_group-jangkawaktu_12"><?= number_format($simulasi_kredit->jangkawaktu_12, 0, '.', '.') ?></span>
+                                                    class="list_group-jangkawaktu_12"><?= $simulasi_kredit->jangkawaktu_12 ?></span>
                                             </td>
                                             <td><span
-                                                    class="list_group-jangkawaktu_18"><?= number_format($simulasi_kredit->jangkawaktu_18, 0, '.', '.') ?></span>
+                                                    class="list_group-jangkawaktu_18"><?= $simulasi_kredit->jangkawaktu_18 ?></span>
                                             </td>
                                             <td><span
-                                                    class="list_group-jangkawaktu_24"><?= number_format($simulasi_kredit->jangkawaktu_24, 0, '.', '.') ?></span>
+                                                    class="list_group-jangkawaktu_24"><?= $simulasi_kredit->jangkawaktu_24 ?></span>
                                             </td>
                                             <td><span
-                                                    class="list_group-jangkawaktu_30"><?= number_format($simulasi_kredit->jangkawaktu_30, 0, '.', '.') ?></span>
+                                                    class="list_group-jangkawaktu_30"><?= $simulasi_kredit->jangkawaktu_30 ?></span>
                                             </td>
                                             <td><span
-                                                    class="list_group-jangkawaktu_36"><?= number_format($simulasi_kredit->jangkawaktu_36, 0, '.', '.') ?></span>
+                                                    class="list_group-jangkawaktu_36"><?= $simulasi_kredit->jangkawaktu_36 ?></span>
                                             </td>
                                             <td><span
-                                                    class="list_group-jangkawaktu_48"><?= number_format($simulasi_kredit->jangkawaktu_48, 0, '.', '.') ?></span>
+                                                    class="list_group-jangkawaktu_48"><?= $simulasi_kredit->jangkawaktu_48 ?></span>
                                             </td>
                                             <td><span
-                                                    class="list_group-jangkawaktu_60"><?= number_format($simulasi_kredit->jangkawaktu_60, 0, '.', '.') ?></span>
+                                                    class="list_group-jangkawaktu_60"><?= $simulasi_kredit->jangkawaktu_60 ?></span>
                                             </td>
                                             <td width="200">
 
