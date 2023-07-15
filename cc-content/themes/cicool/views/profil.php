@@ -397,7 +397,7 @@
                 </div>
                 <?php endforeach; ?>
 
-                <h3 class="text-center" style="color:green;">Data Pegawai</h3>
+                <!-- <h3 class="text-center" style="color:green;">Data Pegawai</h3>
                 <hr class="hrcenter">
 
                 <table class="table table-striped">
@@ -425,7 +425,7 @@
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
-                </table>
+                </table> -->
 
 
                 <h3 class="text-center" style="color:green;">Sejarah Perusahaan</h3>
