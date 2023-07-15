@@ -96,7 +96,7 @@ jQuery(document).ready(domo);
                                                 <?= cclang('jenis_pinjaman') ?></th>
                                             <!-- <th data-field="jaminan"data-sort="1" data-primary-key="0"> <?= cclang('jaminan') ?></th> -->
                                             <th data-field="created_at" data-sort="1" data-primary-key="0">
-                                                <?= cclang('created_at') ?></th>
+                                                Tgl Pengajuan</th>
                                             <th data-field="updated_at" data-sort="1" data-primary-key="0">
                                                 <?= cclang('updated_at') ?></th>
                                             <!-- <th data-field="updated_by"data-sort="1" data-primary-key="0"> <?= cclang('updated_by') ?></th> -->

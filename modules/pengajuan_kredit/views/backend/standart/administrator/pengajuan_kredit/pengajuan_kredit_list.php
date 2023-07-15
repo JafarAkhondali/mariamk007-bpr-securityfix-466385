@@ -106,9 +106,9 @@ jQuery(document).ready(domo);
                                             <option <?= $this->input->get('f') == 'jaminan' ? 'selected' :''; ?>
                                                 value="jaminan">Jaminan</option>
                                             <option <?= $this->input->get('f') == 'created_at' ? 'selected' :''; ?>
-                                                value="created_at">Created At</option>
+                                                value="created_at">Tgl Pengajuan</option>
                                             <option <?= $this->input->get('f') == 'updated_at' ? 'selected' :''; ?>
-                                                value="updated_at">Updated At</option>
+                                                value="updated_at">Tgl Disetujui</option>
                                             <option <?= $this->input->get('f') == 'updated_by' ? 'selected' :''; ?>
                                                 value="updated_by">Updated By</option>
                                             <option <?= $this->input->get('f') == 'status' ? 'selected' :''; ?>
@@ -159,11 +159,11 @@ jQuery(document).ready(domo);
                                                 <?= cclang('jenis_pinjaman') ?></th>
                                             <!-- <th data-field="jaminan"data-sort="1" data-primary-key="0"> <?= cclang('jaminan') ?></th> -->
                                             <th data-field="created_at" data-sort="1" data-primary-key="0">
-                                                <?= cclang('created_at') ?></th>
+                                                Tgl Pengajuan</th>
                                             <th data-field="updated_at" data-sort="1" data-primary-key="0">
-                                                <?= cclang('updated_at') ?></th>
+                                                Tgl Disetujui</th>
                                             <th data-field="updated_by" data-sort="1" data-primary-key="0">
-                                                <?= cclang('updated_by') ?></th>
+                                                Approve</th>
                                             <th data-field="status" data-sort="1" data-primary-key="0">
                                                 <?= cclang('status') ?></th>
                                             <th>Action</th>
