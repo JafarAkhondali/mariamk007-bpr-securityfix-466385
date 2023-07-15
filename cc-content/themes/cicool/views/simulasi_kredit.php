@@ -309,7 +309,7 @@ table td {
                             <option value="" readonly>Pilih Jumlah Pinjaman</option>
 
                             <?php foreach (db_get_all_data('simulasi_kredit', $conditions) as $row): ?>
-                            <option value="<?= $row->plafond ?>">Rp. <?= $row->plafond ?>
+                            <option value="<?= $row->plafond ?>">Rp. <?= number_format($row->plafond, 0, '.', '.') ?>
                             </option>
                             <?php endforeach; ?>
                         </select>
@@ -615,19 +615,19 @@ table td {
             dataType: 'json',
             success: function(data) {
                 $.each(data, function(i, data) {
-                    var jangkawaktu_12 = (data.jangkawaktu_12 !== 'Tidak Ada') ? data.jangkawaktu_12 :
+                    var jangkawaktu_12 = (data.jangkawaktu_12 !== 'Tidak Ada') ? 'Rp ' + formatRupiah.format(data.jangkawaktu_12) :
                         '<span style="color: yellow;">Tidak Ada</span>';
-                    var jangkawaktu_18 = (data.jangkawaktu_18 !== 'Tidak Ada') ? data.jangkawaktu_18 :
+                    var jangkawaktu_18 = (data.jangkawaktu_18 !== 'Tidak Ada') ? 'Rp ' + formatRupiah.format(data.jangkawaktu_18) :
                         '<span style="color: yellow;">Tidak Ada</span>';
-                    var jangkawaktu_24 = (data.jangkawaktu_24 !== 'Tidak Ada') ? data.jangkawaktu_24 :
+                    var jangkawaktu_24 = (data.jangkawaktu_24 !== 'Tidak Ada') ? 'Rp ' + formatRupiah.format(data.jangkawaktu_24) :
                         '<span style="color: yellow;">Tidak Ada</span>';
-                    var jangkawaktu_30 = (data.jangkawaktu_30 !== 'Tidak Ada') ? data.jangkawaktu_30 :
+                    var jangkawaktu_30 = (data.jangkawaktu_30 !== 'Tidak Ada') ? 'Rp ' + formatRupiah.format(data.jangkawaktu_30) :
                         '<span style="color: yellow;">Tidak Ada</span>';
-                    var jangkawaktu_36 = (data.jangkawaktu_36 !== 'Tidak Ada') ? data.jangkawaktu_36 :
+                    var jangkawaktu_36 = (data.jangkawaktu_36 !== 'Tidak Ada') ? 'Rp ' + formatRupiah.format(data.jangkawaktu_36) :
                         '<span style="color: yellow;">Tidak Ada</span>';
-                    var jangkawaktu_48 = (data.jangkawaktu_48 !== 'Tidak Ada') ? data.jangkawaktu_48 :
+                    var jangkawaktu_48 = (data.jangkawaktu_48 !== 'Tidak Ada') ? 'Rp ' + formatRupiah.format(data.jangkawaktu_48) :
                         '<span style="color: yellow;">Tidak Ada</span>';
-                    var jangkawaktu_60 = (data.jangkawaktu_60 !== 'Tidak Ada') ? data.jangkawaktu_60 :
+                    var jangkawaktu_60 = (data.jangkawaktu_60 !== 'Tidak Ada') ? 'Rp ' + formatRupiah.format(data.jangkawaktu_60) :
                         '<span style="color: yellow;">Tidak Ada</span>';
 
                     $('#jangkawaktu_12').html(jangkawaktu_12);
