@@ -47,11 +47,11 @@ textarea:focus {
 
         <?php echo form_open(base_url('administrator/kritik/add_save'), array('id' => 'kritikForm')) ?>
         <div class="row p-5">
-            <div class="col-lg-12">
+            <!-- <div class="col-lg-12">
 
                 <strong>Nama:</strong>
                 <input type="text" name="nama" id="nama" class="form-control" placeholder="Isian Nama"><br>
-            </div>
+            </div> -->
             <div class="col-lg-12">
                 <strong>Kritik:</strong>
                 <textarea name="kritik" id="kritik" rows="7" class="form-control"
