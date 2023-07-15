@@ -356,7 +356,7 @@
 
                         <a href="<?= base_url(); ?>web/ajukan_kredit" data-original-title="" title=""
                             <?php if ($_SERVER['REQUEST_URI'] == '/web/ajukan_kredit') echo 'class="active"'; ?>>
-                            <i class="fa fa-clone default"></i> <span>Form Pengajuan Kredit</span>
+                            <i class="fa fa-tasks"></i> <span>Form Pengajuan Kredit</span>
                             <span class="pull-right-container">
                             </span>
                         </a>
