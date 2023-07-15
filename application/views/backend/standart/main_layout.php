@@ -353,11 +353,24 @@
                 <ul class="sidebar-menu  sidebar-admin tree" data-widget="tree">
                     <li class="header treeview">MENU</li>
                     <li class=" ">
-                        <a href="<?= base_url(); ?>administrator/pengajuan_kredit/user" data-original-title=""
-                            title=""><i class="fa fa-clone default"></i> <span>Data Pengajuan Kredit</span>
+
+                        <a href="<?= base_url(); ?>web/ajukan_kredit" data-original-title="" title=""
+                            <?php if ($_SERVER['REQUEST_URI'] == '/web/ajukan_kredit') echo 'class="active"'; ?>>
+                            <i class="fa fa-clone default"></i> <span>Form Pengajuan Kredit</span>
                             <span class="pull-right-container">
                             </span>
                         </a>
+
+                        <a href="<?= base_url(); ?>administrator/pengajuan_kredit/user" data-original-title="" title=""
+                            <?php if ($_SERVER['REQUEST_URI'] == '/administrator/pengajuan_kredit/user') echo 'class="active"'; ?>>
+                            <i class="fa fa-clone default"></i> <span>Data Pengajuan Kredit</span>
+                            <span class="pull-right-container">
+                            </span>
+                        </a>
+
+
+
+
                     </li>
                 </ul>
             </section>
