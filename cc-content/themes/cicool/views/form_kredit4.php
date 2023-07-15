@@ -8,7 +8,7 @@
 <style>
 #heading {
     text-transform: uppercase;
-    color: #673AB7;
+    color: #3AB759;
     font-weight: normal
 }
 
@@ -57,13 +57,13 @@
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    border: 1px solid #673AB7;
+    border: 1px solid #3AB759;
     outline-width: 0
 }
 
 #msform .action-button {
     width: 100px;
-    background: #673AB7;
+    background: #3AB759;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -105,14 +105,14 @@
 
 .fs-title {
     font-size: 25px;
-    color: #673AB7;
+    color: #3AB759;
     margin-bottom: 15px;
     font-weight: normal;
     text-align: left
 }
 
 .purple-text {
-    color: #673AB7;
+    color: #3AB759;
     font-weight: normal
 }
 
@@ -137,7 +137,7 @@
 }
 
 #progressbar .active {
-    color: #673AB7
+    color: #3AB759
 }
 
 #progressbar li {
@@ -195,7 +195,7 @@
 
 #progressbar li.active:before,
 #progressbar li.active:after {
-    background: #673AB7
+    background: #3AB759
 }
 
 .progress {
@@ -203,7 +203,7 @@
 }
 
 .progress-bar {
-    background-color: #673AB7
+    background-color: #3AB759
 }
 
 .fit-image {
@@ -461,15 +461,19 @@
             })
 
             $('#submit').click(function() {
-                Swal.fire(
-                    'Berhasil!',
-                    'Pengajuan kamu telah di masukkan',
-                    'success'
-                ).then(function() {
+                Swal.fire({
+                    title: 'Berhasil!',
+                    text: 'Pengajuan kamu telah dimasukkan',
+                    icon: 'success',
+                    showCancelButton: false,
+                    confirmButtonColor: '#28a745',
+                    confirmButtonText: 'OK',
+                    closeOnConfirm: true
+                }).then(function() {
                     $('#submit-real').click();
                 });
-
             });
+
 
 
         });

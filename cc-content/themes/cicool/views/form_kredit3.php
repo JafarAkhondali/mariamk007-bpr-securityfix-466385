@@ -291,8 +291,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 30 MB<span
-                                                        class="text-danger">* Wajib Diisi</span>
+                                                    File SHM/SHGB/SKGR/BPKB (pdf) Max 30 MB<span class="text-danger">*
+                                                        Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_jaminan" id="file_jaminan"
                                                     class="form-control" required>
@@ -519,8 +519,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 30 MB<span
-                                                        class="text-danger">* Wajib Diisi</span>
+                                                    File SHM/SHGB/SKGR/BPKB (pdf) Max 30 MB<span class="text-danger">*
+                                                        Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_jaminan" id="file_jaminan"
                                                     class="form-control" required>
@@ -819,8 +819,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 30 MB<span
-                                                        class="text-danger">* Wajib Diisi</span>
+                                                    File SHM/SHGB/SKGR/BPKB (pdf) Max 30 MB<span class="text-danger">*
+                                                        Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_jaminan" id="file_jaminan"
                                                     class="form-control" required>
@@ -1086,8 +1086,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>
-                                                    File Jaminan/Agunan (SHM/SHGB/SKGR/BPKB) (pdf) Max 30 MB<span
-                                                        class="text-danger">* Wajib Diisi</span>
+                                                    File SHM/SHGB/SKGR/BPKB (pdf) Max 30 MB<span class="text-danger">*
+                                                        Wajib Diisi</span>
                                                 </label>
                                                 <input type="file" name="file_jaminan" id="file_jaminan"
                                                     class="form-control" required>
