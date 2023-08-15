@@ -99,6 +99,10 @@ jQuery(document).ready(domo);
                                                 Tgl Pengajuan</th>
                                             <th data-field="updated_at" data-sort="1" data-primary-key="0">
                                                 <?= cclang('updated_at') ?></th>
+                                            <th data-field="jumlah_angsuran" data-sort="1" data-primary-key="0">
+                                                <?= cclang('jumlah_angsuran') ?>/Bulan</th>
+                                            <th data-field="bunga" data-sort="1" data-primary-key="0">
+                                                <?= cclang('bunga') ?></th>
                                             <!-- <th data-field="updated_by"data-sort="1" data-primary-key="0"> <?= cclang('updated_by') ?></th> -->
                                             <th data-field="status" data-sort="1" data-primary-key="0">
                                                 <?= cclang('status') ?></th>
@@ -148,6 +152,11 @@ jQuery(document).ready(domo);
                                             <td><span
                                                     class="list_group-updated_at"><?= _ent($pengajuan_kredit->updated_at); ?></span>
                                             </td>
+                                            <td><span
+                                                    class="list_group-jumlah_angsuran"><?=number_format($pengajuan_kredit->jumlah_angsuran, 0, '.', '.') ?>
+                                            </td></span>
+                                            <td><span class="list_group-bunga"><?= _ent($pengajuan_kredit->bunga); ?>%
+                                            </td></span>
                                             <!-- <td><span class="list_group-updated_by"><?= _ent($pengajuan_kredit->updated_by); ?></span></td>  -->
                                             <td>
                                                 <?php if ($pengajuan_kredit->status === 'diterima'): ?>
