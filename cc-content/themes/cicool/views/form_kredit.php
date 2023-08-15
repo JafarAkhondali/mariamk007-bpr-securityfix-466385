@@ -266,48 +266,78 @@
                                             <input type="number" class="form-control" name="nohp" id="nohp"
                                                 placeholder="No Hp" value="<?= set_value('nohp'); ?>" required>
                                         </div>
-                                        <div class="form-group group-no_hp ">
+                                        <div class="form-group group-usia ">
                                             <label for="usia">Usia<i class="required">*</i>
                                             </label>
                                             <input type="number" class="form-control" name="usia" id="usia"
                                                 placeholder="Usia" value="<?= set_value('usia'); ?>" required>
                                         </div>
-                                        <div class="form-group group-jangka_waktu ">
-                                            <label for="jangkawaktu">Jangka Waktu <i class="required">*</i>
-                                            </label>
-                                            <select name="jangka_waktu" class="form-control" required>
-                                                <option value="">Pilih Jangka Waktu</option>
-                                                <option value="12">Jangka Waktu 12 Bulan</option>
-                                                <option value="18">Jangka Waktu 18 Bulan</option>
-                                                <option value="24">Jangka Waktu 24 Bulan</option>
-                                                <option value="30">Jangka Waktu 30 Bulan</option>
-                                                <option value="36">Jangka Waktu 36 Bulan</option>
-                                                <option value="48">Jangka Waktu 48 Bulan</option>
-                                                <option value="60">Jangka Waktu 60 Bulan</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group group-jumlahpinjaman ">
-                                            <label for="jumlahpinjaman">Jumlah Pinjaman <i class="required">*</i>
-                                            </label>
-                                            <select class="form-control chosen chosen-select-deselect" required
-                                                name="jumlah_pinjaman" id="jumlah_pinjaman"
-                                                data-placeholder="Select Jumlah Pinjaman">
+                                        <?php if ('jumlah_pinjaman' >2000000 AND <10000000) {
+                                            echo'
+                                            <div class="form-group group-jumlah_pinjaman">
+                                                <label for="jumlah_pinjaman">Jumlah Pinjaman <i class="required">*</i>
+                                                </label>
+                                                <select class="form-control" chosen chosen-select-deselect required name="jumlah_pinjaman" id="jumlah_pinjaman" data-placeholder="Select Jumlah Pinjaman">
                                                 <option value="">Pilih Jumlah Pinjaman</option>
                                                 <?php foreach (db_get_all_data('simulasi_kredit') as $row): ?>
-                                                <option value="<?= $row->plafond ?>">
-                                                    <?= number_format($row->plafond, 0, '.', '.') ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
+                                        <option value="<?= $row->plafond ?>">
+                                            <?= number_format($row->plafond, 0, '.', '.') ?></option>
+                                        <?php endforeach; ?>
+                                        </select>
+                                    </div>'}
+                                    ?>
+                                    <div class="form-group group-jumlahpinjaman ">
+                                        <label for="jumlahpinjaman">Jumlah Pinjaman <i class="required">*</i>
+                                        </label>
+                                        <select class="form-control chosen chosen-select-deselect" required
+                                            name="jumlah_pinjaman" id="jumlah_pinjaman"
+                                            data-placeholder="Select Jumlah Pinjaman">
+                                            <option value="">Pilih Jumlah Pinjaman</option>
+                                            <?php foreach (db_get_all_data('simulasi_kredit') as $row): ?>
+                                            <option value="<?= $row->plafond ?>">
+                                                <?= number_format($row->plafond, 0, '.', '.') ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
                                     </div>
-                                    <!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
-                                    <button class="btn btn btn-success pull-right" type="submit">Selanjutnya</button>
-                                </form>
-                            </fieldset>
+                                    <div class="form-group group-jangka_waktu ">
+                                        <label for="jangkawaktu">Jangka Waktu <i class="required">*</i>
+                                        </label>
+                                        <select name="jangka_waktu" class="form-control" required>
+                                            <option value="">Pilih Jangka Waktu</option>
+                                            <option value="12">Jangka Waktu 12 Bulan</option>
+                                            <option value="18">Jangka Waktu 18 Bulan</option>
+                                            <option value="24">Jangka Waktu 24 Bulan</option>
+                                            <option value="30">Jangka Waktu 30 Bulan</option>
+                                            <option value="36">Jangka Waktu 36 Bulan</option>
+                                            <option value="48">Jangka Waktu 48 Bulan</option>
+                                            <option value="60">Jangka Waktu 60 Bulan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group group-bunga">
+                                        <label for="bunga">Bunga <i class="required">*<i>
+                                        </label>
+                                        <select name="bunga" class="form-control" required>
+                                            <option value="">Pilih Bunga</option>
+                                            <option value="21">Bunga 21% /Tahun</option>
+                                            <option value="20">Bunga 20% /Tahun</option>
+                                            <option value="19">Bunga 19% /Tahun</option>
+                                            <option value="18">Bunga 18% /Tahun</option>
+                                            <option value="17">Bunga 17% /Tahun</option>
+                                            <option value="16">Bunga 16% /Tahun</option>
+                                            <option value="15">Bunga 15% /Tahun</option>
+                                            <option value="14">Bunga 14% /Tahun</option>
+                                            <option value="13">Bunga 13% /Tahun</option>
+                                        </select>
+                                    </div>
                         </div>
+                        <!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
+                        <button class="btn btn btn-success pull-right" type="submit">Selanjutnya</button>
+                        </form>
+                        </fieldset>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <?= get_footer(); ?>
         <script>
