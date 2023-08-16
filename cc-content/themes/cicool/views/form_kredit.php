@@ -460,11 +460,23 @@
                 } else if (duration > 60 && duration <= 72) {
                     interestRate = 0.13; // 13%
                 }
+            } else if (plafond >= 2000000) {
+                if (duration >= 1 && duration <= 12) {
+                    interestRate = 0.19; //19%
+                } else if (duration > 12 && duration <= 36) {
+                    interestRate = 0.18; //18%
+                } else if (duration > 36 && duration <= 48) {
+                    interestRate = 0.17; //17%
+                }
+            } else if (plafond >= 2000000) {
+                if (duration >= 1 && duration <= 72) {
+                    interestRate = 0.40 * plafond;
+                }
             }
             if (interestRate > 0) {
-                const interest = plafond * interestRate * duration / 12;
+                const interest = (plafond * interestRate) + (plafond * duration);
                 const totalPayment = plafond + interest;
-                document.getElementById("result").innerText = `Total pembayaran: Rp. ${totalPayment.toLocaleString()}`;
+                document.getElementById("result").innerText = `Total Angsuran /Bulan: Rp. ${interest.toLocaleString()}`;
             } else {
                 document.getElementById("result").innerText = "Plafon atau jangka waktu tidak valid.";
             }
