@@ -184,6 +184,8 @@ class Pengajuan_kredit extends Admin
 				'no_hp' => $this->input->post('no_hp'),
 				'jumlah_pinjaman' => $this->input->post('jumlah_pinjaman'),
 				'jangka_waktu' => $this->input->post('jangka_waktu'),
+				'jumlah_angsuran' => $this->input->post('jumlah_angsuran'),
+				'bunga' => $this->input->post('bunga'),
 				'jenis_pinjaman' => $this->input->post('jenis_pinjaman'),
 				// 'jaminan' => $this->input->post('jaminan'),
 				'created_at' => $this->input->post('created_at'),

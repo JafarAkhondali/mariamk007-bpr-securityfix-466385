@@ -151,14 +151,14 @@ class Web extends Front
         if ($this->form_validation->run()) {
             $session = array(
                 "tahapan" => 1,
-                "nama" => $this->input->post('nama'),
+                "nama_lengkap" => $this->input->post('nama'),
                 "alamat" => $this->input->post('alamat'),
-                "nohp" => $this->input->post('nohp'),
+                "no_hp" => $this->input->post('nohp'),
                 "usia" => $this->input->post('usia'),
                 "jangka_waktu" => $this->input->post('jangka_waktu'),
                 "jumlah_pinjaman" => $this->input->post('jumlah_pinjaman'),
+                "jumlah_angsuran" => $this->input->post('jumlah_angsuran'),
                 "bunga" => $this->input->post('bunga'),
-                "jumlah_angsuran" => ($this->input->post('jumlah_pinjaman') * $this->input->post('bunga')) + ($this->input->post('jumlah_pinjaman') * $this->input->post('jangka_waktu')),
             );
             $this->session->set_userdata($session);
             redirect(base_url('web/ajukan_kredit2'));
@@ -434,6 +434,8 @@ class Web extends Front
                 "usia" => $this->session->userdata('usia'),
                 "jangka_waktu" => $this->session->userdata('jangka_waktu'),
                 "jumlah_pinjaman" => $this->session->userdata('jumlah_pinjaman'),
+                'jumlah_angsuran' => $this->session->userdata('jumlah_angsuran'),
+				'bunga' => $this->session->userdata('bunga'),
                 "jenis_pinjaman" => $jenis_pinjaman,
                 "file_ktp" => $this->session->userdata('file_ktp'),
                 "file_sku" => $this->session->userdata('file_sku'),

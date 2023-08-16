@@ -311,6 +311,10 @@
                                         <!-- <label for="duration">Jangka Waktu (bulan)</label>
                                         <input type="number" id="duration"> -->
 
+                                        <input name="jumlah_angsuran" value="" id="input_jumlah_angsuran" type="hidden">
+                                        <input name="jangka_waktu" value="" id="input_jangka_waktu" type="hidden">
+                                        <input name="bunga" value="" id="input_bunga" type="hidden">
+
                                         <button onclick="calculate()">Hitung</button>
 
                                         <!-- <p>Hasil Perhitungan:</p> -->
@@ -496,9 +500,83 @@
                 const interest = (plafond * interestRate) + (plafond * duration);
                 const totalPayment = plafond + interest;
                 document.getElementById("result").innerText = `Total Angsuran /Bulan: Rp. ${interest.toLocaleString()}`;
+                document.getElementById('input_jumlah_angsuran').value = interest
+                document.getElementById('input_jangka_waktu').value = duration
+                document.getElementById('input_bunga').value = interestRate
             } else {
                 document.getElementById("result").innerText = "Plafon atau jangka waktu tidak valid.";
             }
+
+            const interest = (plafond * interestRate) + (plafond * duration);
+
+            $.ajax({
+                    url: BASE_URL + '/administrator/pengajuan_kredit/add_save',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                    jangka_waktu: duration,
+					bunga: interestRate,
+					jumlah_angsuran: interest,
+                    },
+                })
+                .done(function(res) {
+                    $('form').find('.form-group').removeClass('has-error');
+                    $('.steps li').removeClass('error');
+                    $('form').find('.error-input').remove();
+                    if (res.success) {
+                        var id_file_ktp = $('#pengajuan_kredit_file_ktp_galery').find('li').attr('qq-file-id');
+
+                        if (save_type == 'back') {
+                            window.location.href = res.redirect;
+                            return;
+                        }
+
+                        $('.message').printMessage({
+                            message: res.message
+                        });
+                        $('.message').fadeIn();
+                        resetForm();
+                        if (typeof id_file_ktp !== 'undefined') {
+                            $('#pengajuan_kredit_file_ktp_galery').fineUploader('deleteFile', id_file_ktp);
+                        }
+                        $('.chosen option').prop('selected', false).trigger('chosen:updated');
+
+                    } else {
+                        if (res.errors) {
+
+                            $.each(res.errors, function(index, val) {
+                                $('form #' + index).parents('.form-group').addClass('has-error');
+                                $('form #' + index).parents('.form-group').find('small').prepend(`
+                      <div class="error-input">` + val + `</div>
+                      `);
+                            });
+                            $('.steps li').removeClass('error');
+                            $('.content section').each(function(index, el) {
+                                if ($(this).find('.has-error').length) {
+                                    $('.steps li:eq(' + index + ')').addClass('error').find('a').trigger('click');
+                                }
+                            });
+                        }
+                        $('.message').printMessage({
+                            message: res.message,
+                            type: 'warning'
+                        });
+                    }
+
+                })
+                .fail(function() {
+                    $('.message').printMessage({
+                        message: 'Error save data',
+                        type: 'warning'
+                    });
+                })
+                .always(function() {
+                    $('.loading').hide();
+                    $('html, body').animate({
+                        scrollTop: $(document).height()
+                    }, 2000);
+                });
+
         }
         </script>
     </body>
