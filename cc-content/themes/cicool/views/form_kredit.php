@@ -272,72 +272,69 @@
                                             <input type="number" class="form-control" name="usia" id="usia"
                                                 placeholder="Usia" value="<?= set_value('usia'); ?>" required>
                                         </div>
-                                        <?php if ('jumlah_pinjaman' >2000000 AND <10000000) {
-                                            echo'
-                                            <div class="form-group group-jumlah_pinjaman">
-                                                <label for="jumlah_pinjaman">Jumlah Pinjaman <i class="required">*</i>
-                                                </label>
-                                                <select class="form-control" chosen chosen-select-deselect required name="jumlah_pinjaman" id="jumlah_pinjaman" data-placeholder="Select Jumlah Pinjaman">
+
+                                        <div class="form-group group-jumlahpinjaman ">
+                                            <label for="jumlahpinjaman">Jumlah Pinjaman <i class="required">*</i>
+                                            </label>
+                                            <select class="form-control chosen chosen-select-deselect" required
+                                                name="jumlah_pinjaman" id="jumlah_pinjaman"
+                                                data-placeholder="Select Jumlah Pinjaman">
                                                 <option value="">Pilih Jumlah Pinjaman</option>
                                                 <?php foreach (db_get_all_data('simulasi_kredit') as $row): ?>
-                                        <option value="<?= $row->plafond ?>">
-                                            <?= number_format($row->plafond, 0, '.', '.') ?></option>
-                                        <?php endforeach; ?>
-                                        </select>
-                                    </div>'}
-                                    ?>
-                                    <div class="form-group group-jumlahpinjaman ">
-                                        <label for="jumlahpinjaman">Jumlah Pinjaman <i class="required">*</i>
-                                        </label>
-                                        <select class="form-control chosen chosen-select-deselect" required
-                                            name="jumlah_pinjaman" id="jumlah_pinjaman"
-                                            data-placeholder="Select Jumlah Pinjaman">
-                                            <option value="">Pilih Jumlah Pinjaman</option>
-                                            <?php foreach (db_get_all_data('simulasi_kredit') as $row): ?>
-                                            <option value="<?= $row->plafond ?>">
-                                                <?= number_format($row->plafond, 0, '.', '.') ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                    <div class="form-group group-jangka_waktu ">
-                                        <label for="jangkawaktu">Jangka Waktu <i class="required">*</i>
-                                        </label>
-                                        <select name="jangka_waktu" class="form-control" required>
-                                            <option value="">Pilih Jangka Waktu</option>
-                                            <option value="12">Jangka Waktu 12 Bulan</option>
-                                            <option value="18">Jangka Waktu 18 Bulan</option>
-                                            <option value="24">Jangka Waktu 24 Bulan</option>
-                                            <option value="30">Jangka Waktu 30 Bulan</option>
-                                            <option value="36">Jangka Waktu 36 Bulan</option>
-                                            <option value="48">Jangka Waktu 48 Bulan</option>
-                                            <option value="60">Jangka Waktu 60 Bulan</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group group-bunga">
-                                        <label for="bunga">Bunga <i class="required">*<i>
-                                        </label>
-                                        <select name="bunga" class="form-control" required>
-                                            <option value="">Pilih Bunga</option>
-                                            <option value="21">Bunga 21% /Tahun</option>
-                                            <option value="20">Bunga 20% /Tahun</option>
-                                            <option value="19">Bunga 19% /Tahun</option>
-                                            <option value="18">Bunga 18% /Tahun</option>
-                                            <option value="17">Bunga 17% /Tahun</option>
-                                            <option value="16">Bunga 16% /Tahun</option>
-                                            <option value="15">Bunga 15% /Tahun</option>
-                                            <option value="14">Bunga 14% /Tahun</option>
-                                            <option value="13">Bunga 13% /Tahun</option>
-                                        </select>
-                                    </div>
+                                                <option value="<?= $row->plafond ?>">
+                                                    <?= number_format($row->plafond, 0, '.', '.') ?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group group-jangka_waktu ">
+                                            <label for="jangkawaktu">Jangka Waktu <i class="required">*</i>
+                                            </label>
+                                            <select name="jangka_waktu" class="form-control" required>
+                                                <option value="">Pilih Jangka Waktu</option>
+                                                <option value="12">Jangka Waktu 12 Bulan</option>
+                                                <option value="18">Jangka Waktu 18 Bulan</option>
+                                                <option value="24">Jangka Waktu 24 Bulan</option>
+                                                <option value="30">Jangka Waktu 30 Bulan</option>
+                                                <option value="36">Jangka Waktu 36 Bulan</option>
+                                                <option value="48">Jangka Waktu 48 Bulan</option>
+                                                <option value="60">Jangka Waktu 60 Bulan</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group group-bunga">
+                                            <label for="bunga">Bunga <i class="required">*<i>
+                                            </label>
+                                            <select name="bunga" class="form-control" required>
+                                                <option value="">Pilih Bunga</option>
+                                                <option value="21">Bunga 21% /Tahun</option>
+                                                <option value="20">Bunga 20% /Tahun</option>
+                                                <option value="19">Bunga 19% /Tahun</option>
+                                                <option value="18">Bunga 18% /Tahun</option>
+                                                <option value="17">Bunga 17% /Tahun</option>
+                                                <option value="16">Bunga 16% /Tahun</option>
+                                                <option value="15">Bunga 15% /Tahun</option>
+                                                <option value="14">Bunga 14% /Tahun</option>
+                                                <option value="13">Bunga 13% /Tahun</option>
+                                            </select>
+                                        </div>
+                                        <!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
+                                        <button class="btn btn btn-success pull-right"
+                                            type="submit">Selanjutnya</button>
+                                        <label for="plafond">Plafond Kredit (Rp)</label>
+                                        <input type="number" id="plafond">
+
+                                        <label for="duration">Jangka Waktu (bulan)</label>
+                                        <input type="number" id="duration">
+
+                                        <button onclick="calculate()">Hitung</button>
+
+                                        <p>Hasil Perhitungan:</p>
+                                        <p id="result"></p>
+                                </form>
+                            </fieldset>
                         </div>
-                        <!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
-                        <button class="btn btn btn-success pull-right" type="submit">Selanjutnya</button>
-                        </form>
-                        </fieldset>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <?= get_footer(); ?>
         <script>
@@ -410,5 +407,67 @@
                 return false;
             })
         });
+        </script>
+        <script>
+        function calculate() {
+            const plafond = parseInt(document.getElementById("plafond").value);
+            const duration = parseInt(document.getElementById("duration").value);
+            let interestRate = 0;
+
+            if (plafond >= 2000000 && plafond <= 10000000) {
+                if (duration >= 1 && duration <= 18) {
+                    interestRate = 0.21; // 21%
+                }
+            } else if (plafond >= 11000000 && plafond <= 25000000) {
+                if (duration >= 1 && duration <= 12) {
+                    interestRate = 0.20; // 20%
+                } else if (duration > 12 && duration <= 24) {
+                    interestRate = 0.19; // 19%
+                } else if (duration > 24 && duration <= 36) {
+                    interestRate = 0.18; // 18%
+                }
+            } else if (plafond >= 26000000 && plafond <= 50000000) {
+                if (duration >= 1 && duration <= 12) {
+                    interestRate = 0.19; // 19%
+                } else if (duration > 12 && duration <= 24) {
+                    interestRate = 0.18; // 18%
+                } else if (duration > 24 && duration <= 36) {
+                    interestRate = 0.17; // 17%
+                } else if (duration > 36 && duration <= 48) {
+                    interestRate = 0.16; // 16%
+                }
+            } else if (plafond >= 51000000 && plafond <= 100000000) {
+                if (duration >= 1 && duration <= 12) {
+                    interestRate = 0.18; // 18%
+                } else if (duration > 12 && duration <= 24) {
+                    interestRate = 0.17; // 17%
+                } else if (duration > 24 && duration <= 36) {
+                    interestRate = 0.16; // 16%
+                } else if (duration > 36 && duration <= 48) {
+                    interestRate = 0.15; // 15%
+                }
+            } else if (plafond > 100000000) {
+                if (duration >= 1 && duration <= 12) {
+                    interestRate = 0.18; // 18%
+                } else if (duration > 12 && duration <= 24) {
+                    interestRate = 0.17; // 17%
+                } else if (duration > 24 && duration <= 36) {
+                    interestRate = 0.16; // 16%
+                } else if (duration > 36 && duration <= 48) {
+                    interestRate = 0.15; // 15%
+                } else if (duration > 48 && duration <= 60) {
+                    interestRate = 0.14; // 14%
+                } else if (duration > 60 && duration <= 72) {
+                    interestRate = 0.13; // 13%
+                }
+            }
+            if (interestRate > 0) {
+                const interest = plafond * interestRate * duration / 12;
+                const totalPayment = plafond + interest;
+                document.getElementById("result").innerText = `Total pembayaran: Rp. ${totalPayment.toLocaleString()}`;
+            } else {
+                document.getElementById("result").innerText = "Plafon atau jangka waktu tidak valid.";
+            }
+        }
         </script>
     </body>
