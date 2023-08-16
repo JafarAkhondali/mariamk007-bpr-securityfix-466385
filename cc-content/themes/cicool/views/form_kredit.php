@@ -276,7 +276,7 @@
                                         <div class="form-group group-jumlahpinjaman ">
                                         <label for="jumlahpinjaman">Pilih Jumlah Pinjaman <i class="required">*</i>
                                             </label>
-                                            <select class="form-control chosen chosen-select-deselect" required
+                                            <select class="form-control chosen chosen-select-deselect" 
                                                 name="jumlah_pinjaman" id="plafond"
                                                 data-placeholder="Select Jumlah Pinjaman" onchange="calculate()">
                                                 <option value="">Pilih Jumlah Pinjaman</option>
@@ -290,7 +290,7 @@
                                         <div class="form-group group-jangka_waktu ">
                                             <label for="jangkawaktu">Jangka Waktu <i class="required">*</i>
                                             </label>
-                                            <select name="jangka_waktu" class="form-control" id="duration" required>
+                                            <select name="jangka_waktu" class="form-control" id="duration" >
                                                 <option value="">Pilih Jangka Waktu</option>
                                             </select>
                                         </div>
@@ -298,7 +298,7 @@
                                         <div class="form-group group-bunga">
                                             <label for="bunga">Bunga <i class="required">*<i>
                                             </label>
-                                            <select name="bunga" class="form-control" required id="bunga">
+                                            <select name="bunga" class="form-control" id="bunga">
                                                 <option value="">Pilih Bunga</option>
                                             </select>
                                         </div>
@@ -400,7 +400,9 @@
             var select = document.getElementById('plafond');
             const option = select.options[select.selectedIndex];
             const duration = parseInt(document.getElementById("duration").value);
+            const bunga = parseInt(document.getElementById("bunga").value);
             let interestRate = 0;
+            console.log(bunga, 'bunga')
 
             //plafond = jumlah pinjaman
             //duration = lama pinjaman
@@ -432,9 +434,9 @@
                     `<option value=''>Pilih Bunga</option>
                     <option value='21'>21%</option>`
                     );
-                if (duration >= 1 && duration <= 18) {
+                // if (duration >= 1 && duration <= 18) {
                     interestRate = 0.21; // 21%
-                }
+                // }
             } else if (plafond >= 11000000 && plafond <= 25000000) {
                 if (duration >= 1 && duration <= 12) {
                     interestRate = 0.20; // 20%
@@ -490,7 +492,7 @@
                 //         interestRate = 0.40 * plafond;
                 //     }
             }
-            if (interestRate > 0) {
+            if (plafond > 0) {
                 const interest = (plafond * interestRate) + (plafond * duration);
                 const totalPayment = plafond + interest;
                 document.getElementById("result").innerText = `Total Angsuran /Bulan: Rp. ${interest.toLocaleString()}`;

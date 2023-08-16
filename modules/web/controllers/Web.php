@@ -157,6 +157,8 @@ class Web extends Front
                 "usia" => $this->input->post('usia'),
                 "jangka_waktu" => $this->input->post('jangka_waktu'),
                 "jumlah_pinjaman" => $this->input->post('jumlah_pinjaman'),
+                "bunga" => $this->input->post('bunga'),
+                "jumlah_angsuran" => ($this->input->post('jumlah_pinjaman') * $this->input->post('bunga')) + ($this->input->post('jumlah_pinjaman') * $this->input->post('jangka_waktu')),
             );
             $this->session->set_userdata($session);
             redirect(base_url('web/ajukan_kredit2'));
