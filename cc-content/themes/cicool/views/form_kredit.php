@@ -274,9 +274,9 @@
                                         </div>
 
                                         <div class="form-group group-jumlahpinjaman ">
-                                        <label for="jumlahpinjaman">Pilih Jumlah Pinjaman <i class="required">*</i>
+                                            <label for="jumlahpinjaman">Pilih Jumlah Pinjaman <i class="required">*</i>
                                             </label>
-                                            <select class="form-control chosen chosen-select-deselect" 
+                                            <select class="form-control chosen chosen-select-deselect"
                                                 name="jumlah_pinjaman" id="plafond"
                                                 data-placeholder="Select Jumlah Pinjaman" onchange="calculate()">
                                                 <option value="">Pilih Jumlah Pinjaman</option>
@@ -290,11 +290,11 @@
                                         <div class="form-group group-jangka_waktu ">
                                             <label for="jangkawaktu">Jangka Waktu <i class="required">*</i>
                                             </label>
-                                            <select name="jangka_waktu" class="form-control" id="duration" >
+                                            <select name="jangka_waktu" class="form-control" id="duration">
                                                 <option value="">Pilih Jangka Waktu</option>
                                             </select>
                                         </div>
-                                   
+
                                         <div class="form-group group-bunga">
                                             <label for="bunga">Bunga <i class="required">*<i>
                                             </label>
@@ -432,14 +432,14 @@
                     <option value='16'>Jangka Waktu 16 Bulan</option>
                     <option value='17'>Jangka Waktu 17 Bulan</option>
                     <option value='18'>Jangka Waktu 18 Bulan</option>`
-                    );
+                );
 
                 $('#bunga').html(
                     `<option value=''>Pilih Bunga</option>
                     <option value='21'>21%</option>`
-                    );
+                );
                 // if (duration >= 1 && duration <= 18) {
-                    interestRate = 0.21; // 21%
+                interestRate = 0.21; // 21%
                 // }
             } else if (plafond >= 11000000 && plafond <= 25000000) {
                 if (duration >= 1 && duration <= 12) {
@@ -497,7 +497,7 @@
                 //     }
             }
             if (plafond > 0) {
-                const interest = (plafond * interestRate) + (plafond * duration);
+                const interest = (plafond * interestRate) + (plafond / duration);
                 const totalPayment = plafond + interest;
                 document.getElementById("result").innerText = `Total Angsuran /Bulan: Rp. ${interest.toLocaleString()}`;
                 document.getElementById('input_jumlah_angsuran').value = interest
@@ -514,9 +514,9 @@
                     type: 'POST',
                     dataType: 'json',
                     data: {
-                    jangka_waktu: duration,
-					bunga: interestRate,
-					jumlah_angsuran: interest,
+                        jangka_waktu: duration,
+                        bunga: interestRate,
+                        jumlah_angsuran: interest,
                     },
                 })
                 .done(function(res) {
@@ -553,7 +553,8 @@
                             $('.steps li').removeClass('error');
                             $('.content section').each(function(index, el) {
                                 if ($(this).find('.has-error').length) {
-                                    $('.steps li:eq(' + index + ')').addClass('error').find('a').trigger('click');
+                                    $('.steps li:eq(' + index + ')').addClass('error').find('a').trigger(
+                                        'click');
                                 }
                             });
                         }
