@@ -414,6 +414,9 @@
             const duration = parseInt(document.getElementById("duration").value);
             let interestRate = 0;
 
+            //plafond = jumlah pinjaman
+            //duration = lama pinjaman
+            //interest rate = bunga
             if (plafond >= 2000000 && plafond <= 10000000) {
                 if (duration >= 1 && duration <= 18) {
                     interestRate = 0.21; // 21%
@@ -468,10 +471,10 @@
                 } else if (duration > 36 && duration <= 48) {
                     interestRate = 0.17; //17%
                 }
-            } else if (plafond >= 2000000) {
-                if (duration >= 1 && duration <= 72) {
-                    interestRate = 0.40 * plafond;
-                }
+                // } else if (plafond >= 2000000) {
+                //     if (duration >= 1 && duration <= 72) {
+                //         interestRate = 0.40 * plafond;
+                //     }
             }
             if (interestRate > 0) {
                 const interest = (plafond * interestRate) + (plafond * duration);
