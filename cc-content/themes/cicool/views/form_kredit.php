@@ -304,7 +304,7 @@
                                         </div>
                                         <!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
                                         <button class="btn btn btn-success pull-right"
-                                            type="submit">Selanjutnya</button>
+                                            type="submit" onclick="calculate()">Selanjutnya</button>
                                         <!-- <label for="plafond">Plafond Kredit (Rp)</label>
                                         <input type="number" id="plafond"> -->
 
@@ -315,7 +315,7 @@
                                         <input name="jangka_waktu" value="" id="input_jangka_waktu" type="hidden">
                                         <input name="bunga" value="" id="input_bunga" type="hidden">
 
-                                        <button onclick="calculate()">Hitung</button>
+                                        <!-- <button onclick="calculate()">Hitung</button> -->
 
                                         <!-- <p>Hasil Perhitungan:</p> -->
                                         <p id="result"></p>
