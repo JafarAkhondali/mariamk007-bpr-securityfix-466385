@@ -277,7 +277,7 @@
                                             <label for="jumlahpinjaman">Pilih Jumlah Pinjaman <i class="required">*</i>
                                             </label>
                                             <select class="form-control chosen chosen-select-deselect"
-                                                name="jumlah_pinjaman" id="plafond"
+                                                name="jumlah_pinjaman" id="plafond" onclick="duration"
                                                 data-placeholder="Select Jumlah Pinjaman" onchange="calculate()">
                                                 <option value="">Pilih Jumlah Pinjaman</option>
                                                 <?php foreach (db_get_all_data('simulasi_kredit') as $row): ?>
@@ -303,8 +303,8 @@
                                             </select>
                                         </div>
                                         <!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
-                                        <button class="btn btn btn-success pull-right"
-                                            type="submit" onclick="calculate()">Selanjutnya</button>
+                                        <button class="btn btn btn-success pull-right" type="submit"
+                                            onclick="calculate()">Selanjutnya</button>
                                         <!-- <label for="plafond">Plafond Kredit (Rp)</label>
                                         <input type="number" id="plafond"> -->
 
@@ -442,54 +442,544 @@
                 interestRate = 0.21; // 21%
                 // }
             } else if (plafond >= 11000000 && plafond <= 25000000) {
+                $('#duration').html(
+                    `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='1'>Jangka Waktu 1 Bulan</option>
+                        <option value='2'>Jangka Waktu 2 Bulan</option>
+                        <option value='3'>Jangka Waktu 3 Bulan</option>
+                        <option value='4'>Jangka waktu 4 Bulan</option>
+                        <option value='5'>Jangka waktu 5 Bulan</option>
+                        <option value='6'>Jangka waktu 6 Bulan</option>
+                        <option value='7'>Jangka waktu 7 Bulan</option>
+                        <option value='8'>Jangka waktu 8 Bulan</option>
+                        <option value='9'>Jangka waktu 9 Bulan</option>
+                        <option value='10'>Jangka waktu 10 Bulan</option>
+                        <option value='11'>Jangka waktu 11 Bulan</option>
+                        <option value='12'>Jangka waktu 12 Bulan</option>`
+                );
+                $('#bunga').html(
+                    `<option value=''>Pilih Bunga</option>
+                        <option value='20'>20%</option>`
+                );
                 if (duration >= 1 && duration <= 12) {
-                    interestRate = 0.20; // 20%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='1'>Jangka Waktu 1 Bulan</option>
+                        <option value='2'>Jangka Waktu 2 Bulan</option>
+                        <option value='3'>Jangka Waktu 3 Bulan</option>
+                        <option value='4'>Jangka waktu 4 Bulan</option>
+                        <option value='5'>Jangka waktu 5 Bulan</option>
+                        <option value='6'>Jangka waktu 6 Bulan</option>
+                        <option value='7'>Jangka waktu 7 Bulan</option>
+                        <option value='8'>Jangka waktu 8 Bulan</option>
+                        <option value='9'>Jangka waktu 9 Bulan</option>
+                        <option value='10'>Jangka waktu 10 Bulan</option>
+                        <option value='11'>Jangka waktu 11 Bulan</option>
+                        <option value='12'>Jangka waktu 12 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='20'>20%</option>`
+                    );
+                    // interestRate = 0.20; // 20%
                 } else if (duration > 12 && duration <= 24) {
-                    interestRate = 0.19; // 19%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='12'>Jangka Waktu 12 Bulan</option>
+                        <option value='13'>Jangka Waktu 13 Bulan</option>
+                        <option value='14'>Jangka Waktu 14 Bulan</option>
+                        <option value='15'>Jangka waktu 15 Bulan</option>
+                        <option value='16'>Jangka waktu 16 Bulan</option>
+                        <option value='17'>Jangka waktu 17 Bulan</option>
+                        <option value='18'>Jangka waktu 18 Bulan</option>
+                        <option value='19'>Jangka waktu 19 Bulan</option>
+                        <option value='20'>Jangka waktu 20 Bulan</option>
+                        <option value='21'>Jangka waktu 21 Bulan</option>
+                        <option value='22'>Jangka waktu 22 Bulan</option>
+                        <option value='23'>Jangka waktu 23 Bulan</option>
+                        <option value='24'>Jangka waktu 24 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='19'>19%</option>`
+                    );
+                    // interestRate = 0.19; // 19%
                 } else if (duration > 24 && duration <= 36) {
-                    interestRate = 0.18; // 18%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='24'>Jangka Waktu 24 Bulan</option>
+                        <option value='25'>Jangka Waktu 25 Bulan</option>
+                        <option value='26'>Jangka Waktu 26 Bulan</option>
+                        <option value='27'>Jangka waktu 27 Bulan</option>
+                        <option value='28'>Jangka waktu 28 Bulan</option>
+                        <option value='29'>Jangka waktu 29 Bulan</option>
+                        <option value='30'>Jangka waktu 30 Bulan</option>
+                        <option value='31'>Jangka waktu 31 Bulan</option>
+                        <option value='32'>Jangka waktu 32 Bulan</option>
+                        <option value='33'>Jangka waktu 33 Bulan</option>
+                        <option value='34'>Jangka waktu 34 Bulan</option>
+                        <option value='35'>Jangka waktu 35 Bulan</option>
+                        <option value='36'>Jangka waktu 36 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='18'>18%</option>`
+                    );
+                    // interestRate = 0.18; // 18%
                 }
             } else if (plafond >= 26000000 && plafond <= 50000000) {
+                $('#duration').html(
+                    `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='1'>Jangka Waktu 1 Bulan</option>
+                        <option value='2'>Jangka Waktu 2 Bulan</option>
+                        <option value='3'>Jangka Waktu 3 Bulan</option>
+                        <option value='4'>Jangka waktu 4 Bulan</option>
+                        <option value='5'>Jangka waktu 5 Bulan</option>
+                        <option value='6'>Jangka waktu 6 Bulan</option>
+                        <option value='7'>Jangka waktu 7 Bulan</option>
+                        <option value='8'>Jangka waktu 8 Bulan</option>
+                        <option value='9'>Jangka waktu 9 Bulan</option>
+                        <option value='10'>Jangka waktu 10 Bulan</option>
+                        <option value='11'>Jangka waktu 11 Bulan</option>
+                        <option value='12'>Jangka waktu 12 Bulan</option>`
+                );
+                $('#bunga').html(
+                    `<option value=''>Pilih Bunga</option>
+                        <option value='19'>19%</option>`
+                );
                 if (duration >= 1 && duration <= 12) {
-                    interestRate = 0.19; // 19%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='1'>Jangka Waktu 1 Bulan</option>
+                        <option value='2'>Jangka Waktu 2 Bulan</option>
+                        <option value='3'>Jangka Waktu 3 Bulan</option>
+                        <option value='4'>Jangka waktu 4 Bulan</option>
+                        <option value='5'>Jangka waktu 5 Bulan</option>
+                        <option value='6'>Jangka waktu 6 Bulan</option>
+                        <option value='7'>Jangka waktu 7 Bulan</option>
+                        <option value='8'>Jangka waktu 8 Bulan</option>
+                        <option value='9'>Jangka waktu 9 Bulan</option>
+                        <option value='10'>Jangka waktu 10 Bulan</option>
+                        <option value='11'>Jangka waktu 11 Bulan</option>
+                        <option value='12'>Jangka waktu 12 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='19'>19%</option>`
+                    );
+                    // interestRate = 0.19; // 19%
                 } else if (duration > 12 && duration <= 24) {
-                    interestRate = 0.18; // 18%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='12'>Jangka Waktu 12 Bulan</option>
+                        <option value='13'>Jangka Waktu 13 Bulan</option>
+                        <option value='14'>Jangka Waktu 14 Bulan</option>
+                        <option value='15'>Jangka waktu 15 Bulan</option>
+                        <option value='16'>Jangka waktu 16 Bulan</option>
+                        <option value='17'>Jangka waktu 17 Bulan</option>
+                        <option value='18'>Jangka waktu 18 Bulan</option>
+                        <option value='19'>Jangka waktu 19 Bulan</option>
+                        <option value='20'>Jangka waktu 20 Bulan</option>
+                        <option value='21'>Jangka waktu 21 Bulan</option>
+                        <option value='22'>Jangka waktu 22 Bulan</option>
+                        <option value='23'>Jangka waktu 23 Bulan</option>
+                        <option value='24'>Jangka waktu 24 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='18'>18%</option>`
+                    );
+                    // interestRate = 0.18; // 18%
                 } else if (duration > 24 && duration <= 36) {
-                    interestRate = 0.17; // 17%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='24'>Jangka Waktu 24 Bulan</option>
+                        <option value='25'>Jangka Waktu 25 Bulan</option>
+                        <option value='26'>Jangka Waktu 26 Bulan</option>
+                        <option value='27'>Jangka waktu 27 Bulan</option>
+                        <option value='28'>Jangka waktu 28 Bulan</option>
+                        <option value='29'>Jangka waktu 29 Bulan</option>
+                        <option value='30'>Jangka waktu 30 Bulan</option>
+                        <option value='31'>Jangka waktu 31 Bulan</option>
+                        <option value='32'>Jangka waktu 32 Bulan</option>
+                        <option value='33'>Jangka waktu 33 Bulan</option>
+                        <option value='34'>Jangka waktu 34 Bulan</option>
+                        <option value='35'>Jangka waktu 35 Bulan</option>
+                        <option value='36'>Jangka waktu 36 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='17'>17%</option>`
+                    );
+                    // interestRate = 0.17; // 17%
                 } else if (duration > 36 && duration <= 48) {
-                    interestRate = 0.16; // 16%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='36'>Jangka Waktu 36 Bulan</option>
+                        <option value='37'>Jangka Waktu 37 Bulan</option>
+                        <option value='38'>Jangka Waktu 38 Bulan</option>
+                        <option value='39'>Jangka waktu 39 Bulan</option>
+                        <option value='40'>Jangka waktu 40 Bulan</option>
+                        <option value='41'>Jangka waktu 41 Bulan</option>
+                        <option value='42'>Jangka waktu 42 Bulan</option>
+                        <option value='43'>Jangka waktu 43 Bulan</option>
+                        <option value='44'>Jangka waktu 44 Bulan</option>
+                        <option value='45'>Jangka waktu 45 Bulan</option>
+                        <option value='46'>Jangka waktu 46 Bulan</option>
+                        <option value='47'>Jangka waktu 47 Bulan</option>
+                        <option value='48'>Jangka waktu 48 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='16'>16%</option>`
+                    );
+                    // interestRate = 0.16; // 16%
                 }
             } else if (plafond >= 51000000 && plafond <= 100000000) {
+                $('#duration').html(
+                    `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='1'>Jangka Waktu 1 Bulan</option>
+                        <option value='2'>Jangka Waktu 2 Bulan</option>
+                        <option value='3'>Jangka Waktu 3 Bulan</option>
+                        <option value='4'>Jangka waktu 4 Bulan</option>
+                        <option value='5'>Jangka waktu 5 Bulan</option>
+                        <option value='6'>Jangka waktu 6 Bulan</option>
+                        <option value='7'>Jangka waktu 7 Bulan</option>
+                        <option value='8'>Jangka waktu 8 Bulan</option>
+                        <option value='9'>Jangka waktu 9 Bulan</option>
+                        <option value='10'>Jangka waktu 10 Bulan</option>
+                        <option value='11'>Jangka waktu 11 Bulan</option>
+                        <option value='12'>Jangka waktu 12 Bulan</option>`
+                );
+                $('#bunga').html(
+                    `<option value=''>Pilih Bunga</option>
+                        <option value='18'>18%</option>`
+                );
                 if (duration >= 1 && duration <= 12) {
-                    interestRate = 0.18; // 18%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='1'>Jangka Waktu 1 Bulan</option>
+                        <option value='2'>Jangka Waktu 2 Bulan</option>
+                        <option value='3'>Jangka Waktu 3 Bulan</option>
+                        <option value='4'>Jangka waktu 4 Bulan</option>
+                        <option value='5'>Jangka waktu 5 Bulan</option>
+                        <option value='6'>Jangka waktu 6 Bulan</option>
+                        <option value='7'>Jangka waktu 7 Bulan</option>
+                        <option value='8'>Jangka waktu 8 Bulan</option>
+                        <option value='9'>Jangka waktu 9 Bulan</option>
+                        <option value='10'>Jangka waktu 10 Bulan</option>
+                        <option value='11'>Jangka waktu 11 Bulan</option>
+                        <option value='12'>Jangka waktu 12 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='18'>18%</option>`
+                    );
+                    // interestRate = 0.18; // 18%
                 } else if (duration > 12 && duration <= 24) {
-                    interestRate = 0.17; // 17%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='12'>Jangka Waktu 12 Bulan</option>
+                        <option value='13'>Jangka Waktu 13 Bulan</option>
+                        <option value='14'>Jangka Waktu 14 Bulan</option>
+                        <option value='15'>Jangka waktu 15 Bulan</option>
+                        <option value='16'>Jangka waktu 16 Bulan</option>
+                        <option value='17'>Jangka waktu 17 Bulan</option>
+                        <option value='18'>Jangka waktu 18 Bulan</option>
+                        <option value='19'>Jangka waktu 19 Bulan</option>
+                        <option value='20'>Jangka waktu 20 Bulan</option>
+                        <option value='21'>Jangka waktu 21 Bulan</option>
+                        <option value='22'>Jangka waktu 22 Bulan</option>
+                        <option value='23'>Jangka waktu 23 Bulan</option>
+                        <option value='24'>Jangka waktu 24 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='17'>17%</option>`
+                    );
+                    // interestRate = 0.17; // 17%
                 } else if (duration > 24 && duration <= 36) {
-                    interestRate = 0.16; // 16%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='24'>Jangka Waktu 24 Bulan</option>
+                        <option value='25'>Jangka Waktu 25 Bulan</option>
+                        <option value='26'>Jangka Waktu 26 Bulan</option>
+                        <option value='27'>Jangka waktu 27 Bulan</option>
+                        <option value='28'>Jangka waktu 28 Bulan</option>
+                        <option value='29'>Jangka waktu 29 Bulan</option>
+                        <option value='30'>Jangka waktu 30 Bulan</option>
+                        <option value='31'>Jangka waktu 31 Bulan</option>
+                        <option value='32'>Jangka waktu 32 Bulan</option>
+                        <option value='33'>Jangka waktu 33 Bulan</option>
+                        <option value='34'>Jangka waktu 34 Bulan</option>
+                        <option value='35'>Jangka waktu 35 Bulan</option>
+                        <option value='36'>Jangka waktu 36 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='16'>16%</option>`
+                    );
+                    // interestRate = 0.16; // 16%
                 } else if (duration > 36 && duration <= 48) {
-                    interestRate = 0.15; // 15%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='36'>Jangka Waktu 36 Bulan</option>
+                        <option value='37'>Jangka Waktu 37 Bulan</option>
+                        <option value='38'>Jangka Waktu 38 Bulan</option>
+                        <option value='39'>Jangka waktu 39 Bulan</option>
+                        <option value='40'>Jangka waktu 40 Bulan</option>
+                        <option value='41'>Jangka waktu 41 Bulan</option>
+                        <option value='42'>Jangka waktu 42 Bulan</option>
+                        <option value='43'>Jangka waktu 43 Bulan</option>
+                        <option value='44'>Jangka waktu 44 Bulan</option>
+                        <option value='45'>Jangka waktu 45 Bulan</option>
+                        <option value='46'>Jangka waktu 46 Bulan</option>
+                        <option value='47'>Jangka waktu 47 Bulan</option>
+                        <option value='48'>Jangka waktu 48 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='15'>15%</option>`
+                    );
+                    // interestRate = 0.15; // 15%
                 }
             } else if (plafond > 100000000) {
+                $('#duration').html(
+                    `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='1'>Jangka Waktu 1 Bulan</option>
+                        <option value='2'>Jangka Waktu 2 Bulan</option>
+                        <option value='3'>Jangka Waktu 3 Bulan</option>
+                        <option value='4'>Jangka waktu 4 Bulan</option>
+                        <option value='5'>Jangka waktu 5 Bulan</option>
+                        <option value='6'>Jangka waktu 6 Bulan</option>
+                        <option value='7'>Jangka waktu 7 Bulan</option>
+                        <option value='8'>Jangka waktu 8 Bulan</option>
+                        <option value='9'>Jangka waktu 9 Bulan</option>
+                        <option value='10'>Jangka waktu 10 Bulan</option>
+                        <option value='11'>Jangka waktu 11 Bulan</option>
+                        <option value='12'>Jangka waktu 12 Bulan</option>`
+                );
+                $('#bunga').html(
+                    `<option value=''>Pilih Bunga</option>
+                        <option value='18'>18%</option>`
+                );
                 if (duration >= 1 && duration <= 12) {
-                    interestRate = 0.18; // 18%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='1'>Jangka Waktu 1 Bulan</option>
+                        <option value='2'>Jangka Waktu 2 Bulan</option>
+                        <option value='3'>Jangka Waktu 3 Bulan</option>
+                        <option value='4'>Jangka waktu 4 Bulan</option>
+                        <option value='5'>Jangka waktu 5 Bulan</option>
+                        <option value='6'>Jangka waktu 6 Bulan</option>
+                        <option value='7'>Jangka waktu 7 Bulan</option>
+                        <option value='8'>Jangka waktu 8 Bulan</option>
+                        <option value='9'>Jangka waktu 9 Bulan</option>
+                        <option value='10'>Jangka waktu 10 Bulan</option>
+                        <option value='11'>Jangka waktu 11 Bulan</option>
+                        <option value='12'>Jangka waktu 12 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='18'>18%</option>`
+                    );
+                    // interestRate = 0.18; // 18%
                 } else if (duration > 12 && duration <= 24) {
-                    interestRate = 0.17; // 17%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='12'>Jangka Waktu 12 Bulan</option>
+                        <option value='13'>Jangka Waktu 13 Bulan</option>
+                        <option value='14'>Jangka Waktu 14 Bulan</option>
+                        <option value='15'>Jangka waktu 15 Bulan</option>
+                        <option value='16'>Jangka waktu 16 Bulan</option>
+                        <option value='17'>Jangka waktu 17 Bulan</option>
+                        <option value='18'>Jangka waktu 18 Bulan</option>
+                        <option value='19'>Jangka waktu 19 Bulan</option>
+                        <option value='20'>Jangka waktu 20 Bulan</option>
+                        <option value='21'>Jangka waktu 21 Bulan</option>
+                        <option value='22'>Jangka waktu 22 Bulan</option>
+                        <option value='23'>Jangka waktu 23 Bulan</option>
+                        <option value='24'>Jangka waktu 24 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='17'>17%</option>`
+                    );
+                    // interestRate = 0.17; // 17%
                 } else if (duration > 24 && duration <= 36) {
-                    interestRate = 0.16; // 16%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='24'>Jangka Waktu 24 Bulan</option>
+                        <option value='25'>Jangka Waktu 25 Bulan</option>
+                        <option value='26'>Jangka Waktu 26 Bulan</option>
+                        <option value='27'>Jangka waktu 27 Bulan</option>
+                        <option value='28'>Jangka waktu 28 Bulan</option>
+                        <option value='29'>Jangka waktu 29 Bulan</option>
+                        <option value='30'>Jangka waktu 30 Bulan</option>
+                        <option value='31'>Jangka waktu 31 Bulan</option>
+                        <option value='32'>Jangka waktu 32 Bulan</option>
+                        <option value='33'>Jangka waktu 33 Bulan</option>
+                        <option value='34'>Jangka waktu 34 Bulan</option>
+                        <option value='35'>Jangka waktu 35 Bulan</option>
+                        <option value='36'>Jangka waktu 36 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='16'>16%</option>`
+                    );
+                    // interestRate = 0.16; // 16%
                 } else if (duration > 36 && duration <= 48) {
-                    interestRate = 0.15; // 15%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='36'>Jangka Waktu 36 Bulan</option>
+                        <option value='37'>Jangka Waktu 37 Bulan</option>
+                        <option value='38'>Jangka Waktu 38 Bulan</option>
+                        <option value='39'>Jangka waktu 39 Bulan</option>
+                        <option value='40'>Jangka waktu 40 Bulan</option>
+                        <option value='41'>Jangka waktu 41 Bulan</option>
+                        <option value='42'>Jangka waktu 42 Bulan</option>
+                        <option value='43'>Jangka waktu 43 Bulan</option>
+                        <option value='44'>Jangka waktu 44 Bulan</option>
+                        <option value='45'>Jangka waktu 45 Bulan</option>
+                        <option value='46'>Jangka waktu 46 Bulan</option>
+                        <option value='47'>Jangka waktu 47 Bulan</option>
+                        <option value='48'>Jangka waktu 48 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='15'>15%</option>`
+                    );
+                    // interestRate = 0.15; // 15%
                 } else if (duration > 48 && duration <= 60) {
-                    interestRate = 0.14; // 14%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='48'>Jangka Waktu 48 Bulan</option>
+                        <option value='49'>Jangka Waktu 49 Bulan</option>
+                        <option value='50'>Jangka Waktu 50 Bulan</option>
+                        <option value='51'>Jangka waktu 51 Bulan</option>
+                        <option value='52'>Jangka waktu 52 Bulan</option>
+                        <option value='53'>Jangka waktu 53 Bulan</option>
+                        <option value='54'>Jangka waktu 54 Bulan</option>
+                        <option value='55'>Jangka waktu 55 Bulan</option>
+                        <option value='56'>Jangka waktu 56 Bulan</option>
+                        <option value='57'>Jangka waktu 57 Bulan</option>
+                        <option value='58'>Jangka waktu 58 Bulan</option>
+                        <option value='59'>Jangka waktu 59 Bulan</option>
+                        <option value='60'>Jangka waktu 60 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='14'>14%</option>`
+                    );
+                    // interestRate = 0.14; // 14%
                 } else if (duration > 60 && duration <= 72) {
-                    interestRate = 0.13; // 13%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='60'>Jangka Waktu 60 Bulan</option>
+                        <option value='61'>Jangka Waktu 61 Bulan</option>
+                        <option value='62'>Jangka Waktu 62 Bulan</option>
+                        <option value='63'>Jangka waktu 63 Bulan</option>
+                        <option value='64'>Jangka waktu 64 Bulan</option>
+                        <option value='65'>Jangka waktu 65 Bulan</option>
+                        <option value='66'>Jangka waktu 66 Bulan</option>
+                        <option value='67'>Jangka waktu 67 Bulan</option>
+                        <option value='68'>Jangka waktu 68 Bulan</option>
+                        <option value='69'>Jangka waktu 69 Bulan</option>
+                        <option value='70'>Jangka waktu 70 Bulan</option>
+                        <option value='71'>Jangka waktu 71 Bulan</option>
+                        <option value='72'>Jangka waktu 72 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='13'>13%</option>`
+                    );
+                    // interestRate = 0.13; // 13%
                 }
             } else if (plafond >= 2000000) {
+                $('#duration').html(
+                    `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='1'>Jangka Waktu 1 Bulan</option>
+                        <option value='2'>Jangka Waktu 2 Bulan</option>
+                        <option value='3'>Jangka Waktu 3 Bulan</option>
+                        <option value='4'>Jangka waktu 4 Bulan</option>
+                        <option value='5'>Jangka waktu 5 Bulan</option>
+                        <option value='6'>Jangka waktu 6 Bulan</option>
+                        <option value='7'>Jangka waktu 7 Bulan</option>
+                        <option value='8'>Jangka waktu 8 Bulan</option>
+                        <option value='9'>Jangka waktu 9 Bulan</option>
+                        <option value='10'>Jangka waktu 10 Bulan</option>
+                        <option value='11'>Jangka waktu 11 Bulan</option>
+                        <option value='12'>Jangka waktu 12 Bulan</option>`
+                );
+                $('#bunga').html(
+                    `<option value=''>Pilih Bunga</option>
+                        <option value='19'>19%</option>`
+                );
                 if (duration >= 1 && duration <= 12) {
-                    interestRate = 0.19; //19%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='1'>Jangka Waktu 1 Bulan</option>
+                        <option value='2'>Jangka Waktu 2 Bulan</option>
+                        <option value='3'>Jangka Waktu 3 Bulan</option>
+                        <option value='4'>Jangka waktu 4 Bulan</option>
+                        <option value='5'>Jangka waktu 5 Bulan</option>
+                        <option value='6'>Jangka waktu 6 Bulan</option>
+                        <option value='7'>Jangka waktu 7 Bulan</option>
+                        <option value='8'>Jangka waktu 8 Bulan</option>
+                        <option value='9'>Jangka waktu 9 Bulan</option>
+                        <option value='10'>Jangka waktu 10 Bulan</option>
+                        <option value='11'>Jangka waktu 11 Bulan</option>
+                        <option value='12'>Jangka waktu 12 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='19'>19%</option>`
+                    );
+                    // interestRate = 0.19; //19%
                 } else if (duration > 12 && duration <= 36) {
-                    interestRate = 0.18; //18%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='12'>Jangka Waktu 12 Bulan</option>
+                        <option value='13'>Jangka Waktu 13 Bulan</option>
+                        <option value='14'>Jangka Waktu 14 Bulan</option>
+                        <option value='15'>Jangka waktu 15 Bulan</option>
+                        <option value='16'>Jangka waktu 16 Bulan</option>
+                        <option value='17'>Jangka waktu 17 Bulan</option>
+                        <option value='18'>Jangka waktu 18 Bulan</option>
+                        <option value='19'>Jangka waktu 19 Bulan</option>
+                        <option value='20'>Jangka waktu 20 Bulan</option>
+                        <option value='21'>Jangka waktu 21 Bulan</option>
+                        <option value='22'>Jangka waktu 22 Bulan</option>
+                        <option value='23'>Jangka waktu 23 Bulan</option>
+                        <option value='24'>Jangka waktu 24 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='18'>18%</option>`
+                    );
+                    // interestRate = 0.18; //18%
                 } else if (duration > 36 && duration <= 48) {
-                    interestRate = 0.17; //17%
+                    $('#duration').html(
+                        `<option value=''>Pilih Jangka Waktu</option>
+                        <option value='36'>Jangka Waktu 36 Bulan</option>
+                        <option value='37'>Jangka Waktu 37 Bulan</option>
+                        <option value='38'>Jangka Waktu 38 Bulan</option>
+                        <option value='39'>Jangka waktu 39 Bulan</option>
+                        <option value='40'>Jangka waktu 40 Bulan</option>
+                        <option value='41'>Jangka waktu 41 Bulan</option>
+                        <option value='42'>Jangka waktu 42 Bulan</option>
+                        <option value='43'>Jangka waktu 43 Bulan</option>
+                        <option value='44'>Jangka waktu 44 Bulan</option>
+                        <option value='45'>Jangka waktu 45 Bulan</option>
+                        <option value='46'>Jangka waktu 46 Bulan</option>
+                        <option value='47'>Jangka waktu 47 Bulan</option>
+                        <option value='48'>Jangka waktu 48 Bulan</option>`
+                    );
+                    $('#bunga').html(
+                        `<option value=''>Pilih Bunga</option>
+                        <option value='17'>17%</option>`
+                    );
+                    // interestRate = 0.17; //17%
                 }
                 // } else if (plafond >= 2000000) {
                 //     if (duration >= 1 && duration <= 72) {
