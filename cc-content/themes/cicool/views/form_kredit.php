@@ -442,25 +442,25 @@
                 interestRate = 0.21; // 21%
                 // }
             } else if (plafond >= 11000000 && plafond <= 25000000) {
-                $('#duration').html(
-                    `<option value=''>Pilih Jangka Waktu</option>
-                        <option value='1'>Jangka Waktu 1 Bulan</option>
-                        <option value='2'>Jangka Waktu 2 Bulan</option>
-                        <option value='3'>Jangka Waktu 3 Bulan</option>
-                        <option value='4'>Jangka waktu 4 Bulan</option>
-                        <option value='5'>Jangka waktu 5 Bulan</option>
-                        <option value='6'>Jangka waktu 6 Bulan</option>
-                        <option value='7'>Jangka waktu 7 Bulan</option>
-                        <option value='8'>Jangka waktu 8 Bulan</option>
-                        <option value='9'>Jangka waktu 9 Bulan</option>
-                        <option value='10'>Jangka waktu 10 Bulan</option>
-                        <option value='11'>Jangka waktu 11 Bulan</option>
-                        <option value='12'>Jangka waktu 12 Bulan</option>`
-                );
-                $('#bunga').html(
-                    `<option value=''>Pilih Bunga</option>
-                        <option value='20'>20%</option>`
-                );
+                // $('#duration').html(
+                //     `<option value=''>Pilih Jangka Waktu</option>
+                //         <option value='1'>Jangka Waktu 1 Bulan</option>
+                //         <option value='2'>Jangka Waktu 2 Bulan</option>
+                //         <option value='3'>Jangka Waktu 3 Bulan</option>
+                //         <option value='4'>Jangka waktu 4 Bulan</option>
+                //         <option value='5'>Jangka waktu 5 Bulan</option>
+                //         <option value='6'>Jangka waktu 6 Bulan</option>
+                //         <option value='7'>Jangka waktu 7 Bulan</option>
+                //         <option value='8'>Jangka waktu 8 Bulan</option>
+                //         <option value='9'>Jangka waktu 9 Bulan</option>
+                //         <option value='10'>Jangka waktu 10 Bulan</option>
+                //         <option value='11'>Jangka waktu 11 Bulan</option>
+                //         <option value='12'>Jangka waktu 12 Bulan</option>`
+                // );
+                // $('#bunga').html(
+                //     `<option value=''>Pilih Bunga</option>
+                //         <option value='20'>20%</option>`
+                // );
                 if (duration >= 1 && duration <= 12) {
                     $('#duration').html(
                         `<option value=''>Pilih Jangka Waktu</option>
@@ -528,25 +528,25 @@
                     // interestRate = 0.18; // 18%
                 }
             } else if (plafond >= 26000000 && plafond <= 50000000) {
-                $('#duration').html(
-                    `<option value=''>Pilih Jangka Waktu</option>
-                        <option value='1'>Jangka Waktu 1 Bulan</option>
-                        <option value='2'>Jangka Waktu 2 Bulan</option>
-                        <option value='3'>Jangka Waktu 3 Bulan</option>
-                        <option value='4'>Jangka waktu 4 Bulan</option>
-                        <option value='5'>Jangka waktu 5 Bulan</option>
-                        <option value='6'>Jangka waktu 6 Bulan</option>
-                        <option value='7'>Jangka waktu 7 Bulan</option>
-                        <option value='8'>Jangka waktu 8 Bulan</option>
-                        <option value='9'>Jangka waktu 9 Bulan</option>
-                        <option value='10'>Jangka waktu 10 Bulan</option>
-                        <option value='11'>Jangka waktu 11 Bulan</option>
-                        <option value='12'>Jangka waktu 12 Bulan</option>`
-                );
-                $('#bunga').html(
-                    `<option value=''>Pilih Bunga</option>
-                        <option value='19'>19%</option>`
-                );
+                // $('#duration').html(
+                //     `<option value=''>Pilih Jangka Waktu</option>
+                //         <option value='1'>Jangka Waktu 1 Bulan</option>
+                //         <option value='2'>Jangka Waktu 2 Bulan</option>
+                //         <option value='3'>Jangka Waktu 3 Bulan</option>
+                //         <option value='4'>Jangka waktu 4 Bulan</option>
+                //         <option value='5'>Jangka waktu 5 Bulan</option>
+                //         <option value='6'>Jangka waktu 6 Bulan</option>
+                //         <option value='7'>Jangka waktu 7 Bulan</option>
+                //         <option value='8'>Jangka waktu 8 Bulan</option>
+                //         <option value='9'>Jangka waktu 9 Bulan</option>
+                //         <option value='10'>Jangka waktu 10 Bulan</option>
+                //         <option value='11'>Jangka waktu 11 Bulan</option>
+                //         <option value='12'>Jangka waktu 12 Bulan</option>`
+                // );
+                // $('#bunga').html(
+                //     `<option value=''>Pilih Bunga</option>
+                //         <option value='19'>19%</option>`
+                // );
                 if (duration >= 1 && duration <= 12) {
                     $('#duration').html(
                         `<option value=''>Pilih Jangka Waktu</option>
@@ -636,25 +636,25 @@
                     // interestRate = 0.16; // 16%
                 }
             } else if (plafond >= 51000000 && plafond <= 100000000) {
-                $('#duration').html(
-                    `<option value=''>Pilih Jangka Waktu</option>
-                        <option value='1'>Jangka Waktu 1 Bulan</option>
-                        <option value='2'>Jangka Waktu 2 Bulan</option>
-                        <option value='3'>Jangka Waktu 3 Bulan</option>
-                        <option value='4'>Jangka waktu 4 Bulan</option>
-                        <option value='5'>Jangka waktu 5 Bulan</option>
-                        <option value='6'>Jangka waktu 6 Bulan</option>
-                        <option value='7'>Jangka waktu 7 Bulan</option>
-                        <option value='8'>Jangka waktu 8 Bulan</option>
-                        <option value='9'>Jangka waktu 9 Bulan</option>
-                        <option value='10'>Jangka waktu 10 Bulan</option>
-                        <option value='11'>Jangka waktu 11 Bulan</option>
-                        <option value='12'>Jangka waktu 12 Bulan</option>`
-                );
-                $('#bunga').html(
-                    `<option value=''>Pilih Bunga</option>
-                        <option value='18'>18%</option>`
-                );
+                // $('#duration').html(
+                //     `<option value=''>Pilih Jangka Waktu</option>
+                //         <option value='1'>Jangka Waktu 1 Bulan</option>
+                //         <option value='2'>Jangka Waktu 2 Bulan</option>
+                //         <option value='3'>Jangka Waktu 3 Bulan</option>
+                //         <option value='4'>Jangka waktu 4 Bulan</option>
+                //         <option value='5'>Jangka waktu 5 Bulan</option>
+                //         <option value='6'>Jangka waktu 6 Bulan</option>
+                //         <option value='7'>Jangka waktu 7 Bulan</option>
+                //         <option value='8'>Jangka waktu 8 Bulan</option>
+                //         <option value='9'>Jangka waktu 9 Bulan</option>
+                //         <option value='10'>Jangka waktu 10 Bulan</option>
+                //         <option value='11'>Jangka waktu 11 Bulan</option>
+                //         <option value='12'>Jangka waktu 12 Bulan</option>`
+                // );
+                // $('#bunga').html(
+                //     `<option value=''>Pilih Bunga</option>
+                //         <option value='18'>18%</option>`
+                // );
                 if (duration >= 1 && duration <= 12) {
                     $('#duration').html(
                         `<option value=''>Pilih Jangka Waktu</option>
@@ -744,25 +744,25 @@
                     // interestRate = 0.15; // 15%
                 }
             } else if (plafond > 100000000) {
-                $('#duration').html(
-                    `<option value=''>Pilih Jangka Waktu</option>
-                        <option value='1'>Jangka Waktu 1 Bulan</option>
-                        <option value='2'>Jangka Waktu 2 Bulan</option>
-                        <option value='3'>Jangka Waktu 3 Bulan</option>
-                        <option value='4'>Jangka waktu 4 Bulan</option>
-                        <option value='5'>Jangka waktu 5 Bulan</option>
-                        <option value='6'>Jangka waktu 6 Bulan</option>
-                        <option value='7'>Jangka waktu 7 Bulan</option>
-                        <option value='8'>Jangka waktu 8 Bulan</option>
-                        <option value='9'>Jangka waktu 9 Bulan</option>
-                        <option value='10'>Jangka waktu 10 Bulan</option>
-                        <option value='11'>Jangka waktu 11 Bulan</option>
-                        <option value='12'>Jangka waktu 12 Bulan</option>`
-                );
-                $('#bunga').html(
-                    `<option value=''>Pilih Bunga</option>
-                        <option value='18'>18%</option>`
-                );
+                // $('#duration').html(
+                //     `<option value=''>Pilih Jangka Waktu</option>
+                //         <option value='1'>Jangka Waktu 1 Bulan</option>
+                //         <option value='2'>Jangka Waktu 2 Bulan</option>
+                //         <option value='3'>Jangka Waktu 3 Bulan</option>
+                //         <option value='4'>Jangka waktu 4 Bulan</option>
+                //         <option value='5'>Jangka waktu 5 Bulan</option>
+                //         <option value='6'>Jangka waktu 6 Bulan</option>
+                //         <option value='7'>Jangka waktu 7 Bulan</option>
+                //         <option value='8'>Jangka waktu 8 Bulan</option>
+                //         <option value='9'>Jangka waktu 9 Bulan</option>
+                //         <option value='10'>Jangka waktu 10 Bulan</option>
+                //         <option value='11'>Jangka waktu 11 Bulan</option>
+                //         <option value='12'>Jangka waktu 12 Bulan</option>`
+                // );
+                // $('#bunga').html(
+                //     `<option value=''>Pilih Bunga</option>
+                //         <option value='18'>18%</option>`
+                // );
                 if (duration >= 1 && duration <= 12) {
                     $('#duration').html(
                         `<option value=''>Pilih Jangka Waktu</option>
@@ -896,25 +896,25 @@
                     // interestRate = 0.13; // 13%
                 }
             } else if (plafond >= 2000000) {
-                $('#duration').html(
-                    `<option value=''>Pilih Jangka Waktu</option>
-                        <option value='1'>Jangka Waktu 1 Bulan</option>
-                        <option value='2'>Jangka Waktu 2 Bulan</option>
-                        <option value='3'>Jangka Waktu 3 Bulan</option>
-                        <option value='4'>Jangka waktu 4 Bulan</option>
-                        <option value='5'>Jangka waktu 5 Bulan</option>
-                        <option value='6'>Jangka waktu 6 Bulan</option>
-                        <option value='7'>Jangka waktu 7 Bulan</option>
-                        <option value='8'>Jangka waktu 8 Bulan</option>
-                        <option value='9'>Jangka waktu 9 Bulan</option>
-                        <option value='10'>Jangka waktu 10 Bulan</option>
-                        <option value='11'>Jangka waktu 11 Bulan</option>
-                        <option value='12'>Jangka waktu 12 Bulan</option>`
-                );
-                $('#bunga').html(
-                    `<option value=''>Pilih Bunga</option>
-                        <option value='19'>19%</option>`
-                );
+                // $('#duration').html(
+                //     `<option value=''>Pilih Jangka Waktu</option>
+                //         <option value='1'>Jangka Waktu 1 Bulan</option>
+                //         <option value='2'>Jangka Waktu 2 Bulan</option>
+                //         <option value='3'>Jangka Waktu 3 Bulan</option>
+                //         <option value='4'>Jangka waktu 4 Bulan</option>
+                //         <option value='5'>Jangka waktu 5 Bulan</option>
+                //         <option value='6'>Jangka waktu 6 Bulan</option>
+                //         <option value='7'>Jangka waktu 7 Bulan</option>
+                //         <option value='8'>Jangka waktu 8 Bulan</option>
+                //         <option value='9'>Jangka waktu 9 Bulan</option>
+                //         <option value='10'>Jangka waktu 10 Bulan</option>
+                //         <option value='11'>Jangka waktu 11 Bulan</option>
+                //         <option value='12'>Jangka waktu 12 Bulan</option>`
+                // );
+                // $('#bunga').html(
+                //     `<option value=''>Pilih Bunga</option>
+                //         <option value='19'>19%</option>`
+                // );
                 if (duration >= 1 && duration <= 12) {
                     $('#duration').html(
                         `<option value=''>Pilih Jangka Waktu</option>
