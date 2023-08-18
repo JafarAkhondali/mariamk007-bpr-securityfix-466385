@@ -146,14 +146,14 @@ class Web extends Front
     {
         $this->data['simulasi_kredits'] = $this->model_simulasi_kredit->get();
         $this->template->build('form_kredit',$this->data);
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
+        $this->form_validation->set_rules('nama_lengkap', 'Nama', 'required');
         $this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
         if ($this->form_validation->run()) {
             $session = array(
                 "tahapan" => 1,
-                "nama_lengkap" => $this->input->post('nama'),
+                "nama_lengkap" => $this->input->post('nama_lengkap'),
                 "alamat" => $this->input->post('alamat'),
-                "no_hp" => $this->input->post('nohp'),
+                "no_hp" => $this->input->post('no_hp'),
                 "usia" => $this->input->post('usia'),
                 "jangka_waktu" => $this->input->post('jangka_waktu'),
                 "jumlah_pinjaman" => $this->input->post('jumlah_pinjaman'),
@@ -428,9 +428,9 @@ class Web extends Front
         $jenis_pinjaman = $kredit->nama_kredit;
         if ($this->form_validation->run()) {
             $simpan = array(
-                "nama_lengkap" => $this->session->userdata('nama'),
+                "nama_lengkap" => $this->session->userdata('nama_lengkap'),
                 "alamat" => $this->session->userdata('alamat'),
-                "no_hp" => $this->session->userdata('nohp'),
+                "no_hp" => $this->session->userdata('no_hp'),
                 "usia" => $this->session->userdata('usia'),
                 "jangka_waktu" => $this->session->userdata('jangka_waktu'),
                 "jumlah_pinjaman" => $this->session->userdata('jumlah_pinjaman'),
