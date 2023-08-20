@@ -249,36 +249,36 @@
                                             <label for="nama_lengkap">Nama Lengkap <i class="required">*</i>
                                             </label>
                                             <input type="text" class="form-control" name="nama_lengkap"
-                                                placeholder="Nama Lengkap" value="<?= get_user_data('username') ?>"
-                                                >
+                                                placeholder="Nama Lengkap" value="<?= get_user_data('username') ?>">
                                             <?php echo form_error('nama', '<span class="text-danger">', '</span>'); ?>
 
                                         </div>
                                         <div class="form-group">
                                             <label for="alamat">Alamat <i class="required">*</i>
                                             </label>
-                                            <textarea class="form-control" name="alamat" 
-                                                placeholder="Alamat" rows="3" required></textarea>
+                                            <textarea class="form-control" name="alamat" placeholder="Alamat" rows="3"
+                                                required></textarea>
                                         </div>
                                         <div class="form-group group-no_hp ">
                                             <label for="no_hp">No Hp <i class="required">*</i>
                                             </label>
-                                            <input type="number" class="form-control" name="no_hp" 
-                                                placeholder="No Hp" value="" required>
+                                            <input type="number" class="form-control" name="no_hp" placeholder="No Hp"
+                                                value="" required>
                                         </div>
                                         <div class="form-group group-usia ">
                                             <label for="usia">Usia<i class="required">*</i>
                                             </label>
-                                            <input type="number" class="form-control" name="usia"
-                                                placeholder="Usia" value="" required>
+                                            <input type="number" class="form-control" name="usia" placeholder="Usia"
+                                                value="" required>
                                         </div>
 
                                         <div class="form-group group-jumlahpinjaman ">
                                             <label for="jumlahpinjaman">Pilih Jumlah Pinjaman <i class="required">*</i>
                                             </label>
                                             <select class="form-control chosen chosen-select-deselect"
-                                                name="jumlah_pinjaman" id="plafond" 
-                                                data-placeholder="Select Jumlah Pinjaman" required onchange="calculate()">
+                                                name="jumlah_pinjaman" id="plafond"
+                                                data-placeholder="Select Jumlah Pinjaman" required
+                                                onchange="calculate()">
                                                 <option value="">Pilih Jumlah Pinjaman</option>
                                                 <?php foreach (db_get_all_data('plafond') as $row): ?>
                                                 <option value="<?= $row->value ?>">
@@ -290,21 +290,23 @@
                                         <div class="form-group group-jangka_waktu ">
                                             <label for="jangkawaktu">Jangka Waktu <i class="required">*</i>
                                             </label>
-                                            <select name="jangka_waktu" class="form-control" id="duration" required onchange="calculateBunga()">
+                                            <select name="jangka_waktu" class="form-control" id="duration" required
+                                                onchange="calculateBunga()">
                                                 <option value="">Pilih Jangka Waktu</option>
                                             </select>
                                         </div>
 
                                         <div class="form-group group-bunga">
-                                            <label for="bunga">Bunga <i class="required">*<i>
+                                            <label for="bunga">Bunga <i class="required">*</i>
                                             </label>
-                                            <select name="bunga" class="form-control" id="bunga" required onchange="calculateTotal()">
+                                            <select name="bunga" class="form-control" id="bunga" required
+                                                onchange="calculateTotal()">
                                                 <option value="">Pilih Bunga</option>
                                             </select>
                                         </div>
                                         <!-- <input type="button" name="next" class="next action-button" value="Next" /> -->
-                                        <button class="btn btn btn-success pull-right" type="submit"
-                                            >Selanjutnya</button>
+                                        <button class="btn btn btn-success pull-right"
+                                            type="submit">Selanjutnya</button>
                                         <!-- <label for="plafond">Plafond Kredit (Rp)</label>
                                         <input type="number" id="plafond"> -->
 
@@ -1204,6 +1206,7 @@
             //     // document.getElementById("result").innerText = "Plafon atau jangka waktu tidak valid.";
             // }
         }
+
         function calculateBunga() {
             const plafond = parseInt(document.getElementById("plafond").value);
             var select = document.getElementById('plafond');
@@ -1875,6 +1878,7 @@
             //     // document.getElementById("result").innerText = "Plafon atau jangka waktu tidak valid.";
             // }
         }
+
         function calculateTotal() {
             const plafond = parseInt(document.getElementById("plafond").value);
             var select = document.getElementById('plafond');
@@ -1885,7 +1889,7 @@
             // console.log(plafond, 'plafond')
 
             if (plafond > 0) {
-                const interest = (plafond * (bunga/100)) + (plafond / duration);
+                const interest = (plafond * (bunga / 100)) + (plafond / duration);
                 console.log(duration, 'duration')
                 const totalPayment = plafond + interest;
                 document.getElementById("result").innerText = `Total Angsuran /Bulan: Rp. ${interest.toLocaleString()}`;
