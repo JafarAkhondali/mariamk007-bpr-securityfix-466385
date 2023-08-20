@@ -1892,7 +1892,7 @@
                 const interest = (plafond * (bunga / 100)) + (plafond / duration);
                 console.log(duration, 'duration')
                 const totalPayment = plafond + interest;
-                document.getElementById("result").innerText = `Total Angsuran /Bulan: Rp. ${interest.toLocaleString()}`;
+                // document.getElementById("result").innerText = `Total Angsuran /Bulan: Rp. ${interest.toLocaleString()}`;
                 document.getElementById('input_jumlah_angsuran').value = interest
                 // document.getElementById('input_jangka_waktu').value = duration
                 // document.getElementById('input_bunga').value = (interestRate * 100) + '%'
